@@ -25,9 +25,13 @@
             <p>Poder da nuvem, funções exclusivas e Apps Script</p>
         </header>
 
-        <nav style="margin-bottom: 40px; padding: 15px; background: var(--card-bg); border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
             <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
                 <li><a href="#shortcuts">Atalhos Web</a></li>
+                <li><a href="#navigation">Navegação</a></li>
+                <li><a href="#formatting">Formatação</a></li>
+                <li><a href="#formulas">Fórmulas Básicas</a></li>
+                <li><a href="#validation">Validação & Dados</a></li>
                 <li><a href="#unique-functions">Funções Exclusivas</a></li>
                 <li><a href="#query">Função QUERY</a></li>
                 <li><a href="#regex">Regex & Limpeza</a></li>
@@ -46,7 +50,94 @@
                         <li><kbd>CTRL</kbd> + <kbd>K</kbd> <span>Inserir Link</span></li>
                     </ul>
                     <div class="alert mt-20">
-                        <strong>Dica:</strong> Digite <code>doc.new</code>, <code>sheet.new</code> ou <code>slide.new</code> na barra de endereço do navegador para criar um arquivo novo instantaneamente.
+                        <strong>Dica Ninja:</strong> Digite <code>sheet.new</code> na barra de endereço do navegador para criar uma planilha nova instantaneamente.
+                    </div>
+                </div>
+            </section>
+
+            <section id="navigation">
+                <h2><i class="fa-solid fa-arrow-pointer"></i> Navegação e Seleção</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Movimento</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>CTRL</kbd> + <kbd>Setas</kbd> <span>Pular para o fim dos dados</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>HOME</kbd> <span>Ir para célula A1</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>PageUp/Down</kbd> <span>Alternar abas</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Seleção</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>Setas</kbd> <span>Selecionar bloco de dados</span></li>
+                            <li><kbd>SHIFT</kbd> + <kbd>Espaço</kbd> <span>Selecionar linha inteira</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>Espaço</kbd> <span>Selecionar coluna inteira</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="formatting">
+                <h2><i class="fa-solid fa-palette"></i> Formatação e Estrutura</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Estilo</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>CTRL</kbd> + <kbd>B</kbd> <span>Negrito</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>\</kbd> <span>Limpar formatação</span></li>
+                            <li><kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>5</kbd> <span>Tachado (Risco)</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Linhas e Colunas</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>=</kbd> <span>Inserir linha/coluna</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>-</kbd> <span>Excluir linha/coluna</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>D</kbd> <span>Preencher abaixo (Fill Down)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="formulas">
+                <h2><i class="fa-solid fa-calculator"></i> Fórmulas Essenciais</h2>
+                <div class="card">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fórmula</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>=SOMA(A1:A10)</code></td><td>Soma valores do intervalo</td></tr>
+                                <tr><td><code>=MÉDIA(A1:A10)</code></td><td>Média aritmética</td></tr>
+                                <tr><td><code>=SE(A1>10; "Sim"; "Não")</code></td><td>Condicional simples</td></tr>
+                                <tr><td><code>=PROCV(chave; intervalo; 2; 0)</code></td><td>Busca vertical clássica</td></tr>
+                                <tr><td><code>=CONCATENAR(A1; " "; B1)</code></td><td>Juntar textos</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="validation">
+                <h2><i class="fa-regular fa-square-check"></i> Validação e Interatividade</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Checkboxes</h3>
+                        <p>Inserir > Caixa de Seleção.</p>
+                        <ul class="simple-list mt-20">
+                            <li>Marcado = <code>TRUE</code></li>
+                            <li>Desmarcado = <code>FALSE</code></li>
+                            <li>Ótimo para usar dentro de fórmulas <code>=SE()</code>.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Dropdowns (Menu Suspenso)</h3>
+                        <p>Dados > Validação de Dados.</p>
+                        <p class="mt-20">Use para criar listas fixas ou puxar opções de um intervalo dinâmico, evitando erros de digitação.</p>
                     </div>
                 </div>
             </section>
@@ -56,61 +147,78 @@
                 <div class="grid-2">
                     <div class="card">
                         <h3>IMPORTRANGE</h3>
-                        <p>Puxa dados de <strong>outra</strong> planilha do Google Sheets.</p>
-                        <pre><code>=IMPORTRANGE("URL_DA_PLANILHA"; "Aba!A1:B10")</code></pre>
+                        <p>Puxa dados de <strong>outra</strong> planilha.</p>
+                        <pre><code>=IMPORTRANGE("URL"; "Aba!A:B")</code></pre>
                     </div>
                     <div class="card">
                         <h3>SPARKLINE</h3>
-                        <p>Cria um mini gráfico dentro de uma única célula.</p>
+                        <p>Mini gráficos na célula.</p>
                         <pre><code>=SPARKLINE(A1:A10; {"charttype"\"bar"})</code></pre>
                     </div>
                     <div class="card">
                         <h3>FILTER</h3>
-                        <p>Filtra uma tabela dinamicamente (retorna array).</p>
-                        <pre><code>=FILTER(A2:B10; C2:C10="Aprovado")</code></pre>
+                        <p>Filtra tabela (retorna array).</p>
+                        <pre><code>=FILTER(A:B; C:C="Sim")</code></pre>
                     </div>
                     <div class="card">
                         <h3>GOOGLEFINANCE</h3>
-                        <p>Cotações de moedas e ações em tempo real.</p>
+                        <p>Cotações em tempo real.</p>
                         <pre><code>=GOOGLEFINANCE("USDBRL")</code></pre>
                     </div>
                 </div>
             </section>
 
             <section id="query">
-                <h2><i class="fa-solid fa-database"></i> A Poderosa Função QUERY</h2>
+                <h2><i class="fa-solid fa-database"></i> Função QUERY (SQL)</h2>
                 <div class="card">
-                    <p>Permite usar linguagem SQL dentro da planilha para manipular dados.</p>
+                    <p>Permite usar linguagem SQL dentro da planilha.</p>
                     <div class="code-block">
-                        <div class="code-header">Exemplo Prático</div>
-                        <pre><code class="language-sql">=QUERY(A1:D100; "SELECT A, B WHERE C > 100 ORDER BY D DESC LIMIT 10")</code></pre>
+                        <div class="code-header">Exemplo</div>
+                        <pre><code class="language-sql">=QUERY(A1:D100; "SELECT A, B WHERE C > 100 ORDER BY D DESC LIMIT 5")</code></pre>
                     </div>
-                    <p><strong>Tradução:</strong> Selecione colunas A e B, onde a coluna C for maior que 100, ordene pela D (decrescente) e mostre só os top 10.</p>
+                    <p>Seleciona colunas A e B, onde C > 100, ordena por D e limita a 5 resultados.</p>
+                </div>
+            </section>
+
+            <section id="regex">
+                <h2><i class="fa-solid fa-filter"></i> Regex & Limpeza de Dados</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Limpeza Básica</h3>
+                        <ul class="shortcut-list">
+                            <li><code>=ARRUMAR(A1)</code> <span>(TRIM) Remove espaços extras</span></li>
+                            <li><code>=MAIÚSCULA(A1)</code> <span>(UPPER) Tudo em caixa alta</span></li>
+                            <li><code>=PRI.MAIÚSCULA(A1)</code> <span>(PROPER) Nome Próprio</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Expressões Regulares</h3>
+                        <p>Para extrações complexas.</p>
+                        <div class="code-block">
+                            <pre><code class="language-excel">=REGEXMATCH(A1; "@gmail") 
+=REGEXEXTRACT(A1; "[0-9]+") 
+=REGEXREPLACE(A1; "[^0-9]"; "")</code></pre>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="appsscript">
-                <h2><i class="fa-brands fa-js"></i> Google Apps Script (JS)</h2>
+                <h2><i class="fa-brands fa-js"></i> Google Apps Script</h2>
                 <div class="card">
-                    <p>Automação baseada em JavaScript. (Extensões > Apps Script)</p>
-                    <h3 class="mt-20">Exemplo: Criar Menu Personalizado</h3>
+                    <p>Automação baseada em JavaScript (Extensões > Apps Script).</p>
+                    <h3 class="mt-20">Snippet: Menu Personalizado</h3>
                     <div class="code-block">
                         <div class="code-header">code.gs</div>
                         <pre><code class="language-javascript">function onOpen() {
-  const ui = SpreadsheetApp.getUi();
-  ui.createMenu('Minhas Ferramentas')
-      .addItem('Enviar Email', 'enviarEmail')
-      .addToUi();
-}
-
-function enviarEmail() {
-  GmailApp.sendEmail("email@exemplo.com", "Assunto", "Corpo do email");
-  Browser.msgBox("Email enviado!");
+  SpreadsheetApp.getUi()
+    .createMenu('Minhas Tools')
+    .addItem('Rodar Script', 'minhaFuncao')
+    .addToUi();
 }</code></pre>
                     </div>
                 </div>
             </section>
-
         </main>
 
         <footer>
