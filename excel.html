@@ -25,13 +25,12 @@
             <p>Domine planilhas, análise de dados e automação com VBA</p>
         </header>
 
-        <nav style="margin-bottom: 40px; padding: 15px; background: var(--card-bg); border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
             <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
                 <li><a href="#shortcuts">Atalhos</a></li>
                 <li><a href="#formulas">Fórmulas Essenciais</a></li>
                 <li><a href="#xlookup">PROCV vs PROCX</a></li>
-                <li><a href="#pivot">Tabela Dinâmica</a></li>
-                <li><a href="#vba">VBA (Macros)</a></li>
+                <li><a href="#pivot">Tabela Dinâmica</a></li> <li><a href="#powerquery">Power Query</a></li> <li><a href="#vba">VBA (Macros)</a></li>
             </ul>
         </nav>
 
@@ -54,11 +53,14 @@
                         <ul class="shortcut-list">
                             <li><kbd>ALT</kbd> + <kbd>=</kbd> <span>Autossoma (Soma rápida)</span></li>
                             <li><kbd>CTRL</kbd> + <kbd>;</kbd> <span>Inserir Data atual</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>E</kbd> <span>Preenchimento Relâmpago</span></li>
                             <li><kbd>CTRL</kbd> + <kbd>1</kbd> <span>Menu Formatar Células</span></li>
-                            <li><kbd>CTRL</kbd> + <kbd>T</kbd> <span>Criar Tabela (Table)</span></li>
-                            <li><kbd>F4</kbd> <span>Repetir última ação / Trancar célula ($)</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>T</kbd> <span>Criar Tabela Oficial</span></li>
                         </ul>
                     </div>
+                </div>
+                <div class="alert mt-20">
+                    <strong>Dica (Ctrl+E):</strong> Digite um exemplo do que você quer extrair (ex: o primeiro nome de uma lista completa) na coluna ao lado e aperte <code>Ctrl+E</code>. O Excel completa o resto sozinho!
                 </div>
             </section>
 
@@ -70,30 +72,30 @@
                             <thead>
                                 <tr>
                                     <th>Função</th>
-                                    <th>Sintaxe</th>
-                                    <th>Descrição</th>
+                                    <th>Sintaxe Básica</th>
+                                    <th>Para que serve</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>SE</strong> (IF)</td>
-                                    <td><code>=SE(teste; valor_se_v; valor_se_f)</code></td>
-                                    <td>Lógica condicional básica.</td>
+                                    <td><code>=SE(teste; verdadeiro; falso)</code></td>
+                                    <td>Tomada de decisão lógica.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>SOMASES</strong> (SUMIFS)</td>
-                                    <td><code>=SOMASES(intervalo_soma; critério1...)</code></td>
-                                    <td>Soma com base em múltiplos critérios.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CONCAT</strong></td>
-                                    <td><code>=A1 & " " & B1</code></td>
-                                    <td>Juntar textos (ou usar fórmula CONCATENAR).</td>
+                                    <td><strong>SOMASES</strong></td>
+                                    <td><code>=SOMASES(intervalo_soma; critérios...)</code></td>
+                                    <td>Soma condicional (ex: Vendas do mês X).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>TEXTO</strong></td>
-                                    <td><code>=TEXTO(A1; "dd/mm/aaaa")</code></td>
-                                    <td>Formata um número ou data como texto.</td>
+                                    <td><code>=TEXTO(A1; "dd/mm")</code></td>
+                                    <td>Formata números/datas para texto.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ARRUMAR</strong></td>
+                                    <td><code>=ARRUMAR(A1)</code></td>
+                                    <td>Remove espaços extras indesejados.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -106,17 +108,55 @@
                 <div class="grid-2">
                     <div class="card">
                         <h3>Antigo: PROCV (VLOOKUP)</h3>
-                        <p>Busca apenas à direita e exige contar colunas.</p>
+                        <p>Busca apenas à direita, lento e quebra se inserir colunas.</p>
                         <div class="code-block">
-                            <pre><code class="language-excel">=PROCV(valor_procurado; matriz; num_coluna; [0])</code></pre>
+                            <pre><code class="language-excel">=PROCV(valor; matriz; num_coluna; 0)</code></pre>
                         </div>
                     </div>
                     <div class="card">
                         <h3>Moderno: PROCX (XLOOKUP)</h3>
-                        <p>Busca em qualquer direção, não quebra se inserir colunas e tem tratamento de erro.</p>
+                        <p>Busca em qualquer direção, mais rápido e com tratamento de erro nativo.</p>
                         <div class="code-block">
-                            <pre><code class="language-excel">=PROCX(valor_procurado; matriz_pesquisa; matriz_retorno; "Não achou")</code></pre>
+                            <pre><code class="language-excel">=PROCX(valor; onde_buscar; o_que_retornar; "Não achei")</code></pre>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pivot">
+                <h2><i class="fa-solid fa-chart-pie"></i> Tabela Dinâmica</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>O que é?</h3>
+                        <p>A ferramenta mais poderosa para resumir grandes volumes de dados sem fórmulas.</p>
+                        <ul class="simple-list mt-20">
+                            <li>Arrastar e Soltar campos.</li>
+                            <li>Agrupar datas (Meses/Anos) automaticamente.</li>
+                            <li>Criar Segmentação de Dados (Botões de filtro).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Atalhos e Dicas</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>ALT</kbd> + <kbd>T</kbd> + <kbd>B</kbd> <span>Criar Tabela Dinâmica</span></li>
+                            <li>Clique duas vezes em um número da tabela dinâmica para ver os detalhes (Drill down).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="powerquery">
+                <h2><i class="fa-solid fa-bolt"></i> Power Query (ETL)</h2>
+                <div class="card">
+                    <p>Esqueça o VBA para limpeza de dados. Use o Power Query para:</p>
+                    <ul class="simple-list mt-20">
+                        <li>Importar dados de pastas, Web, PDF ou CSV.</li>
+                        <li>Tratar colunas (Dividir, Substituir, Tipar).</li>
+                        <li>Mesclar tabelas (VLOOKUP visual).</li>
+                        <li><strong>Tudo gravado em passos automáticos!</strong></li>
+                    </ul>
+                    <div class="alert mt-20">
+                        Acesse via: <strong>Dados > Obter Dados</strong>.
                     </div>
                 </div>
             </section>
@@ -124,24 +164,19 @@
             <section id="vba">
                 <h2><i class="fa-solid fa-code"></i> VBA (Macros)</h2>
                 <div class="card">
-                    <p>Use <kbd>ALT</kbd> + <kbd>F11</kbd> para abrir o editor VBA.</p>
-                    <h3 class="mt-20">Exemplo: Limpar células e avisar</h3>
+                    <p>Para automações que o Power Query não resolve. Use <kbd>ALT</kbd> + <kbd>F11</kbd> para abrir.</p>
+                    <h3 class="mt-20">Exemplo: Limpar células</h3>
                     <div class="code-block">
-                        <div class="code-header">VBA</div>
+                        <div class="code-header">Module1.bas</div>
                         <pre><code class="language-vba">Sub LimparDados()
-    ' Seleciona a aba Planilha1
-    Sheets("Planilha1").Select
+    ' Seleciona a aba e limpa intervalo
+    Sheets("Planilha1").Range("A2:C100").ClearContents
     
-    ' Limpa o conteúdo das células A2 até C100
-    Range("A2:C100").ClearContents
-    
-    ' Exibe uma mensagem
     MsgBox "Dados limpos com sucesso!", vbInformation
 End Sub</code></pre>
                     </div>
                 </div>
             </section>
-
         </main>
 
         <footer>
