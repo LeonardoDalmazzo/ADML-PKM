@@ -34,6 +34,7 @@
                 <li><a href="#status">Status</a></li>
                 <li><a href="#conventional">Conventional Commits</a></li>
                 <li><a href="#workflow">Fluxo de Trabalho</a></li>
+                <li><a href="#recovery" style="color: #e63946; font-weight: bold;">SOS (Recuperação)</a></li>
                 <li><a href="#undoing">Desfazendo</a></li>
                 <li><a href="#branches">Branches</a></li>
                 <li><a href="#git-vscode">Git no VS Code</a></li>
@@ -106,6 +107,42 @@ git branch -d feature/nova-funcionalidade</code></pre>
                 </div>
             </section>
 
+            <section id="recovery">
+                <h2 style="color: #e63946;"><i class="fa-solid fa-kit-medical"></i> SOS: Recuperação & Emergência</h2>
+                
+                <div class="grid-auto">
+                    
+                    <div class="card">
+                        <h3><i class="fa-solid fa-cloud-arrow-down"></i> 1. Existe no Remoto</h3>
+                        <p>Você apagou a branch local, mas já tinha dado push (ela existe no GitHub).</p>
+                        <ol class="simple-list">
+                            <li>Atualize seu Git: <br><code>git fetch --all</code></li>
+                            <li>Verifique se ela aparece (vermelha): <br><code>git branch -a</code></li>
+                            <li><strong>Recupere conectando:</strong> <br><code>git checkout -b nome origin/nome</code></li>
+                        </ol>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> 2. Sumiu de tudo (Reflog)</h3>
+                        <p>Você apagou local e remoto. O Git local ainda lembra.</p>
+                        <ol class="simple-list">
+                            <li>Veja o histórico de ações: <br><code>git reflog</code></li>
+                            <li>Ache o hash (ex: <code>e9404ab</code>).</li>
+                            <li><strong>Ressuscite a branch:</strong> <br><code>git checkout -b nome [hash]</code></li>
+                        </ol>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-box-archive"></i> Checkout Bloqueado</h3>
+                        <p>Erro: <em>"Your local changes to... would be overwritten"</em>.</p>
+                        <ol class="simple-list">
+                            <li>Guarde na gaveta temporária: <br><code>git stash</code></li>
+                            <li>Faça o checkout/pull que queria.</li>
+                            <li>(Opcional) Devolva as mudanças: <br><code>git stash pop</code></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
             <section id="undoing">
                 <h2><i class="fa-solid fa-rotate-left"></i> Correções e Desfazendo</h2>
                 <div class="grid-2">
@@ -197,6 +234,14 @@ git push --force</code></pre>
                             <tr>
                                 <td>git status</td>
                                 <td>Mostra arquivos alterados/staged</td>
+                            </tr>
+                            <tr>
+                                <td>git reflog</td>
+                                <td><strong>Histórico de todas ações locais (Recuperação)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>git stash</td>
+                                <td><strong>Guarda alterações temporariamente</strong></td>
                             </tr>
                             <tr>
                                 <td>git diff</td>

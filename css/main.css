@@ -76,6 +76,13 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     gap: 20px;
 }
 
+/* Grid flexível que aceita quantos itens couberem na tela */
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 /* Classe para Ícones SVG */
 .img-svg {
     height: 1.5rem;
