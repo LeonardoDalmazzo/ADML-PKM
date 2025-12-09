@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilhas - ADML: PKM</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    <link rel="stylesheet" href="../components/pkm-index/pkm-index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center" style="margin-bottom: 30px;">
+            <h1 style="color: #0F9D58;">
+                <i class="fa-solid fa-table"></i> Planilhas & Dados
+            </h1>
+            <p>Central de conhecimento para Excel e Google Sheets</p>
+        </header>
+
+        <section class="category-grid mt-20">
+            <div class="cat-card active" data-filter="all">Todas</div>
+            <div class="cat-card" data-filter="Google Sheets">Google Sheets</div>
+            <div class="cat-card" data-filter="Excel">Excel</div>
+        </section>
+
+        <div class="subtitulo text-center">
+            <h3>Ferramentas</h3>
+            <p>Selecione a ferramenta para ver as cheatsheets.</p>
+        </div>
+
+        <section id="content-grid" class="grid-2">
+
+            <div class="card" data-category="Google Sheets, Cloud">
+                <h2><i class="fa-solid fa-file-csv" style="color: #0F9D58;"></i> Google Sheets</h2>
+                <p>Fórmulas, colaboração e scripts (AppScript).</p>
+                <a href="gsheets.html" class="link-btn">Acessar →</a>
+            </div>
+
+            <div class="card" data-category="Excel, Microsoft">
+                <h2><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i> Microsoft Excel</h2>
+                <p>Atalhos, tabelas dinâmicas e VBA.</p>
+                <a href="excel.html" class="link-btn">Acessar →</a>
+            </div>
+
+        </section>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../components/pkm-index/pkm-index.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
