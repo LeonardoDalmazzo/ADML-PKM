@@ -11,6 +11,8 @@ class Navbar {
 
     render() {
         const body = document.body;
+        // Pega o caminho definido no HTML ou usa vazio (se estiver na raiz)
+        const root = window.ROOT_PATH || ''; 
 
         // Create Navbar Container
         const navElement = document.createElement('nav');
@@ -18,15 +20,16 @@ class Navbar {
 
         // Brand
         const brand = document.createElement('a');
-        brand.href = 'index.html';
+        brand.href = root + 'index.html'; // Adiciona o prefixo root
         brand.className = 'navbar-brand';
         brand.textContent = 'ADML: PKM';
         navElement.appendChild(brand);
 
-        // Desktop Menu (Home, About, Contact)
+        // Desktop Menu
         const desktopMenu = document.createElement('div');
         desktopMenu.className = 'navbar-menu';
 
+        // Atualizei os links para incluir as pastas novas
         const mainLinks = [
             { name: 'Início', href: 'index.html' },
             { name: 'Sobre', href: 'about.html' },
@@ -35,7 +38,12 @@ class Navbar {
 
         mainLinks.forEach(link => {
             const a = document.createElement('a');
-            a.href = link.href;
+            // Se for link externo ou âncora, não mexe. Se não, adiciona root.
+            if (link.href.startsWith('http') || link.href.startsWith('#')) {
+                a.href = link.href;
+            } else {
+                a.href = root + link.href;
+            }
             a.textContent = link.name;
             desktopMenu.appendChild(a);
         });
@@ -54,21 +62,25 @@ class Navbar {
 
         body.prepend(navElement);
 
-        // Mobile Sidebar (Cheatsheet items)
+        // Mobile Sidebar
         const mobileNav = document.createElement('div');
         mobileNav.className = 'mobile-nav';
         mobileNav.id = 'mobile-nav';
 
         const cheatSheets = [
-            { name: 'Planilhas', href: 'planilhas.html' }
+            { name: 'Planilhas', href: 'planilhas/planilhas.html' },
+            { name: 'Web Dev', href: 'web_dev/web_dev.html' } 
         ];
 
-        // Also add Home/About/Contact to mobile nav for completeness on small screens
         const allLinks = [...mainLinks, ...cheatSheets];
 
         allLinks.forEach(link => {
             const a = document.createElement('a');
-            a.href = link.href;
+            if (link.href.startsWith('http') || link.href.startsWith('#')) {
+                a.href = link.href;
+            } else {
+                a.href = root + link.href;
+            }
             a.textContent = link.name;
             mobileNav.appendChild(a);
         });
@@ -105,11 +117,14 @@ class Navbar {
     }
 
     highlightActive() {
+        // Pega apenas o nome do arquivo atual (ex: 'index.html' ou 'planilhas.html')
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const links = document.querySelectorAll('.navbar-menu a, .mobile-nav a');
 
         links.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
+            // Compara se o href do link termina com o arquivo atual
+            // Isso evita problemas com o prefixo '../'
+            if (link.getAttribute('href').endsWith(currentPath)) {
                 link.classList.add('active');
             }
         });
