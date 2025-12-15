@@ -31,6 +31,7 @@
 
         <nav class="card" style="margin-bottom: 40px; padding: 15px;">
             <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#setup">Setup & Segurança</a></li>
                 <li><a href="#status">Status</a></li>
                 <li><a href="#conventional">Conventional Commits</a></li>
                 <li><a href="#workflow">Fluxo de Trabalho</a></li>
@@ -43,6 +44,44 @@
         </nav>
 
         <main>
+            <section id="setup">
+                <h2><i class="fa-brands fa-windows"></i> Configuração & Segurança (Windows)</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fa-solid fa-user-gear"></i> Configuração Inicial</h3>
+                        <p>Ao pegar uma máquina nova, defina o autor dos commits.</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># 1. Definir identidade (Global)
+git config --global user.name "Seu Nome"
+git config --global user.email "email@ex.com"
+
+# 2. Verificar configurações existentes
+git config --list
+
+# 3. Ver onde as configs estão salvas
+git config --list --show-origin</code></pre>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fa-solid fa-user-slash"></i> Limpeza (Sair do PC)</h3>
+                        <p>Vai devolver o computador? Apague seus dados para ninguém "commitar" por você.</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># 1. Remover nome e email do Git
+git config --global --unset user.name
+git config --global --unset user.email</code></pre>
+                        </div>
+                        <div class="alert mt-20">
+                            <strong>Crítico:</strong> O Git no Windows guarda sua senha/token separadamente. Para remover o acesso total:
+                            <ol class="simple-list mt-20">
+                                <li>Abra o menu Iniciar e digite <strong>"Gerenciador de Credenciais"</strong>.</li>
+                                <li>Clique em <strong>Credenciais do Windows</strong>.</li>
+                                <li>Procure por <code>git:https://github.com</code> e clique em <strong>Remover</strong>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="status">
                 <h2><i class="fa-regular fa-folder-open"></i> Status dos Arquivos (Significados)</h2>
                 <div class="card">
