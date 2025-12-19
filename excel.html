@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel - ADML: PKM</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #1D6F42;">
+                <i class="fa-solid fa-file-excel"></i> Microsoft Excel
+            </h1>
+            <p>Domine planilhas, análise de dados e automação com VBA</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#shortcuts">Atalhos</a></li>
+                <li><a href="#formulas">Fórmulas Essenciais</a></li>
+                <li><a href="#xlookup">PROCV vs PROCX</a></li>
+                <li><a href="#pivot">Tabela Dinâmica</a></li> <li><a href="#powerquery">Power Query</a></li> <li><a href="#vba">VBA (Macros)</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="shortcuts">
+                <h2><i class="fa-solid fa-keyboard"></i> Atalhos de Produtividade</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Navegação e Seleção</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>CTRL</kbd> + <kbd>Setas</kbd> <span>Ir para o final dos dados</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>Setas</kbd> <span>Selecionar até o final</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>Page Up/Down</kbd> <span>Trocar de aba</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>Espaço</kbd> <span>Selecionar Coluna inteira</span></li>
+                            <li><kbd>SHIFT</kbd> + <kbd>Espaço</kbd> <span>Selecionar Linha inteira</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Ações Rápidas</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>ALT</kbd> + <kbd>=</kbd> <span>Autossoma (Soma rápida)</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>;</kbd> <span>Inserir Data atual</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>E</kbd> <span>Preenchimento Relâmpago</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>1</kbd> <span>Menu Formatar Células</span></li>
+                            <li><kbd>CTRL</kbd> + <kbd>T</kbd> <span>Criar Tabela Oficial</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert mt-20">
+                    <strong>Dica (Ctrl+E):</strong> Digite um exemplo do que você quer extrair (ex: o primeiro nome de uma lista completa) na coluna ao lado e aperte <code>Ctrl+E</code>. O Excel completa o resto sozinho!
+                </div>
+            </section>
+
+            <section id="formulas">
+                <h2><i class="fa-solid fa-calculator"></i> Fórmulas do Dia a Dia</h2>
+                <div class="card">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Função</th>
+                                    <th>Sintaxe Básica</th>
+                                    <th>Para que serve</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>SE</strong> (IF)</td>
+                                    <td><code>=SE(teste; verdadeiro; falso)</code></td>
+                                    <td>Tomada de decisão lógica.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SOMASES</strong></td>
+                                    <td><code>=SOMASES(intervalo_soma; critérios...)</code></td>
+                                    <td>Soma condicional (ex: Vendas do mês X).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TEXTO</strong></td>
+                                    <td><code>=TEXTO(A1; "dd/mm")</code></td>
+                                    <td>Formata números/datas para texto.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ARRUMAR</strong></td>
+                                    <td><code>=ARRUMAR(A1)</code></td>
+                                    <td>Remove espaços extras indesejados.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="xlookup">
+                <h2><i class="fa-solid fa-magnifying-glass"></i> A Evolução: PROCV vs PROCX</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Antigo: PROCV (VLOOKUP)</h3>
+                        <p>Busca apenas à direita, lento e quebra se inserir colunas.</p>
+                        <div class="code-block">
+                            <pre><code class="language-excel">=PROCV(valor; matriz; num_coluna; 0)</code></pre>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Moderno: PROCX (XLOOKUP)</h3>
+                        <p>Busca em qualquer direção, mais rápido e com tratamento de erro nativo.</p>
+                        <div class="code-block">
+                            <pre><code class="language-excel">=PROCX(valor; onde_buscar; o_que_retornar; "Não achei")</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pivot">
+                <h2><i class="fa-solid fa-chart-pie"></i> Tabela Dinâmica</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>O que é?</h3>
+                        <p>A ferramenta mais poderosa para resumir grandes volumes de dados sem fórmulas.</p>
+                        <ul class="simple-list mt-20">
+                            <li>Arrastar e Soltar campos.</li>
+                            <li>Agrupar datas (Meses/Anos) automaticamente.</li>
+                            <li>Criar Segmentação de Dados (Botões de filtro).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Atalhos e Dicas</h3>
+                        <ul class="shortcut-list">
+                            <li><kbd>ALT</kbd> + <kbd>T</kbd> + <kbd>B</kbd> <span>Criar Tabela Dinâmica</span></li>
+                            <li>Clique duas vezes em um número da tabela dinâmica para ver os detalhes (Drill down).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="powerquery">
+                <h2><i class="fa-solid fa-bolt"></i> Power Query (ETL)</h2>
+                <div class="card">
+                    <p>Esqueça o VBA para limpeza de dados. Use o Power Query para:</p>
+                    <ul class="simple-list mt-20">
+                        <li>Importar dados de pastas, Web, PDF ou CSV.</li>
+                        <li>Tratar colunas (Dividir, Substituir, Tipar).</li>
+                        <li>Mesclar tabelas (VLOOKUP visual).</li>
+                        <li><strong>Tudo gravado em passos automáticos!</strong></li>
+                    </ul>
+                    <div class="alert mt-20">
+                        Acesse via: <strong>Dados > Obter Dados</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="vba">
+                <h2><i class="fa-solid fa-code"></i> VBA (Macros)</h2>
+                <div class="card">
+                    <p>Para automações que o Power Query não resolve. Use <kbd>ALT</kbd> + <kbd>F11</kbd> para abrir.</p>
+                    <h3 class="mt-20">Exemplo: Limpar células</h3>
+                    <div class="code-block">
+                        <div class="code-header">Module1.bas</div>
+                        <pre><code class="language-vba">Sub LimparDados()
+    ' Seleciona a aba e limpa intervalo
+    Sheets("Planilha1").Range("A2:C100").ClearContents
+    
+    MsgBox "Dados limpos com sucesso!", vbInformation
+End Sub</code></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script src="components/NavMenu/NavMenu.js"></script>
+    <script src="components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
