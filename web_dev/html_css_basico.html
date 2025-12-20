@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 & CSS3 - Web Dev</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1>
+                <span style="color: #E34F26;"><i class="fa-brands fa-html5"></i> HTML</span>
+                <span style="color: #888;">&</span>
+                <span style="color: #1572B6;"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+            </h1>
+            <p>Os pilares da Web: Estrutura Semântica e Estilização</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#semantic">Semântica HTML</a></li>
+                <li><a href="#boxmodel">CSS Box Model</a></li>
+                <li><a href="#selectors">Seletores</a></li>
+                <li><a href="#flexbox">Flexbox Intro</a></li>
+                <li><a href="#colors">Cores & Unidades</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="semantic">
+                <h2><i class="fa-solid fa-layer-group"></i> Estrutura Semântica</h2>
+                <div class="card">
+                    <p>Não use apenas <code>div</code> para tudo! Use tags que tenham significado para o navegador e leitores de tela (SEO & Acessibilidade).</p>
+                    
+                    <div class="grid-2 mt-20">
+                        <div class="code-block">
+                            <div class="code-header">Estrutura Correta</div>
+                            <pre><code class="language-html">&lt;header&gt;Cabeçalho/Menu&lt;/header&gt;
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h1&gt;Título Principal&lt;/h1&gt;
+        &lt;article&gt;Conteúdo do Post&lt;/article&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;Rodapé&lt;/footer&gt;</code></pre>
+                        </div>
+                        <div>
+                            <h3>Tags Essenciais</h3>
+                            <ul class="simple-list">
+                                <li><code>&lt;header&gt;</code>: Topo do site ou seção.</li>
+                                <li><code>&lt;nav&gt;</code>: Links de navegação.</li>
+                                <li><code>&lt;main&gt;</code>: Conteúdo principal (único por pág).</li>
+                                <li><code>&lt;section&gt;</code>: Agrupamento temático.</li>
+                                <li><code>&lt;article&gt;</code>: Conteúdo independente (post, card).</li>
+                                <li><code>&lt;aside&gt;</code>: Barra lateral ou info extra.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="boxmodel">
+                <h2><i class="fa-solid fa-box-open"></i> O CSS Box Model</h2>
+                <div class="card">
+                    <p>Todo elemento HTML é uma caixa retangular composta por 4 camadas. Entender isso é vital para layouts.</p>
+                    
+                    <div class="table-container mt-20">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Camada</th>
+                                    <th>Descrição</th>
+                                    <th>CSS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="color: #1572B6; font-weight:bold;">Content</td>
+                                    <td>O conteúdo real (texto, img).</td>
+                                    <td><code>width</code>, <code>height</code></td>
+                                </tr>
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight:bold;">Padding</td>
+                                    <td>Espaço interno (entre conteúdo e borda).</td>
+                                    <td><code>padding: 20px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td style="color: #F1C40F; font-weight:bold;">Border</td>
+                                    <td>A borda em si.</td>
+                                    <td><code>border: 1px solid #000;</code></td>
+                                </tr>
+                                <tr>
+                                    <td style="color: #E67E22; font-weight:bold;">Margin</td>
+                                    <td>Espaço externo (empurra outros elementos).</td>
+                                    <td><code>margin: 10px;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert mt-20">
+                        <strong>Dica de Ouro:</strong> Sempre use <code>box-sizing: border-box;</code> no seu CSS global. Isso faz com que o Padding e a Borda fiquem <em>dentro</em> da largura definida, evitando quebrar o layout.
+                    </div>
+                </div>
+            </section>
+
+            <section id="selectors">
+                <h2><i class="fa-solid fa-arrow-pointer"></i> Seletores CSS</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Básicos</h3>
+                        <ul class="shortcut-list">
+                            <li><code>tag</code> <span>Seleciona todos (Ex: <code>p</code>, <code>div</code>)</span></li>
+                            <li><code>.classe</code> <span>Seleciona grupo (Ex: <code>.card</code>)</span></li>
+                            <li><code>#id</code> <span>Seleciona único (Ex: <code>#menu</code>)</span></li>
+                            <li><code>*</code> <span>Seleciona tudo (Universal)</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Avançados</h3>
+                        <ul class="shortcut-list">
+                            <li><code>:hover</code> <span>Ao passar o mouse</span></li>
+                            <li><code>div > p</code> <span>Filho direto</span></li>
+                            <li><code>nth-child(2)</code> <span>Segundo item da lista</span></li>
+                            <li><code>::before</code> <span>Cria elemento visual antes</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="flexbox">
+                <h2><i class="fa-brands fa-delicious"></i> Flexbox (Layout Moderno)</h2>
+                <div class="card">
+                    <p>Esqueça <code>float</code>. Use Flexbox para alinhar coisas em uma dimensão (linha ou coluna).</p>
+                    <div class="code-block">
+                        <div class="code-header">CSS</div>
+                        <pre><code class="language-css">.container {
+    display: flex;              /* Ativa o Flexbox */
+    justify-content: center;    /* Alinha na horizontal (Eixo principal) */
+    align-items: center;        /* Alinha na vertical (Eixo cruzado) */
+    gap: 20px;                  /* Espaço entre itens */
+    flex-wrap: wrap;            /* Quebra linha se faltar espaço */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="colors">
+                <h2><i class="fa-solid fa-palette"></i> Unidades e Cores</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Medidas</h3>
+                        <ul class="simple-list">
+                            <li><strong>px:</strong> Pixels (Fixo). Bom para bordas.</li>
+                            <li><strong>%:</strong> Porcentagem (Relativo ao pai).</li>
+                            <li><strong>rem:</strong> Relativo à fonte raiz (Acessibilidade).</li>
+                            <li><strong>vh/vw:</strong> Viewport Height/Width (Tela inteira).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Cores</h3>
+                        <ul class="simple-list">
+                            <li><strong>Hex:</strong> <code>#FF0000</code> (Mais comum)</li>
+                            <li><strong>RGB:</strong> <code>rgb(255, 0, 0)</code></li>
+                            <li><strong>RGBA:</strong> <code>rgba(0, 0, 0, 0.5)</code> (Transparência)</li>
+                            <li><strong>Variáveis:</strong> <code>var(--main-color)</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
