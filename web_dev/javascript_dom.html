@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript & DOM - Web Dev</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #F7DF1E;">
+                <i class="fa-brands fa-js"></i> JavaScript & DOM
+            </h1>
+            <p>Dando vida ao site: Manipulando o HTML dinamicamente</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#what-is-dom">O que é DOM?</a></li>
+                <li><a href="#selectors">Selecionar Elementos</a></li>
+                <li><a href="#manipulation">Alterar Conteúdo</a></li>
+                <li><a href="#styles">Alterar Estilos</a></li>
+                <li><a href="#events">Eventos (Clicks)</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="what-is-dom">
+                <h2><i class="fa-solid fa-sitemap"></i> O que é o DOM?</h2>
+                <div class="card">
+                    <p><strong>DOM (Document Object Model)</strong> é a representação do seu HTML na memória do navegador. É uma "árvore" de elementos que o JavaScript pode acessar e modificar.</p>
+                    <p class="mt-20">No JS, o ponto de entrada é o objeto global <code>document</code>.</p>
+                </div>
+            </section>
+
+            <section id="selectors">
+                <h2><i class="fa-solid fa-arrow-pointer"></i> Selecionando Elementos</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Métodos Modernos</h3>
+                        <ul class="shortcut-list">
+                            <li><code>document.querySelector('.classe')</code> <span>Pega o <strong>primeiro</strong> elemento encontrado.</span></li>
+                            <li><code>document.querySelectorAll('div')</code> <span>Pega <strong>todos</strong> (retorna uma lista).</span></li>
+                            <li><code>document.getElementById('meuId')</code> <span>Pega elemento pelo ID (Rápido).</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Exemplo</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">// HTML: &lt;h1 id="titulo"&gt;Olá&lt;/h1&gt;
+
+const titulo = document.getElementById('titulo');
+console.log(titulo); // Mostra o elemento no console</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="manipulation">
+                <h2><i class="fa-solid fa-pen-to-square"></i> Alterando Conteúdo</h2>
+                <div class="card">
+                    <p>Depois de selecionar, você pode mudar o que está dentro do elemento.</p>
+                    <div class="table-container mt-20">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Propriedade</th>
+                                    <th>O que faz</th>
+                                    <th>Segurança</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>elemento.innerText</code></td>
+                                    <td>Muda apenas o texto visível.</td>
+                                    <td>Seguro ✅</td>
+                                </tr>
+                                <tr>
+                                    <td><code>elemento.innerHTML</code></td>
+                                    <td>Interpreta HTML (cria tags).</td>
+                                    <td>Cuidado (Risco XSS) ⚠️</td>
+                                </tr>
+                                <tr>
+                                    <td><code>elemento.value</code></td>
+                                    <td>Pega valor de Inputs/Formulários.</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="styles">
+                <h2><i class="fa-solid fa-palette"></i> Manipulando CSS</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Via Style (Inline)</h3>
+                        <p>Altera o estilo direto no elemento.</p>
+                        <pre><code class="language-javascript">titulo.style.color = 'red';
+titulo.style.backgroundColor = 'black';
+// Note: usa camelCase (backgroundColor)</code></pre>
+                    </div>
+                    <div class="card">
+                        <h3>Via Classes (Recomendado)</h3>
+                        <p>Adiciona ou remove classes do CSS.</p>
+                        <pre><code class="language-javascript">titulo.classList.add('ativo');
+titulo.classList.remove('oculto');
+titulo.classList.toggle('dark-mode');</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="events">
+                <h2><i class="fa-solid fa-computer-mouse"></i> Eventos (Interatividade)</h2>
+                <div class="card">
+                    <p>O segredo da interatividade é "escutar" o que o usuário faz.</p>
+                    <div class="code-block">
+                        <div class="code-header">Exemplo: Botão que muda cor</div>
+                        <pre><code class="language-javascript">const botao = document.querySelector('#meuBotao');
+const corpo = document.body;
+
+// Adiciona um "Ouvinte de Evento"
+botao.addEventListener('click', function() {
+    corpo.style.backgroundColor = 'blue';
+    alert('Você clicou no botão!');
+});</code></pre>
+                    </div>
+                    <div class="alert mt-20">
+                        Outros eventos comuns: <code>submit</code> (formulários), <code>input</code> (digitação), <code>scroll</code> (rolagem da página).
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
