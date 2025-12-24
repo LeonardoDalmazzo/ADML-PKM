@@ -1,296 +1,158 @@
-# 📘 Guia Pessoal de Git & GitHub
+# 🧠 ADML: PKM (Personal Knowledge Management)
 
-Este é um guia rápido de comandos, boas práticas e atalhos para usar no dia a dia com **Git** e **GitHub**.  
-Feito para consultas rápidas 🚀
+> **Central de Conhecimento Pessoal: Referências rápidas, Cheatsheets e Tutoriais para Desenvolvedores.**
 
----
+![Project Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
-## 📂 Status dos Arquivos no Git (VS Code & Terminal)
-```bash
-U   → Untracked   # arquivo novo, ainda não adicionado
-A   → Added       # arquivo adicionado ao stage (git add)
-M   → Modified    # arquivo modificado
-D   → Deleted     # arquivo removido
-R   → Renamed     # arquivo renomeado
-C   → Copied      # arquivo copiado
-??  → Untracked   # equivalente a U (quando roda git status)
-```
+## 📖 Sobre o Projeto
 
-### 👉 Exemplos no VS Code:
+O **ADML PKM** é uma aplicação web estática projetada para ser uma base de conhecimento pessoal livre de distrações. Diferente de documentações oficiais extensas, este projeto foca em **agilidade**: atalhos, snippets de código, configurações essenciais e guias "direto ao ponto" para as ferramentas usadas no dia a dia de um desenvolvedor e *power user*.
 
-U = arquivo novo não rastreado
-
-A = arquivo adicionado (git add)
-
-M = arquivo já rastreado que foi modificado
+O projeto foi construído do zero utilizando **Vanilla JavaScript** e **CSS Moderno**, sem dependência de frameworks pesados, garantindo performance máxima e facilidade de manutenção.
 
 ---
 
----
+## ✨ Funcionalidades Principais
 
-## 📝 Padrões de Commit (Conventional Commits)
-
-- feat: (Feature) → Quando você adiciona uma nova funcionalidade (ex: "feat: add certifications carousel").
-
-- fix: → Quando você corrige um bug (ex: "fix: broken link in footer").
-
-- docs: → Apenas documentação (README, comentários).
-
-- style: → Formatação, espaços, ponto e vírgula (nada que mude a lógica do código).
-
-- refactor: → Refatoração de código. Não muda o comportamento final, mas melhora o código interno.
-
-- chore: → Tarefas de manutenção (atualizar dependências, configurar ferramentas).
-
-- Breaking Changes e Importância
-usar important!. No padrão oficial (Conventional Commits), para destacar algo muito importante ou que quebra compatibilidade, usamos uma exclamação depois do tipo:
-feat!: drop support for Node 12 (O ! indica uma mudança drástica/Breaking Change).
-
-[**🔗 Conventional Commits - v1.0.0-beta.4**](https://www.conventionalcommits.org/pt-br/v1.0.0-beta.4/#especifica%c3%a7%c3%a3o)
+* **⚡ Performance Nativa:** Zero frameworks, sem *build steps* complexos. Apenas HTML, CSS e JS puro.
+* **🌗 Dark Mode Nativo:** Detecção automática de preferência do sistema e alternância manual via menu flutuante (FAB).
+* **📱 Mobile First:** Layout responsivo com menu lateral (off-canvas) e navegação otimizada para toque.
+* **🧩 Arquitetura Modular:** Componentes de UI (Navbar, FAB, Filtros) isolados em classes ES6 reutilizáveis.
+* **📂 Roteamento Inteligente:** Sistema de caminhos relativos (`ROOT_PATH`) que permite organizar conteúdo em subpastas sem quebrar links.
+* **🔍 Filtro de Categorias:** Filtragem dinâmica de conteúdo na Home Page (Frontend, Backend, Ferramentas, etc.).
 
 ---
 
-## 📑 Fluxo de Trabalho Padrão
+## 🛠️ Tech Stack
 
-```bash
-# Garantir que a branch main está atualizada
-git checkout main
-git pull origin main
+O projeto utiliza tecnologias web padrão focadas em longevidade e compatibilidade:
 
-# Criar e entrar em uma branch nova
-git checkout -b feature/nome-da-feature
-
-# Adicionar mudanças
-git add .
-
-# Commit com mensagem clara (Conventional Commits)
-git commit -m "feat: descrição curta e objetiva" -m "mais detalhes" 
-# o 2º '-m "mais detalhes"' é opcional
-
-# Subir branch
-git push origin feature/nome-da-feature
-
-# Abrir PR no GitHub → revisar → merge
-
-# Atualizar local depois do merge
-git checkout main
-git pull origin main
-
-# Deletar branch local (após merge)
-git branch -d feature/nome-da-feature
-```
+* **HTML5:** Estrutura semântica.
+* **CSS3:**
+    * **CSS Variables:** Para gerenciamento de temas (cores, fontes, espaçamentos).
+    * **Flexbox & Grid:** Para layouts responsivos.
+    * Design System próprio.
+* **JavaScript (ES6+):**
+    * Orientação a Objetos (Classes).
+    * Manipulação de DOM sem jQuery.
+* **Ícones:** FontAwesome 6.5 (CDN).
+* **Fontes:** Inter & Fira Code (Google Fonts).
 
 ---
 
-## 🔄 Desfazendo git add
+## 📚 Conteúdo Disponível
 
-```bash
-git restore --staged arquivo.txt   # remove 1 arquivo do stage
-git restore --staged .             # remove todos do stage
-```
+O PKM está organizado em trilhas de conhecimento:
 
----
+### 💻 Desenvolvimento
+- **Git & GitHub:** Fluxo de trabalho, comandos essenciais e Conventional Commits.
+- **Web Development:**
+    - Setup de Ambiente (VS Code, Extensões).
+    - HTML & CSS Básico (Box Model, Flexbox).
+    - Teoria da Web (HTTP, DNS, Cliente-Servidor).
+    - JavaScript Moderno (DOM, Eventos).
+    - React (Conceitos, Virtual DOM, Hooks).
+- **Backend / Lógica:**
+    - Linguagem C (Ponteiros, Structs, Memória).
 
-## ✏️ Editando Mensagens de Commit
+### 🛠️ Ferramentas & Produtividade
+- **VS Code:** Atalhos de teclado e produtividade.
+- **Planilhas:**
+    - **Excel:** Fórmulas avançadas, VBA e Power Query.
+    - **Google Sheets:** Query function, Apps Script e Regex.
+- **Microsoft Word:** Formatação acadêmica e estilos.
 
-#### Último commit (antes do push):
-```bash
-git commit --amend
-```
-
-#### Commits antigos (antes do push):
-```bash
-git rebase -i HEAD~3   # últimos 3 commits
-# troque 'pick' por 'reword' nos commits desejados
-```
-
-#### Depois do push (⚠️ use com cuidado):
-```bash
-git commit --amend
-git push --force
-```
-
-[**🔗 StackOverflow - editar mensagens de commit**](https://pt.stackoverflow.com/questions/61429/como-editar-uma-mensagem-de-commit-incorreta-no-git)
+### 🖥️ Sistema Operacional
+- **Windows:** Winget, PowerToys, WSL e atalhos de gerenciamento de janelas.
 
 ---
 
-## 🗑️ Deletando Branches
+## 📂 Estrutura de Pastas
 
-### Deletar branch local (após merge)
-```bash
-git branch -d feature/nome-da-feature
-```
-
-### Deletar branch local (force, sem merge)
-```bash
-git branch -D feature/nome-da-feature
-```
-
-### Deletar branch remota (no GitHub)
-```bash
-git push origin --delete feature/nome-da-feature
+```text
+ADML-PKM/
+│
+├── index.html              # Home Page (Dashboard)
+├── about.html              # Sobre o projeto
+├── contact.html            # Formulário de contato
+│
+├── assets/                 # Imagens e ícones SVG
+│   └── img/
+│       └── imgsREADME/     # Prints para o README
+│
+├── css/                    # Estilos Globais
+│   ├── main.css            # Reset e estilos base
+│   └── variables.css       # Variáveis de cores (Temas)
+│
+├── js/                     # Scripts Globais
+│   └── app.js              # Inicializador da aplicação
+│
+├── components/             # Módulos Reutilizáveis
+│   ├── NavMenu/            # Barra de Navegação Responsiva
+│   ├── FAB/                # Botão Flutuante (Tema/Scroll)
+│   └── pkm-index/          # Lógica de Filtros da Home
+│
+├── web_dev/                # [Módulo] Web Development
+│   ├── web_dev.html        # Index do Módulo
+│   ├── setup_inicial.html
+│   ├── html_css_basico.html
+│   └── ...
+│
+└── planilhas/              # [Módulo] Planilhas
+    ├── planilhas.html      # Index do Módulo
+    ├── excel.html
+    └── gsheets.html
 ```
 
 ---
 
-## ✏️ Renomeando uma Branch
+## 🚀 Como Rodar Localmente
 
-### Renomeia a branch atual
-```bash
-git branch -m novo-nome-da-branch
-```
-#### Se você estiver em outra branch (local)
-##### Você pode renomear uma branch local sem precisar entrar nela.
-###### Renomeia 'nome-antigo' para 'novo-nome-da-branch'
-```bash
-git branch -m nome-antigo novo-nome-da-branch
-```
-### Renomeando uma branch remota (no GitHub)
-##### 1. Renomeie a branch local
-```bash
-git branch -m nome-antigo novo-nome-da-branch
-```
-#### 2. Envie a branch com o novo nome para o repositório remoto
-##### (o '-u' define o rastreamento para a nova branch)
-```
-git push origin -u novo-nome-da-branch
-```
+1.  **Clone o repositório em:** [https://github.com/LeonardoDalmazzo/ADML-PKM.git](https://github.com/LeonardoDalmazzo/ADML-PKM.git)
+    ```bash
+    git clone https://github.com/LeonardoDalmazzo/ADML-PKM.git
+    ```
 
-#### 3. Delete a branch antiga no repositório remoto
-```bash
-git push origin --delete nome-antigo
-```
+2.  **Abra a pasta no VS Code:**
+    ```bash
+    cd ADML-PKM
+    code .
+    ```
+
+3.  **Rode com Live Server:**
+    * Instale a extensão **Live Server** no VS Code.
+    * Clique em "Go Live" no canto inferior direito.
+    * O projeto abrirá automaticamente no seu navegador em `http://127.0.0.1:5500`.
 
 ---
 
-## 💡 Dicas Extras
+## 📸 Screenshots
 
-#### Preview do README no VS Code:
-- `CTRL + SHIFT + V` → Preview de Markdown (README, docs, etc.)  
-- `CTRL + SHIFT + L` → Seleciona todas as ocorrências da seleção atual  
-- `CTRL + D` → Seleciona próxima ocorrência da palavra selecionada  
-- `ALT + Click` → Criar múltiplos cursores  
-#### Atalhos do Vim (se abrir acidentalmente):
-
-- i → inserir texto
-
-- ESC → sair do modo edição
-
-- :wq → salvar e sair
-
-- :q! → sair sem salvar
-
-[**🔗 Guia rápido do Vim**](https://www.hostgator.com.br/blog/como-usar-o-editor-de-texto-vim-do-linux/)
-
-#### Comandos básicos do Git:
-[**🔗 Hostinger - Comandos Git**](https://www.hostinger.com/br/tutoriais/comandos-git)
+| Mobile Menu | Home Page Dark Mode | Home Page (Light) |
+| :---: | :---: | :---: |
+| <img src="assets/img/imgsREADME/PKM03.png" width="100" alt="Home Light"> | <img src="assets/img/imgsREADME/PKM02.png" width="500" alt="Home Dark"> | <img src="assets/img/imgsREADME/PKM01.png" width="500" alt="Mobile Menu"> |
 
 ---
 
-## 📚 Referências
+## 🤝 Contribuição
 
-- [Conventional Commits - v1.0.0-beta.4](https://www.conventionalcommits.org/pt-br/v1.0.0-beta.4/#especificacao) – Especificação oficial de Conventional Commits, usado como guia para mensagens de commit claras.  
+Contribuições são muito bem-vindas! Se você quiser adicionar uma nova *cheatsheet*, corrigir um erro ou melhorar o design:
 
-- [StackOverflow - Editar mensagens de commit](https://pt.stackoverflow.com/questions/61429/como-editar-uma-mensagem-de-commit-incorreta-no-git) – Tutorial passo a passo sobre como alterar mensagens de commits locais e remotos.  
-
-- [Guia rápido do Vim (HostGator)](https://www.hostgator.com.br/blog/como-usar-o-editor-de-texto-vim-do-linux/) – Introdução ao editor Vim, atalhos básicos e dicas de uso.  
-
-- [Hostinger - Comandos Git](https://www.hostinger.com/br/tutoriais/comandos-git) – Lista completa de comandos básicos do Git, usado para referência e consulta rápida.
-
----
-
-## ⚡ Atalhos de Produtividade
-
-### 📄 Edição de Código (VS Code)
-- `SHIFT + ↓ / ↑` → Seleciona linhas para baixo/cima  
-- `ALT + ↓ / ↑` → Move a(s) linha(s) selecionada(s) para baixo/cima  
-- `SHIFT + ALT + ↓ / ↑` → Duplica a(s) linha(s) selecionada(s)  
-- `CTRL + X` → Recorta a linha inteira (mesmo sem selecionar)  
-- `CTRL + C` → Copia a linha inteira (mesmo sem selecionar)  
-- `CTRL + SHIFT + K` → Deleta a linha atual  
-- `CTRL + /` → Comenta/descomenta a linha  
-- `SHIFT + ALT + A` → Comentário em bloco (`/* ... */`)
-
-### 🔍 Navegação e Busca (VS Code)
-- `CTRL + F` → Buscar no arquivo atual  
-- `CTRL + H` → Substituir no arquivo atual  
-- `CTRL + SHIFT + H` → Substituir em múltiplos arquivos  
-- `F12` → Ir para definição  
-- `ALT + ← / →` → Voltar/avançar na navegação  
-- `CTRL + P` → Abrir rapidamente arquivos do projeto  
-- `CTRL + SHIFT + O` → Navegar entre símbolos do arquivo atual  
-- `CTRL + SHIFT + P` → Paleta de comandos
-
-### 🖥️ Janela e Multitarefas (VS Code)
-- `CTRL + B` → Mostrar/ocultar sidebar  
-- `CTRL + \` → Dividir editor em painéis  
-- `CTRL + 1 / 2 / 3` → Focar em cada coluna do editor  
-- `CTRL + TAB` → Alternar entre arquivos recentes  
-- `CTRL + W` → Fechar editor atual  
-- `CTRL + K Z` → Zen Mode  
-
-### 🌱 Git no VS Code
-- `CTRL + SHIFT + G` → Abrir **Source Control**  
-- `CTRL + SHIFT + G G` → Commit rápido  
-- `CTRL + SHIFT + G P` → Push para o remoto  
-- `CTRL + SHIFT + G U` → Pull/Sync com o remoto  
-- `CTRL + SHIFT + '` → Novo terminal integrado  
-- `CTRL + SHIFT + ~` → Alternar entre terminais integrados  
-- `CTRL + SHIFT + C` → Abrir terminal externo na pasta do projeto  
-- `CTRL + SHIFT + E` → Ir para Explorer (arquivos)
-
-### 🖥️ Atalhos de Terminal / CLI
-- `↑ / ↓` → Navegar pelo histórico de comandos  
-- `!!` → Repetir último comando  
-- `!git` → Reexecutar último comando que começa com `git`  
-- `CTRL + R` → Buscar por comandos anteriores (reverse search)  
-- `TAB` → Autocompletar nome de comando/arquivo/branch  
-- `CTRL + A` → Ir para o início da linha  
-- `CTRL + E` → Ir para o final da linha  
-- `CTRL + U` → Apagar da posição atual até o início da linha  
-- `CTRL + K` → Apagar da posição atual até o fim da linha  
-- `CTRL + W` → Apagar a palavra anterior  
-- `CTRL + L` → Limpar a tela (mesmo que `clear`)  
-- `CTRL + C` → Cancelar o comando atual  
-- `CTRL + D` → Sair do terminal  
+1.  Faça um **Fork** do projeto.
+2.  Crie uma **Branch** para sua feature (`git checkout -b feat/nova-cheatsheet`).
+3.  Commit suas mudanças seguindo o padrão **Conventional Commits** (`git commit -m 'feat: adiciona guia de docker'`).
+4.  Faça o **Push** para o seu fork (`git push origin feat/nova-cheatsheet`).
+5.  Abra um **Pull Request** no repositório original.
 
 ---
 
-## 🔹 Tabelas de Resumo
+## 📝 Licença
 
-#### 🔹 Terminal no VS Code
-| Atalho     | Ação                                                               |
-| ---------- | ------------------------------------------------------------------ |
-| `Ctrl + '` | Abre/fecha **Terminal integrado**                                  |
-| `Ctrl + J` | Abre/fecha **painel inferior** (Terminal, Problemas, Saída, Debug) |
+Este projeto está sob a licença MIT. Sinta-se livre para usar, estudar e modificar para seus próprios fins de aprendizado.
 
-#### 🔹 Git – CLI
-| Comando                            | Ação                          |
-| ---------------------------------- | ----------------------------- |
-| `git init`                         | Inicia repositório local      |
-| `git clone URL`                    | Clona repositório remoto      |
-| `git status`                       | Mostra estado dos arquivos    |
-| `git add arquivo.txt`              | Adiciona arquivo ao stage     |
-| `git add .`                        | Adiciona todos os arquivos    |
-| `git restore --staged arquivo.txt` | Remove arquivo do stage       |
-| `git restore --staged .`           | Remove todos do stage         |
-| `git commit -m "mensagem"`         | Cria commit                   |
-| `git log --oneline --graph --all`  | Histórico simplificado        |
-| `git diff`                         | Diferenças não staged         |
-| `git diff --staged`                | Diferenças staged             |
-| `git push origin main`             | Envia para repositório remoto |
-| `git pull`                         | Atualiza do remoto            |
-| `git branch`                       | Lista branches                |
-| `git checkout -b nova-branch`      | Cria e troca de branch        |
-| `git merge branch`                 | Faz merge                     |
-
-#### 🔹 Git – VS Code
-| Atalho             | Ação                            |
-| ------------------ | ------------------------------- |
-| `Ctrl + Shift + G` | Abre o **Source Control** (Git) |
-| `U` (Untracked)    | Arquivo novo, não versionado    |
-| `A` (Added)        | Arquivo adicionado ao stage     |
-| `M` (Modified)     | Arquivo modificado              |
-| `D` (Deleted)      | Arquivo excluído                |
-| `R` (Renamed)      | Arquivo renomeado               |
-| `C` (Conflicted)   | Arquivo em conflito             |
+---
+<p align="center">
+  Powered by: <strong>Leonardo Dalmazzo (ADML™)</strong>
+</p>
