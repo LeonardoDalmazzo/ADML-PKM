@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs & Fetch - Web Dev</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="revision-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Atenção: conteúdo ainda não revisado
+        </div>
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #FF5722;">
+                <i class="fa-solid fa-server"></i> APIs & Fetch
+            </h1>
+            <p>Conectando seu site ao mundo: JSON, Async e Await</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#concept">O que é API?</a></li>
+                <li><a href="#json">JSON</a></li>
+                <li><a href="#fetch">Fetch API</a></li>
+                <li><a href="#async">Async / Await</a></li>
+                <li><a href="#errors">Tratamento de Erros</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="concept">
+                <h2><i class="fa-solid fa-network-wired"></i> O que é uma API?</h2>
+                <div class="card">
+                    <p><strong>API (Application Programming Interface)</strong> é como um "garçom" que leva seu pedido (request) para a cozinha (servidor) e traz o prato (dados) de volta.</p>
+                    <p class="mt-20">No frontend, usamos APIs para buscar dados externos, como clima, cotação de moedas ou lista de usuários, sem recarregar a página.</p>
+                </div>
+            </section>
+
+            <section id="json">
+                <h2><i class="fa-solid fa-code"></i> JSON (JavaScript Object Notation)</h2>
+                <div class="card">
+                    <p>É a linguagem universal de troca de dados na web. Parece um objeto JS, mas é texto puro.</p>
+                    <div class="code-block">
+                        <div class="code-header">dados.json</div>
+                        <pre><code class="language-json">{
+    "nome": "Leonardo",
+    "idade": 25,
+    "skills": ["HTML", "CSS", "JS"]
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fetch">
+                <h2><i class="fa-solid fa-download"></i> Usando Fetch</h2>
+                <div class="card">
+                    <p>O método <code>fetch()</code> faz a requisição. Ele retorna uma <strong>Promise</strong> (uma promessa de que os dados vão chegar).</p>
+                    <div class="code-block">
+                        <div class="code-header">Exemplo Básico</div>
+                        <pre><code class="language-javascript">fetch('https://api.exemplo.com/usuarios')
+    .then(resposta => resposta.json()) // Converte para objeto JS
+    .then(dados => console.log(dados)) // Usa os dados
+    .catch(erro => console.error(erro)); // Se der ruim</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="async">
+                <h2><i class="fa-solid fa-stopwatch"></i> Async & Await (Jeito Moderno)</h2>
+                <div class="card">
+                    <p>Em vez de usar vários <code>.then()</code>, usamos <code>async/await</code> para escrever código assíncrono que parece síncrono (sequencial).</p>
+                    <div class="code-block">
+                        <pre><code class="language-javascript">async function buscarUsuarios() {
+    // 'await' pausa a execução até o fetch terminar
+    const resposta = await fetch('https://api.github.com/users/leonardodalmazzo');
+    const dados = await resposta.json();
+    
+    console.log(dados.name);
+}
+
+buscarUsuarios();</code></pre>
+                    </div>
+                    <div class="alert">
+                        <strong>Nota:</strong> Você só pode usar <code>await</code> dentro de uma função marcada como <code>async</code>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="errors">
+                <h2><i class="fa-solid fa-shield-halved"></i> Try / Catch (Segurança)</h2>
+                <div class="card">
+                    <p>E se a internet cair? Sempre envolva seu código async em um bloco de tratamento de erros.</p>
+                    <div class="code-block">
+                        <pre><code class="language-javascript">async function carregarDados() {
+    try {
+        const res = await fetch('api/dados');
+        
+        if (!res.ok) throw new Error('Erro na conexão');
+        
+        const json = await res.json();
+        console.log(json);
+        
+    } catch (erro) {
+        console.error("Ops! Algo deu errado:", erro);
+        alert("Não foi possível carregar os dados.");
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

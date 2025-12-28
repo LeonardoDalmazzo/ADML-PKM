@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy & Publicação - Web Dev</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="revision-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Atenção: conteúdo ainda não revisado
+        </div>
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #00C642;">
+                <i class="fa-solid fa-rocket"></i> Deploy & Publicação
+            </h1>
+            <p>Como colocar seu site no ar gratuitamente</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#concept">O que é Deploy?</a></li>
+                <li><a href="#gh-pages">GitHub Pages</a></li>
+                <li><a href="#vercel">Vercel / Netlify</a></li>
+                <li><a href="#domain">Domínios</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="concept">
+                <h2><i class="fa-solid fa-cloud-arrow-up"></i> O que é Deploy?</h2>
+                <div class="card">
+                    <p><strong>Deploy</strong> é o processo de tirar o site do seu computador (localhost) e colocá-lo em um servidor público na internet para que qualquer pessoa possa acessar.</p>
+                </div>
+            </section>
+
+            <section id="gh-pages">
+                <h2><i class="fa-brands fa-github"></i> GitHub Pages</h2>
+                <div class="card">
+                    <p>A opção mais fácil para sites estáticos (HTML/CSS/JS) que já estão no GitHub.</p>
+                    <div class="grid-2 mt-20">
+                        <div>
+                            <h3>Passo a Passo</h3>
+                            <ol class="simple-list">
+                                <li>Suba seu projeto para um repositório no GitHub.</li>
+                                <li>Vá em <strong>Settings</strong> (Configurações do repositório).</li>
+                                <li>No menu lateral, clique em <strong>Pages</strong>.</li>
+                                <li>Em "Branch", selecione <code>main</code> (ou master) e salve.</li>
+                            </ol>
+                        </div>
+                        <div class="card" style="border-left: 4px solid var(--success-color);">
+                            <h3>Resultado</h3>
+                            <p>Em alguns minutos, seu site estará disponível em:<br> <code>seu-usuario.github.io/nome-do-repo</code></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="vercel">
+                <h2><i class="fa-solid fa-triangle-circle-square"></i> Vercel & Netlify</h2>
+                <div class="card">
+                    <p>Plataformas modernas de hospedagem. São melhores que o GitHub Pages para projetos React ou que precisam de rotas mais complexas.</p>
+                    
+                    <div class="grid-2 mt-20">
+                        <div>
+                            <h3><i class="fa-solid fa-bolt"></i> Vantagens</h3>
+                            <ul class="simple-list">
+                                <li>Deploy automático a cada <code>git push</code>.</li>
+                                <li>HTTPS (cadeado de segurança) automático.</li>
+                                <li>CDN global (site carrega rápido no mundo todo).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3><i class="fa-solid fa-hand-pointer"></i> Como usar</h3>
+                            <ol class="simple-list">
+                                <li>Crie conta na Vercel.com ou Netlify.com.</li>
+                                <li>Clique em "Add New Project".</li>
+                                <li>Conecte sua conta do GitHub.</li>
+                                <li>Selecione o repositório e clique em <strong>Deploy</strong>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
