@@ -108,6 +108,24 @@ ADML-PKM/
 
 ---
 
+## 🔮 Roadmap & Evolução da Arquitetura
+
+O projeto segue uma abordagem iterativa. A versão atual priorizou a entrega de valor (conteúdo), mas uma **refatoração arquitetural** já está mapeada para garantir escalabilidade e adesão aos princípios de *Clean Code*.
+
+### 🚧 Próximos Passos (Migração v2):
+
+A estrutura estática atual será migrada para uma abordagem **Data-Driven (MVC-Lite)** utilizando JavaScript Vanilla Orientado a Objetos:
+
+1.  **Centralização de Dados (Model):** Criação de um arquivo `data/contentDB.js` que servirá como *Single Source of Truth* (Fonte Única da Verdade) para todos os cards e links do sistema.
+2.  **Renderização Dinâmica (Controller):** Implementação do componente `CardManager.js`, responsável por ler os dados e gerar o HTML automaticamente, ajustando rotas (`./` ou `../`) dependendo de onde o usuário está.
+
+### ✅ Benefícios Esperados:
+* **DRY (Don't Repeat Yourself):** Eliminação completa da duplicação de código HTML entre a `index.html` e as páginas de módulos.
+* **Manutenibilidade:** Adicionar um novo tutorial exigirá apenas a inserção de um objeto no arquivo JSON, sem tocar no HTML.
+* **Consistência:** Garantia de que títulos, ícones e descrições sejam idênticos em todas as listagens do site.
+
+---
+
 ## 🚀 Como Rodar Localmente
 
 1.  **Clone o repositório em:** [https://github.com/LeonardoDalmazzo/ADML-PKM.git](https://github.com/LeonardoDalmazzo/ADML-PKM.git)

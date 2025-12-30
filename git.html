@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub - ADML: PKM</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #f05032;">
+                <i class="fa-brands fa-git-alt"></i> Cheatsheet Git & GitHub
+            </h1>
+            <p>Guia focado em comandos, fluxo de trabalho e padrões</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#setup">Setup</a></li>
+                <li><a href="#status">Status</a></li>
+                <li><a href="#conventional">Commits</a></li>
+                <li><a href="#workflow">Fluxo</a></li>
+                <li><a href="#wip" style="color: #2965f1; font-weight: bold;">WIP (Troca de PC)</a></li>
+                <li><a href="#recovery" style="color: #e63946; font-weight: bold;">SOS</a></li>
+                <li><a href="#undoing">Desfazendo</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#git-vscode">VS Code</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="setup">
+                <h2><i class="fa-brands fa-windows"></i> Configuração & Segurança (Windows)</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fa-solid fa-user-gear"></i> Configuração Inicial</h3>
+                        <p>Ao pegar uma máquina nova, defina o autor dos commits.</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># 1. Definir identidade (Global)
+git config --global user.name "Seu Nome"
+git config --global user.email "email@ex.com"
+
+# 2. Verificar configurações existentes
+git config --list</code></pre>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fa-solid fa-user-slash"></i> Limpeza (Sair do PC)</h3>
+                        <p>Vai devolver o computador? Apague seus dados.</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># 1. Remover nome e email do Git
+git config --global --unset user.name
+git config --global --unset user.email</code></pre>
+                        </div>
+                        <div class="alert mt-20">
+                            <strong>Crítico:</strong> Remova também as senhas no "Gerenciador de Credenciais" do Windows
+                            (procure por <code>git:https://github.com</code>).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="status">
+                <h2><i class="fa-regular fa-folder-open"></i> Status dos Arquivos</h2>
+                <div class="card">
+                    <ul>
+                        <li><strong>U / ??</strong> → Untracked (Novo, não rastreado)</li>
+                        <li><strong>A</strong> → Added (Pronto para commit)</li>
+                        <li><strong>M</strong> → Modified (Modificado)</li>
+                        <li><strong>D</strong> → Deleted (Excluído)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="conventional">
+                <h2><i class="fa-solid fa-code"></i> Conventional Commits</h2>
+                <div class="card">
+                    <ul class="commit-types">
+                        <li><span class="tag feat">feat</span> Nova funcionalidade.</li>
+                        <li><span class="tag fix">fix</span> Correção de bug.</li>
+                        <li><span class="tag docs">docs</span> Apenas documentação.</li>
+                        <li><span class="tag style">style</span> Formatação (espaços, ;).</li>
+                        <li><span class="tag refactor">refactor</span> Refatoração de código.</li>
+                        <li><span class="tag chore">chore</span> Manutenção, configs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="workflow">
+                <h2><i class="fa-solid fa-arrow-right-arrow-left"></i> Fluxo de Trabalho Padrão</h2>
+                <div class="code-block">
+                    <div class="code-header">Rotina Diária</div>
+                    <pre><code class="language-bash"># 1. Atualizar a main
+git checkout main
+git pull origin main
+
+# 2. Criar branch para a tarefa
+git checkout -b feature/nova-funcionalidade
+
+# 3. Codar, Adicionar e Commitar
+git add .
+git commit -m "feat: adiciona carrossel"
+
+# 4. Enviar e Criar PR
+git push origin feature/nova-funcionalidade</code></pre>
+                </div>
+            </section>
+
+            <section id="wip">
+                <h2 style="color: #2965f1;"><i class="fa-solid fa-floppy-disk"></i> WIP: Trocar de PC (Savepoint)</h2>
+                <div class="card">
+                    <p>Use isso quando precisar parar de trabalhar no PC 1 e continuar no PC 2 sem finalizar a tarefa
+                        (mantendo arquivos como <em>Modified/Untracked</em>).</p>
+
+                    <div class="grid-2 mt-20">
+                        <div>
+                            <h3><i class="fa-solid fa-upload"></i> No PC 1 (Origem)</h3>
+                            <div class="code-block">
+                                <pre><code class="language-bash"># 1. Cria branch temporária de backup
+git checkout -b backup-temporario
+
+# 2. Salva TUDO (mesmo incompleto)
+git add .
+git commit -m "WIP: backup para troca de pc"
+
+# 3. Envia para nuvem
+git push origin backup-temporario</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3><i class="fa-solid fa-download"></i> No PC 2 (Destino)</h3>
+                            <div class="code-block">
+                                <pre><code class="language-bash"># 1. Baixa as novidades
+git fetch origin
+
+# 2. Entra na branch de backup
+git checkout backup-temporario
+
+# 3. A MÁGICA (Desfaz o commit, mantém arquivos)
+git reset --soft HEAD~1</code></pre>
+                            </div>
+                            <div class="alert mt-20" style="background-color: #e3f2fd; color: #0d47a1;">
+                                <strong>Resultado:</strong> O commit de backup some, e seus arquivos voltam a ficar
+                                verdes (Staged). Agora você pode continuar codando como se nunca tivesse trocado de PC!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recovery">
+                <h2 style="color: #e63946;"><i class="fa-solid fa-kit-medical"></i> SOS: Emergência</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Sumiu tudo? (Reflog)</h3>
+                        <p>Se você apagou uma branch local e remota, o Git local ainda lembra.</p>
+                        <ol class="simple-list">
+                            <li>Veja o histórico: <code>git reflog</code></li>
+                            <li>Ache o hash (ex: <code>e9404ab</code>).</li>
+                            <li>Ressuscite: <code>git checkout -b nome [hash]</code></li>
+                        </ol>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fa-solid fa-box-archive"></i> Checkout Bloqueado</h3>
+                        <p>Se o Git não deixa trocar de branch por conflito:</p>
+                        <ol class="simple-list">
+                            <li>Guarde na gaveta: <code>git stash</code></li>
+                            <li>Troque de branch.</li>
+                            <li>Devolva depois: <code>git stash pop</code></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section id="undoing">
+                <h2><i class="fa-solid fa-rotate-left"></i> Desfazendo Coisas</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Desfazer 'git add'</h3>
+                        <pre><code>git restore --staged .</code></pre>
+                    </div>
+                    <div class="card">
+                        <h3>Editar último commit</h3>
+                        <pre><code>git add arquivo.txt
+git commit --amend</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="branches">
+                <h2><i class="fa-solid fa-code-branch"></i> Branches</h2>
+                <div class="card">
+                    <ul class="simple-list">
+                        <li><strong>Deletar Local:</strong> <code>git branch -D nome</code></li>
+                        <li><strong>Deletar Remoto:</strong> <code>git push origin --delete nome</code></li>
+                        <li><strong>Renomear:</strong> <code>git branch -m novo-nome</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="git-vscode">
+                <h2><i class="fa-solid fa-bolt"></i> Git no VS Code</h2>
+                <div class="card">
+                    <ul class="shortcut-list">
+                        <li><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>G</kbd> <span>Painel Git</span></li>
+                        <li>Digitar mensagem + <kbd>CTRL</kbd> + <kbd>ENTER</kbd> <span>Commit</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="summary">
+                <h2><i class="fa-solid fa-table-list"></i> Resumo Rápido</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Comando</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>git status</td>
+                                <td>Ver o que mudou</td>
+                            </tr>
+                            <tr>
+                                <td>git add .</td>
+                                <td>Preparar tudo</td>
+                            </tr>
+                            <tr>
+                                <td>git commit -m "msg"</td>
+                                <td>Salvar versão</td>
+                            </tr>
+                            <tr>
+                                <td>git push</td>
+                                <td>Enviar para nuvem</td>
+                            </tr>
+                            <tr>
+                                <td>git pull</td>
+                                <td>Baixar da nuvem</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <script>window.ROOT_PATH = './';</script>
+        <script src="components/NavMenu/NavMenu.js"></script>
+        <script src="components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+        <script src="components/Footer/Footer.js"></script> <script src="js/app.js"></script>
+
+    </div>
+</body>
+
+</html>

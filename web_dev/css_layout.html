@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout & Grid - Web Dev</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../components/NavMenu/NavMenu.css">
+    <link rel="stylesheet" href="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="revision-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Atenção: conteúdo ainda não revisado
+        </div>
+        <header class="text-center" style="margin-bottom: 40px;">
+            <h1 style="color: #2965f1;">
+                <i class="fa-solid fa-table-cells"></i> CSS Layout & Grid
+            </h1>
+            <p>Criando layouts complexos e responsivos</p>
+        </header>
+
+        <nav class="card" style="margin-bottom: 40px; padding: 15px;">
+            <ul style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <li><a href="#flex-vs-grid">Flexbox vs Grid</a></li>
+                <li><a href="#grid-basic">Grid Básico</a></li>
+                <li><a href="#grid-areas">Grid Areas</a></li>
+                <li><a href="#media-queries">Media Queries</a></li>
+                <li><a href="#mobile-first">Mobile First</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="flex-vs-grid">
+                <h2><i class="fa-solid fa-scale-balanced"></i> Flexbox vs CSS Grid</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Flexbox (1D)</h3>
+                        <p>Ótimo para alinhar itens em <strong>uma direção</strong> (linha OU coluna). Use para menus, centralização e componentes pequenos.</p>
+                    </div>
+                    <div class="card">
+                        <h3>CSS Grid (2D)</h3>
+                        <p>Poderoso para <strong>duas direções</strong> (linhas E colunas) simultaneamente. Use para o layout principal da página (Header, Sidebar, Main, Footer).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grid-basic">
+                <h2><i class="fa-solid fa-border-all"></i> Grid Básico</h2>
+                <div class="card">
+                    <p>A propriedade mágica é <code>display: grid</code>.</p>
+                    <div class="code-block">
+                        <pre><code class="language-css">.container {
+    display: grid;
+    /* Cria 3 colunas: 1ª 200px, 2ª Automática, 3ª 1 fração do espaço restante */
+    grid-template-columns: 200px auto 1fr;
+    
+    /* Espaçamento */
+    gap: 20px;
+}</code></pre>
+                    </div>
+                    <div class="alert">
+                        <strong>Unidade fr:</strong> <code>1fr</code> significa "uma fração do espaço livre". É muito melhor que usar <code>%</code> em grids.
+                    </div>
+                </div>
+            </section>
+
+            <section id="grid-areas">
+                <h2><i class="fa-solid fa-clapperboard"></i> Grid Areas (Visual)</h2>
+                <div class="card">
+                    <p>Você pode "desenhar" o layout no CSS nomeando as áreas.</p>
+                    <div class="code-block">
+                        <pre><code class="language-css">.layout {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="media-queries">
+                <h2><i class="fa-solid fa-mobile-screen"></i> Responsividade (@media)</h2>
+                <div class="card">
+                    <p>Media Queries permitem mudar o CSS dependendo do tamanho da tela.</p>
+                    <div class="code-block">
+                        <pre><code class="language-css">/* Padrão (Desktop) */
+.box { width: 50%; }
+
+/* Se a tela for menor que 768px (Tablet/Celular) */
+@media (max-width: 768px) {
+    .box {
+        width: 100%; /* Ocupa a tela toda */
+        background-color: red;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mobile-first">
+                <h2><i class="fa-solid fa-arrow-up-right-dots"></i> Conceito Mobile First</h2>
+                <div class="card">
+                    <p>Em vez de fazer o site para Desktop e "espremer" para o celular, faça o CSS base pensando no celular (telas pequenas) e use <code>min-width</code> para expandir.</p>
+                    <ul class="simple-list mt-20">
+                        <li>1. Escreva o CSS normal (para celular).</li>
+                        <li>2. Adicione <code>@media (min-width: 768px)</code> para Tablets.</li>
+                        <li>3. Adicione <code>@media (min-width: 1024px)</code> para Desktop.</li>
+                    </ul>
+                    <p class="mt-20"><em>Isso torna o site mais leve e rápido em dispositivos móveis.</em></p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <a href="https://github.com/LeonardoDalmazzo" target="_blank">
+                <p>©2025 ADML™, Código aberto</p>
+            </a>
+        </footer>
+    </div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../components/NavMenu/NavMenu.js"></script>
+    <script src="../components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

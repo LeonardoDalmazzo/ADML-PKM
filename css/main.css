@@ -107,6 +107,62 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* --- Tag NR (Não Revisado) com Tooltip --- */
+
+.card {
+    position: relative; /* Necessário para posicionar os elementos filhos */
+    /* overflow: hidden; -> Remova ou comente essa linha se o tooltip for cortado */
+}
+
+/* 1. A Etiqueta "NR" (Canto Superior Direito) */
+.card.nr::after {
+    content: "NR";
+    position: absolute;
+    top: 0;
+    right: 0;                    /* Alinhado à Direita */
+    background-color: var(--link-color); /* Use uma cor de alerta se preferir, ex: #e67e22 */
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    padding: 2px 8px;
+    border-bottom-left-radius: 8px; /* Arredonda o canto inferior esquerdo */
+    z-index: 10;
+    cursor: help;                /* Muda o cursor para interrogação/ajuda */
+    pointer-events: auto;        /* Garante que o mouse interaja com a tag */
+}
+
+/* 2. O Texto da Dica (Tooltip) - Inicialmente Escondido */
+.card.nr::before {
+    content: "Conteúdo ainda não foi revisado";
+    position: absolute;
+    top: 25px;                   /* Posiciona logo abaixo da tag NR */
+    right: 5px;                  /* Alinhado à direita com uma margemzinha */
+    background-color: #222;      /* Fundo escuro */
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;         /* Garante que o texto fique em uma linha */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    
+    /* Estado Inicial: Invisível */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px); /* Efeito de subida leve */
+    transition: all 0.2s ease-in-out;
+    z-index: 20;                 /* Fica acima de tudo */
+    pointer-events: none;        /* Não atrapalha o clique no card */
+}
+
+/* 3. A Mágica: Mostra o Tooltip ao passar o mouse no CARD */
+/* Nota: Como é CSS puro, o gatilho é o hover no card todo ou na região */
+.card.nr:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .text-center { text-align: center; }
 .mt-20 { margin-top: 20px; }
 .subtitulo {
@@ -272,4 +328,48 @@ footer {
     padding: 20px;
     border-top: 1px solid var(--border-color);
     color: #888;
+}
+
+/* --- Tag de Aviso: Conteúdo Não Revisado (Página Interna) --- */
+
+/* Garante que a tag se posicione em relação ao container principal */
+.container {
+    position: relative; 
+}
+
+.revision-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    /* Estilo Visual */
+    background-color: var(--primary-color); /* Sua cor de destaque */
+    color: #ffffff; /* Texto branco para contraste */
+    
+    /* Tamanho e Fonte */
+    padding: 10px 20px; /* Maior, como pediu */
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    
+    /* Acabamento */
+    border-bottom-right-radius: 12px; /* Arredonda apenas o canto interno */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2); /* Sombra suave */
+    z-index: 100; /* Fica acima de tudo */
+    
+    /* Ícone e Texto alinhados */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ajuste Mobile: Se a tela for muito pequena, a tag deixa de ser absoluta para não cobrir o título */
+@media (max-width: 480px) {
+    .revision-warning {
+        position: relative;
+        border-radius: 0;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 }
