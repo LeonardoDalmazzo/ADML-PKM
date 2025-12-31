@@ -28,11 +28,14 @@ ul {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 20px;
-    margin-top: var(--header-height); /* Push content below fixed header */
+    margin-top: var(--header-height);
+    /* Push content below fixed header */
     min-height: 80vh;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--heading-color);
 }
 
@@ -53,7 +56,8 @@ code {
     font-family: var(--font-code);
 }
 
-p code, li code {
+p code,
+li code {
     background: rgba(128, 128, 128, 0.2);
     padding: 2px 5px;
     border-radius: 4px;
@@ -61,12 +65,26 @@ p code, li code {
 }
 
 /* Responsive Typography */
-h1 { font-size: 2rem; margin-bottom: 1rem; }
-h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
 
 @media (max-width: 768px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.3rem; }
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Utility Classes */
@@ -104,11 +122,86 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.text-center { text-align: center; }
-.mt-20 { margin-top: 20px; }
+/* --- Tag NR (Não Revisado) com Tooltip --- */
+
+.card {
+    position: relative;
+    /* Necessário para posicionar os elementos filhos */
+    /* overflow: hidden; -> Remova ou comente essa linha se o tooltip for cortado */
+}
+
+/* 1. A Etiqueta "NR" (Canto Superior Direito) */
+.card.nr::after {
+    content: "NR";
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Alinhado à Direita */
+    background-color: var(--link-color);
+    /* Use uma cor de alerta se preferir, ex: #e67e22 */
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    padding: 2px 8px;
+    border-bottom-left-radius: 8px;
+    /* Arredonda o canto inferior esquerdo */
+    z-index: 10;
+    cursor: help;
+    /* Muda o cursor para interrogação/ajuda */
+    pointer-events: auto;
+    /* Garante que o mouse interaja com a tag */
+}
+
+/* 2. O Texto da Dica (Tooltip) - Inicialmente Escondido */
+.card.nr::before {
+    content: "Conteúdo ainda não foi revisado";
+    position: absolute;
+    top: 25px;
+    /* Posiciona logo abaixo da tag NR */
+    right: 5px;
+    /* Alinhado à direita com uma margemzinha */
+    background-color: #222;
+    /* Fundo escuro */
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* Garante que o texto fique em uma linha */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    /* Estado Inicial: Invisível */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    /* Efeito de subida leve */
+    transition: all 0.2s ease-in-out;
+    z-index: 20;
+    /* Fica acima de tudo */
+    pointer-events: none;
+    /* Não atrapalha o clique no card */
+}
+
+/* 3. A Mágica: Mostra o Tooltip ao passar o mouse no CARD */
+/* Nota: Como é CSS puro, o gatilho é o hover no card todo ou na região */
+.card.nr:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
 .subtitulo {
     margin-bottom: 20px;
 }
@@ -128,7 +221,8 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05); /* Slight offset from dark bg */
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight offset from dark bg */
     padding: 8px 15px;
     font-size: 0.8rem;
     color: #888;
@@ -173,12 +267,29 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     color: #fff;
 }
 
-.feat { background-color: #4caf50; }
-.fix { background-color: #f44336; }
-.docs { background-color: #2196f3; }
-.style { background-color: #9c27b0; }
-.refactor { background-color: #b80d7f; }
-.chore { background-color: #607d8b; }
+.feat {
+    background-color: #4caf50;
+}
+
+.fix {
+    background-color: #f44336;
+}
+
+.docs {
+    background-color: #2196f3;
+}
+
+.style {
+    background-color: #9c27b0;
+}
+
+.refactor {
+    background-color: #b80d7f;
+}
+
+.chore {
+    background-color: #607d8b;
+}
 
 .alert {
     background: rgba(206, 145, 120, 0.1);
@@ -186,6 +297,11 @@ h2 { font-size: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--bo
     padding: 15px;
     margin: 20px 0;
     border-radius: 4px;
+}
+
+.alert.success {
+    border-left-color: var(--success-color);
+    background: rgba(0, 198, 66, 0.1);
 }
 
 .link-btn {
@@ -222,7 +338,7 @@ kbd {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     color: var(--text-color);
     font-family: var(--font-code);
     font-size: 0.85rem;
@@ -242,7 +358,8 @@ table {
     border: 1px solid var(--border-color);
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
@@ -261,6 +378,7 @@ tr:hover {
 .simple-list {
     padding-left: 20px;
 }
+
 .simple-list li {
     margin-bottom: 5px;
 }
@@ -272,4 +390,54 @@ footer {
     padding: 20px;
     border-top: 1px solid var(--border-color);
     color: #888;
+}
+
+/* --- Tag de Aviso: Conteúdo Não Revisado (Página Interna) --- */
+
+/* Garante que a tag se posicione em relação ao container principal */
+.container {
+    position: relative;
+}
+
+.revision-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Estilo Visual */
+    background-color: var(--primary-color);
+    /* Sua cor de destaque */
+    color: #ffffff;
+    /* Texto branco para contraste */
+
+    /* Tamanho e Fonte */
+    padding: 10px 20px;
+    /* Maior, como pediu */
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+
+    /* Acabamento */
+    border-bottom-right-radius: 12px;
+    /* Arredonda apenas o canto interno */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    z-index: 100;
+    /* Fica acima de tudo */
+
+    /* Ícone e Texto alinhados */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ajuste Mobile: Se a tela for muito pequena, a tag deixa de ser absoluta para não cobrir o título */
+@media (max-width: 480px) {
+    .revision-warning {
+        position: relative;
+        border-radius: 0;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 }
