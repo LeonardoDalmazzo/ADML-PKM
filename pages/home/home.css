@@ -1,0 +1,91 @@
+/* ======================================================
+   HOME PAGE (scoped)
+   Tudo aqui depende do wrapper .home-page
+   ====================================================== */
+
+.home-page .home-main {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+/* HERO */
+.home-page .home-hero {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.home-page .home-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.home-page .home-subtitle {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+/* GRID */
+.home-page .home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+
+  /* mobile: 1 card grande por “view” */
+  scroll-snap-type: y mandatory;
+}
+
+/* CARD */
+.home-page .home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 70vh;
+  padding: var(--space-lg);
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+
+  color: inherit;
+  scroll-snap-align: start;
+
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.home-page .home-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+}
+
+.home-page .home-card-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.home-page .home-card-desc {
+  margin: 0 0 var(--space-md);
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+/* BREAKPOINTS */
+@media (min-width: 720px) {
+  .home-page .home-grid {
+    grid-template-columns: repeat(2, 1fr);
+    scroll-snap-type: none;
+  }
+
+  .home-page .home-card {
+    min-height: 240px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .home-page .home-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
