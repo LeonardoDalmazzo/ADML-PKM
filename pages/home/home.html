@@ -1,20 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ADML: PKM</title>
 
-  <!-- CSS global (reset + variables + layout + utilities) -->
   <link rel="stylesheet" href="../../wwwroot/css/global.css" />
-
-  <!-- CSS scoped da Home -->
   <link rel="stylesheet" href="./home.css" />
 </head>
 
 <body>
   <div class="container home-page">
-    <!-- Header global (NavMenu entra aqui) -->
     <header id="app-header"></header>
 
     <main class="home-main">
@@ -26,18 +23,18 @@
       </section>
 
       <section class="home-grid" aria-label="Categorias principais">
-        <a class="home-card" href="../pacotes-office/index.html">
-          <h2 class="home-card-title">Pacotes Office</h2>
+        <a class="home-card" href="../sistemas-operacionais/index.html">
+          <h2 class="home-card-title">Sistemas Operacionais</h2>
           <p class="home-card-desc">
-            Instalação, ativação, compatibilidade, atalhos e problemas comuns.
+            Windows, Linux, instalação, manutenção, drivers e ajustes de desempenho.
           </p>
           <span class="link-btn">Acessar</span>
         </a>
 
-        <a class="home-card" href="../sistemas-operacionais/index.html">
-          <h2 class="home-card-title">Sistemas Operacionais</h2>
+        <a class="home-card" href="../pacotes-office/index.html">
+          <h2 class="home-card-title">Pacotes Office</h2>
           <p class="home-card-desc">
-            Windows, Linux, manutenção, drivers e ajustes de desempenho.
+            Instalação, ativação, tutoriais, problemas comuns, guias de atalhos e referências rápidas.
           </p>
           <span class="link-btn">Acessar</span>
         </a>
@@ -45,7 +42,8 @@
         <a class="home-card" href="../tecnologia-da-informacao/index.html">
           <h2 class="home-card-title">Tecnologia da Informação</h2>
           <p class="home-card-desc">
-            Conceitos, redes, segurança, boas práticas e documentação.
+            Conceitos, redes, segurança, tutoriais de hardware e software, desenvolvimento de sistemas,
+            analise e manutenção, ferramentas, montagem de equipamentos e ambientes, boas práticas e documentação.
           </p>
           <span class="link-btn">Acessar</span>
         </a>
@@ -53,29 +51,34 @@
         <a class="home-card" href="../servicos/index.html">
           <h2 class="home-card-title">Serviços</h2>
           <p class="home-card-desc">
-            Catálogo de serviços, processos, fluxos e padrões operacionais.
+            Catálogo de serviços e orçamento.
           </p>
           <span class="link-btn">Acessar</span>
         </a>
 
-        <a class="home-card" href="../parceiros/index.html">
-          <h2 class="home-card-title">Parceiros</h2>
+        <a class="home-card" href="../equipe/index.html">
+          <h2 class="home-card-title">Equipe</h2>
           <p class="home-card-desc">
-            Contatos, integrações, links úteis e materiais compartilhados.
+            Conheça nosso time de desenvolvedores e as pessoas que vão te auxiliar na criação de seus projetos.
           </p>
-          <span class="link-btn">Acessar</span>
+          <span class="link-btn is-accent">Acessar</span>
+        </a>
+
+        <a class="home-card" href="../stakeholders/index.html">
+          <h2 class="home-card-title">Stakeholders</h2>
+          <p class="home-card-desc">
+            Empresas, patrocinadores e parceiros do projeto.
+          </p>
+          <span class="link-btn is-accent">Acessar</span>
         </a>
       </section>
     </main>
 
-    <!-- Footer global -->
     <footer id="app-footer"></footer>
   </div>
 
-  <!-- Identidade da página (usado pelo NavMenu) -->
   <script>window.PAGE_ID = "home";</script>
-
-  <!-- Boot global -->
   <script type="module" src="../../wwwroot/js/global.js"></script>
 </body>
+
 </html>

@@ -1,41 +1,128 @@
 :root {
-  /* Colors */
-  --color-bg: #0b0f14;
-  --color-surface: #111827;
-  --color-border: rgba(255,255,255,.08);
+  /* ======================================================
+     BASE / BACKGROUND
+     ====================================================== */
 
-  --color-text: #e5e7eb;
-  --color-muted: #9ca3af;
-  --color-heading: #f9fafb;
+  --color-bg: #0b0b12;
+  --color-surface: #121220;
+  --color-surface-soft: #18182a;
+  --color-border: rgba(255, 255, 255, .08);
 
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
+  /* ======================================================
+     TEXT
+     ====================================================== */
 
-  /* Typography */
+  --color-text: #e6e6f0;
+  --color-muted: #a1a1b3;
+  --color-heading: #f7f7ff;
+
+  /* ======================================================
+     BRAND (NEON)
+     ====================================================== */
+
+  /* Roxo neon — identidade principal */
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
+  --color-primary-soft: rgba(139, 92, 246, .15);
+
+  /* Rosa shock / neon — destaque */
+  --color-accent: #ff3d81;
+  --color-accent-hover: #ff1f6d;
+  --color-accent-soft: rgba(255, 61, 129, .15);
+
+  /* ======================================================
+     STATUS / ALERTS
+     ====================================================== */
+
+  --color-success: #22ff88;
+  --color-success-soft: rgba(34, 255, 136, .15);
+
+  --color-danger: #ff6b3d;
+  --color-danger-soft: rgba(255, 107, 61, .15);
+
+  --color-warning: #ffd84d;
+  --color-warning-soft: rgba(255, 216, 77, .15);
+
+  --color-info: #38bdf8;
+  --color-info-soft: rgba(56, 189, 248, .15);
+
+  /* ======================================================
+     STATUS / ALERTS - BORDERS (tokenizados)
+     ====================================================== */
+
+  --color-success-border: rgba(34, 255, 136, .25);
+  --color-danger-border: rgba(255, 107, 61, .25);
+  --color-warning-border: rgba(255, 216, 77, .25);
+  --color-info-border: rgba(56, 189, 248, .25);
+  
+  /* ======================================================
+     NEON GLOWS (CONTROLADOS)
+     ====================================================== */
+
+  --neon-purple-glow: 0 0 18px rgba(139, 92, 246, .45);
+  --neon-pink-glow: 0 0 18px rgba(255, 61, 129, .45);
+  --neon-success-glow: 0 0 18px rgba(34, 255, 136, .45);
+  --neon-danger-glow: 0 0 18px rgba(255, 107, 61, .45);
+
+  /* ======================================================
+     TYPOGRAPHY
+     ====================================================== */
+
   --font-base: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-mono: "Fira Code", monospace;
 
   --font-size-base: 16px;
   --line-height-base: 1.5;
 
-  /* Layout */
+  /* ======================================================
+     LAYOUT
+     ====================================================== */
+
   --container-max-width: 1200px;
   --container-padding: 16px;
 
-  /* Cards */
+  /* ======================================================
+     CARDS (DESIGN SYSTEM)
+     ====================================================== */
+
   --card-bg: var(--color-surface);
   --card-border: var(--color-border);
   --card-radius: 16px;
-  --card-shadow: 0 8px 24px rgba(0,0,0,.25);
+  --card-shadow: 0 10px 28px rgba(0, 0, 0, .35);
 
-  /* Spacing */
+  /* Hover / Active */
+  --card-hover-border: rgba(139, 92, 246, .55);
+  --card-hover-shadow:
+    0 10px 28px rgba(0, 0, 0, .35),
+    var(--neon-purple-glow);
+
+  --card-accent-hover-border: rgba(255, 61, 129, .55);
+  --card-accent-hover-shadow:
+    0 10px 28px rgba(0, 0, 0, .35),
+    var(--neon-pink-glow);
+
+  /* ======================================================
+     INTERACTIONS
+     ====================================================== */
+
+  --focus-outline: 2px solid var(--color-accent);
+  --focus-outline-offset: 3px;
+
+  /* ======================================================
+     SPACING
+     ====================================================== */
+
   --space-xs: 6px;
   --space-sm: 10px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
 
-  /* Z-index */
+  /* ======================================================
+     Z-INDEX
+     ====================================================== */
+
   --z-nav: 100;
   --z-fab: 200;
+  --z-modal: 300;
 }

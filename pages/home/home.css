@@ -22,7 +22,7 @@
 .home-page .home-subtitle {
   margin: 0;
   color: var(--color-muted);
-  max-width: 60ch;
+  max-width: 64ch;
   margin-inline: auto;
 }
 
@@ -53,13 +53,18 @@
   color: inherit;
   scroll-snap-align: start;
 
-  transition: transform .2s ease, border-color .2s ease;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
+/* Hover: agora só tokens (design system) */
 .home-page .home-card:hover {
   transform: translateY(-2px);
-  border-color: var(--color-primary);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
 }
+
+/* Se quiser, você pode criar uma versão “accent-card” no futuro,
+   usando --card-accent-hover-border / --card-accent-hover-shadow */
 
 .home-page .home-card-title {
   margin: 0 0 var(--space-sm);
@@ -69,7 +74,13 @@
 .home-page .home-card-desc {
   margin: 0 0 var(--space-md);
   color: var(--color-muted);
-  line-height: 1.4;
+  line-height: 1.45;
+}
+
+/* Foco por card (usa tokens) */
+.home-page .home-card:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
 }
 
 /* BREAKPOINTS */

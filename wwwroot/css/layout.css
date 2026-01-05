@@ -34,17 +34,35 @@ a:hover {
   color: var(--color-primary);
 }
 
+/* Foco acessível global */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 3px;
+}
+
 /* Botão/link padrão */
 .link-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
+  transition: color .18s ease, text-shadow .18s ease;
 }
 
 .link-btn:hover {
   color: var(--color-primary-hover);
+  text-shadow: var(--neon-purple-glow);
+}
+
+/* Variação de destaque importante (rosa neon) */
+.link-btn.is-accent {
+  color: var(--color-accent);
+}
+
+.link-btn.is-accent:hover {
+  color: var(--color-accent-hover);
+  text-shadow: var(--neon-pink-glow);
 }
 
 /* Cards base (reutilizável) */
@@ -53,4 +71,50 @@ a:hover {
   border: 1px solid var(--card-border);
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
+}
+
+/* Superfícies e bordas com “lift” padrão */
+.surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+}
+
+/* Badge simples (útil para status) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .85rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+}
+
+/* Badges por status (SEM números mágicos) */
+.badge.success {
+  color: var(--color-success);
+  background: var(--color-success-soft);
+  border-color: var(--color-success-border);
+}
+
+.badge.danger {
+  color: var(--color-danger);
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger-border);
+}
+
+.badge.warning {
+  color: var(--color-warning);
+  background: var(--color-warning-soft);
+  border-color: var(--color-warning-border);
+}
+
+.badge.info {
+  color: var(--color-info);
+  background: var(--color-info-soft);
+  border-color: var(--color-info-border);
 }
