@@ -118,3 +118,216 @@ a:hover {
   background: var(--color-info-soft);
   border-color: var(--color-info-border);
 }
+
+/* ======================================================
+   GLOBAL NAV / HEADER (Mobile-first)
+   ====================================================== */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: rgba(11, 11, 18, .78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-header {
+  height: 58px;
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+}
+
+.nav-brand {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: var(--color-heading);
+  user-select: none;
+}
+
+/* Botão hamburger */
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+  margin-left: 6px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+
+  border: 1px solid transparent;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.nav-toggle:hover {
+  border-color: rgba(139,92,246,.35);
+  box-shadow: var(--neon-purple-glow);
+}
+
+.nav-toggle:active {
+  transform: scale(.98);
+}
+
+.nav-toggle-lines {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: block;
+}
+
+.nav-toggle-lines .line {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--color-primary);
+  transition: transform .18s ease, opacity .18s ease, background .18s ease;
+}
+
+.nav-toggle-lines .line-1 { top: 0; }
+.nav-toggle-lines .line-2 { top: 6px; }
+.nav-toggle-lines .line-3 { top: 12px; }
+
+/* Estado aberto: vira X e troca roxo -> rosa */
+#app-header.nav-is-open .nav-toggle-lines .line {
+  background: var(--color-accent);
+}
+
+#app-header.nav-is-open .nav-toggle:hover {
+  border-color: rgba(255,61,129,.35);
+  box-shadow: var(--neon-pink-glow);
+}
+
+#app-header.nav-is-open .nav-toggle-lines .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+#app-header.nav-is-open .nav-toggle-lines .line-2 {
+  opacity: 0;
+}
+
+#app-header.nav-is-open .nav-toggle-lines .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Desktop links (escondidos no mobile) */
+.nav-desktop {
+  display: none;
+  justify-content: flex-end;
+  gap: 14px;
+  padding-right: 6px;
+}
+
+.nav-link {
+  padding: 10px 10px;
+  border-radius: 12px;
+  color: var(--color-muted);
+  font-weight: 700;
+  transition: color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  box-shadow: var(--neon-purple-glow);
+}
+
+.nav-link.is-active {
+  color: var(--color-heading);
+  background: var(--color-primary-soft);
+  border: 1px solid rgba(139,92,246,.25);
+}
+
+/* Overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+}
+
+/* Drawer */
+.nav-drawer {
+  position: fixed;
+  top: 58px;
+  left: 0;
+  width: min(320px, 86vw);
+  height: calc(100vh - 58px);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  box-shadow: 12px 0 30px rgba(0,0,0,.45);
+  transform: translateX(-102%);
+  transition: transform .18s ease;
+  padding: 16px;
+}
+
+#app-header.nav-is-open .nav-drawer {
+  transform: translateX(0);
+}
+
+.nav-drawer-nav {
+  display: grid;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.nav-drawer-link {
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  color: var(--color-heading);
+  font-weight: 800;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.nav-drawer-link:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-1px);
+}
+
+.nav-drawer-link.is-active {
+  border-color: rgba(255,61,129,.35);
+  box-shadow: var(--neon-pink-glow);
+}
+
+/* Breakpoint: em telas maiores, mostra nav inline e esconde drawer */
+@media (min-width: 900px) {
+  .app-header {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+  }
+
+  /* centraliza ADML no meio, links à direita */
+  .nav-brand {
+    grid-column: 2;
+  }
+
+  .nav-desktop {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .nav-drawer,
+  .nav-overlay {
+    display: none !important;
+  }
+}
