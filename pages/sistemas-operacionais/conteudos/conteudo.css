@@ -1,114 +1,155 @@
-/* ======================================================
-   CONTENT PAGES (scoped)
-   Usado por drivers.html, dual-boot.html, etc.
-   ====================================================== */
-
-/* Layout base */
-.content-layout {
+﻿.content-shell {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
 }
 
-/* Artigo principal */
 .content-article {
-  max-width: 80ch;
+  width: 100%;
+  max-width: 110ch;
   margin-inline: auto;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-/* Títulos */
-.content-article h1 {
-  margin-top: 0;
-  margin-bottom: var(--space-md);
+.content-hero {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.content-hero h1 {
+  margin: 0 0 var(--space-sm);
   color: var(--color-heading);
+}
+
+.content-hero p {
+  margin: 0;
+  color: var(--color-muted);
 }
 
 .content-article h2 {
   margin-top: var(--space-xl);
   margin-bottom: var(--space-sm);
   color: var(--color-heading);
-  scroll-margin-top: 120px; /* evita ficar escondido atrás do header */
+  scroll-margin-top: 120px;
 }
 
 .content-article h3 {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
   color: var(--color-heading);
   scroll-margin-top: 120px;
 }
 
-/* Parágrafos */
-.content-article p {
-  margin: 0 0 var(--space-md);
-  color: var(--color-text);
+.content-grid,
+.grid-2,
+.grid-auto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
 }
 
-/* Listas */
-.content-article ul,
-.content-article ol {
-  margin: 0 0 var(--space-md);
-  padding-left: 1.4em;
+.content-text-card,
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--space-md);
 }
 
-.content-article li {
-  margin-bottom: 6px;
+.content-text-card:hover,
+.card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
 }
 
-/* Destaques inline */
-.content-article strong {
-  color: var(--color-heading);
-  font-weight: 800;
+.code-block {
+  margin-top: var(--space-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  border-radius: 12px;
+  overflow: auto;
 }
 
-/* Links no conteúdo */
-.content-article a {
+.code-header {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 12px;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+}
+
+.code-block code,
+code {
+  font-family: var(--font-mono);
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
   color: var(--color-primary);
+  background: var(--color-surface);
+  font-size: 0.75rem;
   font-weight: 700;
-  text-decoration: none;
 }
 
-.content-article a:hover {
-  color: var(--color-primary-hover);
-  text-shadow: var(--neon-purple-glow);
+.alert {
+  margin-top: var(--space-sm);
+  border-radius: 12px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-soft);
+  color: var(--color-text);
+  padding: 12px;
 }
 
-/* Separadores lógicos */
-.content-article hr {
-  border: none;
-  height: 1px;
-  background: var(--color-border);
-  margin: var(--space-xl) 0;
+.alert.success {
+  border-color: var(--color-success-border);
+  background: var(--color-success-soft);
 }
 
-/* ======================================================
-   CONTENT + TOC (desktop)
-   ====================================================== */
+.table-container {
+  margin-top: var(--space-sm);
+  overflow: auto;
+}
 
-@media (min-width: 1000px) {
-  .content-layout {
-    grid-template-columns: 260px 1fr;
-    align-items: start;
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  text-align: left;
+}
+
+.simple-list,
+.shortcut-list,
+.commit-types {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.mt-20 { margin-top: 20px; }
+
+@media (min-width: 900px) {
+  .content-grid,
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Sidebar TOC */
-  #app-toc {
-    position: sticky;
-    top: 96px;
-    align-self: start;
-  }
-
-  .content-article {
-    margin-inline: 0;
-  }
-}
-
-/* ======================================================
-   MOBILE REFINES
-   ====================================================== */
-
-@media (max-width: 999px) {
-  .content-article {
-    padding-inline: 2px;
+  .grid-auto {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
