@@ -1,4 +1,4 @@
-/* ======================================================
+﻿/* ======================================================
    BASE
    ====================================================== */
 
@@ -16,22 +16,22 @@ body {
   line-height: var(--line-height-base);
 }
 
-/* Container padrão */
+/* Container padrÃ£o */
 .container {
   max-width: var(--container-max-width);
   margin-inline: auto;
   padding-inline: var(--container-padding);
 }
 
-/* Estrutura base da página */
+/* Estrutura base da pÃ¡gina */
 header,
 footer {
   width: 100%;
 }
 
-/* Header agora tem 2 linhas; não usar subtração fixa */
+/* Header agora tem 2 linhas; nÃ£o usar subtraÃ§Ã£o fixa */
 main {
-  min-height: 100vh;
+  min-height: calc(100dvh - var(--header-total-height, 116px));
   padding-block: var(--space-md);
 }
 
@@ -45,13 +45,13 @@ a:hover {
   color: var(--color-primary);
 }
 
-/* Foco acessível global */
+/* Foco acessÃ­vel global */
 :focus-visible {
   outline: var(--focus-outline);
   outline-offset: 3px;
 }
 
-/* Botão/link padrão */
+/* BotÃ£o/link padrÃ£o */
 .link-btn {
   display: inline-flex;
   align-items: center;
@@ -66,7 +66,7 @@ a:hover {
   text-shadow: var(--neon-purple-glow);
 }
 
-/* Variação de destaque importante (rosa neon) */
+/* VariaÃ§Ã£o de destaque importante (rosa neon) */
 .link-btn.is-accent {
   color: var(--color-accent);
 }
@@ -76,7 +76,7 @@ a:hover {
   text-shadow: var(--neon-pink-glow);
 }
 
-/* Cards base (reutilizável) */
+/* Cards base (reutilizÃ¡vel) */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -84,14 +84,14 @@ a:hover {
   box-shadow: var(--card-shadow);
 }
 
-/* Superfícies e bordas com “lift” padrão */
+/* SuperfÃ­cies e bordas com â€œliftâ€ padrÃ£o */
 .surface {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--card-radius);
 }
 
-/* Badge simples (útil para status) */
+/* Badge simples (Ãºtil para status) */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -105,7 +105,7 @@ a:hover {
   color: var(--color-muted);
 }
 
-/* Badges por status (SEM números mágicos) */
+/* Badges por status (SEM nÃºmeros mÃ¡gicos) */
 .badge.success {
   color: var(--color-success);
   background: var(--color-success-soft);
@@ -135,6 +135,12 @@ a:hover {
    ====================================================== */
 
 .no-scroll { overflow: hidden; }
+html.nav-open,
+body.nav-open,
+html.toc-open,
+body.toc-open {
+  overflow: hidden;
+}
 [hidden] { display: none !important; }
 
 #app-header {
@@ -158,7 +164,9 @@ a:hover {
 }
 
 .header-row--top {
-  grid-template-columns: 56px 1fr auto;
+  --header-side-width: 108px;
+  grid-template-columns: var(--header-side-width) auto var(--header-side-width);
+  padding-inline: var(--container-padding);
 }
 
 .header-row--crumbs {
@@ -166,28 +174,31 @@ a:hover {
 }
 
 .header-spacer {
-  width: 56px;
-  height: 58px;
+  width: var(--header-side-width);
+  height: 44px;
 }
 
 /* Brand */
 .nav-brand {
   text-align: center;
+  justify-self: center;
   font-weight: 800;
   letter-spacing: .18em;
   color: var(--color-heading);
   user-select: none;
 }
 
-/* Botão TOC (hambúrguer) */
+/* BotÃ£o TOC (hambÃºrguer) */
 .nav-toggle {
   width: 44px;
   height: 44px;
-  margin-left: 6px;
+  margin-left: 2px;
   border-radius: 12px;
   display: grid;
   place-items: center;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  justify-self: start;
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
@@ -221,15 +232,18 @@ a:hover {
 .nav-toggle-lines .line-2 { top: 6px; }
 .nav-toggle-lines .line-3 { top: 12px; }
 
-/* Menu ↓ */
+/* Menu â†“ */
 .menu-dd {
   justify-self: end;
-  margin-right: 6px;
+  width: 100%;
+  margin-right: 0;
   padding: 10px 12px;
   border-radius: 14px;
   border: 1px solid transparent;
   color: var(--color-primary);
   font-weight: 900;
+  white-space: nowrap;
+  text-align: center;
   transition: color .18s ease, box-shadow .18s ease, border-color .18s ease, transform .18s ease;
 }
 
@@ -244,7 +258,7 @@ a:hover {
   margin-left: 6px;
 }
 
-/* Overlay do Menu do Site (Menu↓) */
+/* Overlay do Menu do Site (Menuâ†“) */
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -256,7 +270,7 @@ a:hover {
 
 .nav-overlay.is-visible { opacity: 1; }
 
-/* Drawer do Menu do Site (Menu↓) — SEMPRE off-canvas */
+/* Drawer do Menu do Site (Menuâ†“) â€” SEMPRE off-canvas */
 .nav-drawer {
   position: fixed;
   top: 0;
@@ -274,17 +288,17 @@ a:hover {
   z-index: calc(var(--z-nav) + 2);
 }
 
-/* blindagem: se não tiver .is-open, fica FORA */
+/* blindagem: se nÃ£o tiver .is-open, fica FORA */
 .nav-drawer:not(.is-open) {
   transform: translateX(102%) !important;
 }
 
-/* ✅ Só abre quando tiver classe */
+/* âœ… SÃ³ abre quando tiver classe */
 .nav-drawer.is-open {
   transform: translateX(0);
 }
 
-/* Cabeçalho do drawer + botão X */
+/* CabeÃ§alho do drawer + botÃ£o X */
 .nav-drawer__head {
   display: flex;
   align-items: center;
@@ -437,7 +451,7 @@ a:hover {
   font-weight: 900;
 }
 
-/* Links/botões centralizados */
+/* Links/botÃµes centralizados */
 .footer-links {
   display: grid;
   gap: 10px;
@@ -533,7 +547,7 @@ a:hover {
   background: rgba(255, 61, 129, .06);
 }
 
-/* Variante: só ícone */
+/* Variante: sÃ³ Ã­cone */
 .link-icon.is-icon-only {
   width: 44px;
   height: 44px;
@@ -771,42 +785,40 @@ a:hover {
 }
 
 /* ======================================================
-   CONTENT PAGE LAYOUT (TOC abre e empurra conteúdo)
+   CONTENT PAGE LAYOUT (TOC abre e empurra conteÃºdo)
    ====================================================== */
 
-/* por padrão, o conteúdo continua normal */
+/* por padrÃ£o, o conteÃºdo continua normal */
 .is-content .container {
   position: relative;
 }
 
-/* quando o TOC abrir, aplicamos a classe no <html> */
-html.toc-open .is-content .container {
-  max-width: none;                 /* deixa ocupar */
-  padding-inline: 0;               /* remove padding lateral do container */
-}
+@media (min-width: 1200px) {
+  .is-content .container {
+    max-width: none;
+    width: min(1700px, calc(100vw - (2 * var(--content-side-rail, 280px))));
+  }
 
-/* “grid” do conteúdo quando TOC aberto */
-html.toc-open .is-content .content-shell {
-  display: grid;
-  grid-template-columns: min(340px, 88vw) 1fr;
-  gap: 0;
-}
-
-/* coluna do conteúdo fica colada no TOC */
-html.toc-open .is-content .content-main {
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-}
-
-/* mobile: TOC é overlay, NÃO empurra conteúdo */
-@media (max-width: 999px) {
-  html.toc-open .is-content .content-shell {
-    display: block;
+  .is-content .content-shell,
+  .is-content .content-article {
+    width: 100%;
+    max-width: none;
   }
 }
 
+/* TOC sempre em overlay: nunca empurra conteÃºdo */
+html.toc-open .is-content .container {
+  padding-inline: var(--container-padding);
+}
+
+html.toc-open .is-content .content-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
 /* ======================================================
-   SCROLL TO TOP (FAB) — Accent + SVG + Reduced Motion
+   SCROLL TO TOP (FAB) â€” Accent + SVG + Reduced Motion
    ====================================================== */
 
 .scroll-top {
@@ -842,7 +854,7 @@ html.toc-open .is-content .content-main {
     border-color .2s ease;
 }
 
-/* visível */
+/* visÃ­vel */
 .scroll-top.is-visible {
   opacity: 1;
   pointer-events: auto;
@@ -874,7 +886,7 @@ html.toc-open .is-content .content-main {
   outline-offset: 3px;
 }
 
-/* Reduced motion: remove animações e transform */
+/* Reduced motion: remove animaÃ§Ãµes e transform */
 @media (prefers-reduced-motion: reduce) {
   .scroll-top {
     transition: none;
@@ -883,5 +895,67 @@ html.toc-open .is-content .content-main {
 
   .scroll-top.is-visible {
     transform: none;
+  }
+}
+
+.filterbar-wrap {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.filter-toggle {
+  justify-self: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.filter-toggle:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.filter-panel {
+  display: grid;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface-soft);
+}
+
+.filter-field {
+  display: grid;
+  gap: 6px;
+}
+
+.filter-field__label {
+  color: var(--color-heading);
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.filter-select {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.filter-select:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+@media (min-width: 720px) {
+  .filter-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
