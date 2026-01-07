@@ -1,4 +1,4 @@
-// wwwroot/js/components/NavMenu.js
+﻿// wwwroot/js/components/NavMenu.js
 (function () {
   class NavMenu {
     constructor({ rootSelector = "#app-header", activePage = "home" } = {}) {
@@ -12,7 +12,7 @@
 
       this.render();
       this.cache();
-      this.ensureClosed(); // ✅ garante estado inicial fechado (desktop/mobile)
+      this.ensureClosed();
       this.bind();
       this.setActive();
     }
@@ -26,7 +26,7 @@
           <!-- Linha 1 -->
           <div class="header-row header-row--top">
             ${showToc ? `
-              <button id="toc-toggle" class="nav-toggle toc-toggle" type="button" aria-label="Abrir tópicos">
+              <button id="toc-toggle" class="nav-toggle toc-toggle" type="button" aria-label="Abrir tÃ³picos">
                 <span class="nav-toggle-lines" aria-hidden="true">
                   <span class="line line-1"></span>
                   <span class="line line-2"></span>
@@ -38,7 +38,7 @@
             <div class="nav-brand" aria-label="ADML">ADML</div>
 
             <button class="menu-dd" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-drawer">
-              Menu <span class="menu-dd__chev" aria-hidden="true">▾</span>
+              Menu <span class="menu-dd__chev" aria-hidden="true">↓</span>
             </button>
           </div>
 
@@ -55,7 +55,7 @@
         <aside id="site-drawer" class="nav-drawer" aria-label="Menu" aria-hidden="true">
           <div class="nav-drawer__head">
             <div class="nav-drawer__title">Menu</div>
-            <button class="nav-close" type="button" aria-label="Fechar menu">✕</button>
+            <button class="nav-close" type="button" aria-label="Fechar menu">X</button>
           </div>
 
           <nav class="nav-drawer-nav">
@@ -65,9 +65,10 @@
 
             <div class="footer-sep" role="separator" aria-hidden="true"></div>
 
-            <a class="nav-drawer-link" href="${rp}pages/pacotes-office/index.html">Pacotes Office</a>
-            <a class="nav-drawer-link" href="${rp}pages/sistemas-operacionais/index.html">Sistemas Operacionais</a>
             <a class="nav-drawer-link" href="${rp}pages/tecnologia-da-informacao/index.html">Tecnologia da Informação</a>
+            <a class="nav-drawer-link" href="${rp}pages/programacao/index.html">Programacao</a>
+            <a class="nav-drawer-link" href="${rp}pages/sistemas-operacionais/index.html">Sistemas Operacionais</a>
+            <a class="nav-drawer-link" href="${rp}pages/pacotes-office/index.html">Pacotes Office</a>
             <a class="nav-drawer-link" href="${rp}pages/servicos/index.html">Serviços</a>
             <a class="nav-drawer-link" href="${rp}pages/stakeholders/index.html">Stakeholders</a>
           </nav>
@@ -84,20 +85,19 @@
     }
 
     ensureClosed() {
-      // ✅ garante que começa fechado (evita “menu sempre aberto” no desktop)
       this.isOpen = false;
 
       this.menuBtn?.setAttribute("aria-expanded", "false");
       this.drawer?.setAttribute("aria-hidden", "true");
-      this.drawer?.classList.remove("is-open"); // compatível com CSS novo
+      this.drawer?.classList.remove("is-open"); // compatÃ­vel com CSS novo
 
       if (this.overlay) {
         this.overlay.classList.remove("is-visible");
         this.overlay.hidden = true;
       }
 
-      document.documentElement.classList.remove("no-scroll");
-      document.body.classList.remove("no-scroll");
+      document.documentElement.classList.remove("nav-open");
+      document.body.classList.remove("nav-open");
     }
 
     bind() {
@@ -130,15 +130,15 @@
 
       this.menuBtn?.setAttribute("aria-expanded", "true");
       this.drawer?.setAttribute("aria-hidden", "false");
-      this.drawer?.classList.add("is-open"); // ✅ abre via classe (CSS novo)
+      this.drawer?.classList.add("is-open");
 
       if (this.overlay) {
         this.overlay.hidden = false;
         requestAnimationFrame(() => this.overlay.classList.add("is-visible"));
       }
 
-      document.documentElement.classList.add("no-scroll");
-      document.body.classList.add("no-scroll");
+      document.documentElement.classList.add("nav-open");
+      document.body.classList.add("nav-open");
 
       this.closeBtn?.focus?.();
     }
@@ -156,8 +156,8 @@
         setTimeout(() => (this.overlay.hidden = true), 180);
       }
 
-      document.documentElement.classList.remove("no-scroll");
-      document.body.classList.remove("no-scroll");
+      document.documentElement.classList.remove("nav-open");
+      document.body.classList.remove("nav-open");
 
       this.menuBtn?.focus?.();
     }
@@ -169,3 +169,4 @@
 
   window.NavMenu = NavMenu;
 })();
+
