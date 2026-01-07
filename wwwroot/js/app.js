@@ -81,13 +81,19 @@
       });
     }
 
+    if (window.CopyCodeButton) {
+      new window.CopyCodeButton({
+        selector: ".content-article pre",
+      });
+    }
+
     if (window.AutoFilterHub && document.querySelector("#app-filterbar")) {
       new window.AutoFilterHub({
         filterRootSelector: "#app-filterbar",
         cardsSelector: ".js-content-card[data-tags]",
-        fixedFilters: ["all", "basico", "intermediario", "avancado"],
-        includeDiscoveredTags: true,
-        defaultValue: "all",
+        fixedLevels: ["all", "introducao", "basico", "intermediario", "avancado"],
+        defaultLevel: "all",
+        defaultTheme: "all",
       });
     }
   });
