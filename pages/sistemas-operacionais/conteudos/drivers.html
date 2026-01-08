@@ -8,18 +8,17 @@
   <!-- CSS global -->
   <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
 
-  <link rel="stylesheet" href="./content.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
 </head>
 
-<body>
+<body class="is-content">
   <!-- HEADER GLOBAL -->
   <header id="app-header"></header>
   
-  <main class="container content-layout">
-
-    <div id="app-contentnav"></div>
-
-    <article id="content-article" class="content-article">
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+      <article id="content-article" class="content-article">
 
       <h1 id="drivers">Drivers: como identificar e instalar</h1>
       <p>
@@ -97,7 +96,8 @@
         <li>Drivers críticos reiniciados</li>
       </ul>
 
-    </article>
+      </article>
+    </div>
   </main>
 
   <!-- FOOTER -->
