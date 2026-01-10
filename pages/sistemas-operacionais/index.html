@@ -1,119 +1,112 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistemas Operacionais | ADML</title>
-
-  <!-- Global CSS -->
   <link rel="stylesheet" href="../../wwwroot/css/global.css" />
-
-  <!-- Scoped CSS da página -->
   <link rel="stylesheet" href="./index.css" />
 </head>
 
 <body>
-  <!-- Header global -->
   <header id="app-header"></header>
 
   <main class="container so-page">
-    <!-- Hero -->
     <section class="so-hero">
       <h1 class="so-title">Sistemas Operacionais</h1>
       <p class="so-subtitle">
-        Central de conteúdos sobre Windows e Linux: drivers, instalação, dual boot, manutenção e boas práticas.
+        Conteudos de Windows e Linux: instalacao, manutencao, rede, diagnostico e boas praticas.
       </p>
     </section>
 
-    <!-- FilterBar (auto) -->
     <section class="so-filters">
       <div id="app-filterbar"></div>
     </section>
 
-    <!-- Grid de conteúdos -->
-    <section class="so-grid" aria-label="Conteúdos de Sistemas Operacionais">
-      <!-- Drivers -->
-      <a class="content-card js-content-card" href="./conteudos/drivers.html" data-tags="basico,drivers,windows">
+    <section class="so-grid" aria-label="Conteudos de Sistemas Operacionais">
+      <a class="content-card js-content-card" href="./conteudos/drivers.html" data-tags="basico,windows,drivers,hardware">
         <div>
           <h2 class="content-card__title">Drivers: como identificar e instalar</h2>
-          <p class="content-card__desc">
-            Como evitar driver errado, identificar o hardware e instalar na ordem correta.
-          </p>
+          <p class="content-card__desc">Fonte correta, ordem de instalacao e resolucao de conflitos.</p>
         </div>
-
-        <div class="content-card__footer">
-          <span class="link-btn">Acessar</span>
-        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
       </a>
 
-      <!-- Dual boot -->
-      <a class="content-card js-content-card" href="./conteudos/dual-boot.html" data-tags="intermediario,linux,windows">
+      <a class="content-card js-content-card" href="./conteudos/dual-boot.html" data-tags="intermediario,linux,windows,instalacao,boot">
         <div>
           <h2 class="content-card__title">Dual boot Windows + Linux</h2>
-          <p class="content-card__desc">
-            Estratégia segura para manter os dois sistemas na mesma máquina sem perder o boot.
-          </p>
+          <p class="content-card__desc">Planejamento de particoes, ordem de instalacao e recuperacao de boot.</p>
         </div>
-
-        <div class="content-card__footer">
-          <span class="link-btn">Acessar</span>
-        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
       </a>
 
-      <!-- Placeholders -->
-      <a class="content-card js-content-card" href="#" data-tags="basico,windows" aria-disabled="true">
+      <a class="content-card js-content-card" href="./conteudos/linux-basico.html" data-tags="introducao,linux,terminal,filesystem,essenciais">
         <div>
-          <h2 class="content-card__title">Instalação limpa do Windows</h2>
-          <p class="content-card__desc">
-            Em breve: criação de mídia, partições, drivers essenciais e checklist pós-instalação.
-          </p>
+          <h2 class="content-card__title">Linux Basico</h2>
+          <p class="content-card__desc">FHS, sudo/root e comandos iniciais para navegar e operar no sistema.</p>
         </div>
-        <div class="content-card__footer">
-          <span class="link-btn is-accent">Em breve</span>
-        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
       </a>
 
-      <a class="content-card js-content-card" href="#" data-tags="basico,linux" aria-disabled="true">
+      <a class="content-card js-content-card" href="./conteudos/windows-winget.html" data-tags="basico,windows,winget,atalhos,terminal">
         <div>
-          <h2 class="content-card__title">Linux: primeiros passos</h2>
-          <p class="content-card__desc">
-            Em breve: distros, instalação, atualizações e comandos essenciais para começar.
-          </p>
+          <h2 class="content-card__title">Windows e Winget</h2>
+          <p class="content-card__desc">Atalhos de sistema e gerenciamento de pacotes via linha de comando.</p>
         </div>
-        <div class="content-card__footer">
-          <span class="link-btn is-accent">Em breve</span>
-        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
       </a>
 
-      <a class="content-card js-content-card" href="#" data-tags="avancado,windows" aria-disabled="true">
+      <a class="content-card js-content-card" href="./conteudos/windows-master-guide.html" data-tags="avancado,windows,diagnostico,otimizacao,terminal">
         <div>
-          <h2 class="content-card__title">Performance e otimização</h2>
-          <p class="content-card__desc">
-            Em breve: inicialização, serviços, SSD, telemetria, ajustes seguros e diagnóstico.
-          </p>
+          <h2 class="content-card__title">Windows Master Guide</h2>
+          <p class="content-card__desc">Diagnostico, reparo, logs, atalhos avancados e otimizacao profunda.</p>
         </div>
-        <div class="content-card__footer">
-          <span class="link-btn is-accent">Em breve</span>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-historia.html" data-tags="introducao,windows,historia,curiosidades,evolucao">
+        <div>
+          <h2 class="content-card__title">Historia do Windows</h2>
+          <p class="content-card__desc">Evolucao das versoes, mudancas-chave e contexto tecnico.</p>
         </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-isos.html" data-tags="intermediario,windows,instalacao,iso,bootavel">
+        <div>
+          <h2 class="content-card__title">Instalacao e ISOs no Windows</h2>
+          <p class="content-card__desc">Midia bootavel, bypass de requisitos e comandos pos-instalacao.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-ip-estatico.html" data-tags="intermediario,windows,rede,dns,ipv4">
+        <div>
+          <h2 class="content-card__title">IP Estatico e DNS no Windows</h2>
+          <p class="content-card__desc">Configuracao manual de IPv4, gateway e DNS com contexto pratico.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+    
+      <a class="content-card js-content-card" href="./conteudos/linux-distros.html" data-tags="intermediario,linux,distros,historia,ranking">
+        <div>
+          <h2 class="content-card__title">Linux Distros: guia completo</h2>
+          <p class="content-card__desc">Imagem, historia, usos por cenario e ranking amplo de distribuicoes.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
       </a>
     </section>
   </main>
 
-  <!-- Footer global -->
   <footer id="app-footer"></footer>
 
-  <!-- Identidade da página -->
   <script>
     window.PAGE_ID = "sistemas-operacionais";
-    window.IS_CONTENT_PAGE = false; // hub, não é página de artigo
+    window.IS_CONTENT_PAGE = false;
   </script>
-
-  <!-- Boot global -->
   <script type="module" src="../../wwwroot/js/global.js"></script>
-
-  <!-- Script scoped do hub (auto filtros) -->
-  <script type="module" src="./index.js"></script>
 </body>
 
 </html>
+
