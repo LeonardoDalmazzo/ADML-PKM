@@ -1,10 +1,9 @@
-// wwwroot/js/components/Breadcrumbs.js
+﻿// wwwroot/js/components/Breadcrumbs.js
 (function () {
   class Breadcrumbs {
     constructor({ rootSelector = "#app-breadcrumbs" } = {}) {
       this.rootEl = document.querySelector(rootSelector);
       if (!this.rootEl) return;
-
       this.rp = window.ROOT_PATH || "./";
       this.render();
     }
@@ -17,80 +16,82 @@
         contact: "Contact",
         "sistemas-operacionais": "Sistemas Operacionais",
         "pacotes-office": "Pacotes Office",
-        "tecnologia-da-informacao": "Tecnologia da Informação",
-        servicos: "Serviços",
+        "tecnologia-da-informacao": "Tecnologia da Informacao",
+        programacao: "Programacao",
+        servicos: "Servicos",
         stakeholders: "Stakeholders",
-        conteudos: "Conteúdos",
+        conteudos: "Conteudos",
+        "git-github": "Git & GitHub",
+        "setup-ambiente": "Setup de Ambiente",
+        "html-css-fundamentos": "HTML e CSS Fundamentos",
+        "javascript-dom": "JavaScript e DOM",
+        "javascript-moderno-es6": "JavaScript Moderno ES6+",
+        "css-layout-grid": "CSS Layout e Grid",
+        "apis-fetch": "APIs e Fetch",
+        "react-fundamentos": "React Fundamentos",
+        "linguagem-c": "Linguagem C",
+        "vscode-shortcuts": "VS Code Shortcuts",
+        "como-a-web-funciona": "Como a Web Funciona",
+        "microsoft-word": "Microsoft Word",
+        "microsoft-excel": "Microsoft Excel",
+        "google-sheets": "Google Sheets",
+        "linux-basico": "Linux Basico",
+        "windows-winget": "Windows e Winget",
+        "windows-master-guide": "Windows Master Guide",
+        "windows-historia": "Historia do Windows",
+        "windows-isos": "Instalacao e ISOs no Windows",
+        "windows-ip-estatico": "IP Estatico e DNS no Windows",
+        "linux-distros": "Linux Distros",
       };
 
       const clean = s.replace(/\.html$/i, "");
       if (map[clean]) return map[clean];
-
-      return clean
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, (m) => m.toUpperCase());
+      return clean.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
     }
 
     buildTrail() {
       const path = window.location.pathname;
       const segments = path.split("/").filter(Boolean);
-
-      // Remove base do repo (GitHub Pages) se existir
       const idxPages = segments.indexOf("pages");
       const rel = idxPages >= 0 ? segments.slice(idxPages + 1) : segments;
 
-      const items = [];
-      items.push({ label: "Home", href: `${this.rp}pages/home/home.html` });
-
-      // pages/<hub>/index.html  |  pages/<page>/<page>.html  | pages/<hub>/conteudos/<file>.html
-      // Vamos adicionar migalhas até o arquivo final, sem link no último.
+      const items = [{ label: "Home", href: `${this.rp}pages/home/home.html` }];
       if (rel.length === 0) return items;
 
-      // Ex: ["sistemas-operacionais","conteudos","drivers.html"]
       const hub = rel[0];
+      const isHomeRoute = hub === "home" && (rel[1] === "home.html" || rel[1] === "index.html" || rel.length === 1);
+      if (isHomeRoute) {
+        return [{ label: "Home", href: null, isCurrent: true }];
+      }
+
       if (hub && hub !== "home") {
-        // Hub sempre vira link para index.html
         items.push({ label: this.pretty(hub), href: `${this.rp}pages/${hub}/index.html` });
       }
 
-      // Se for página base (about/about.html ou contact/contact.html)
-      // rel = ["about","about.html"]
-      if (rel.length === 2 && rel[1].endsWith(".html") && rel[1].replace(".html", "") === rel[0]) {
-        items[items.length - 1] = { label: this.pretty(rel[0]), href: null, isCurrent: true };
-        return items;
-      }
-
-      // Se existir pasta conteudos e arquivo final
       const last = rel[rel.length - 1] || "";
       if (last.endsWith(".html") && rel.includes("conteudos")) {
         items.push({ label: this.pretty(last), href: null, isCurrent: true });
         return items;
       }
 
-      // Se for index.html de hub
       if (last === "index.html") {
-        // o item de hub já existe acima; torna ele current
         items[items.length - 1] = { label: this.pretty(hub), href: null, isCurrent: true };
         return items;
       }
 
-      // fallback: último segmento como current
       items.push({ label: this.pretty(last || hub), href: null, isCurrent: true });
       return items;
     }
 
     render() {
       const items = this.buildTrail();
-
       this.rootEl.innerHTML = `
         <div class="breadcrumbs" aria-label="Breadcrumb">
-          <div class="bc-location" aria-label="Você está aqui">
+          <div class="bc-location" aria-label="Voce esta aqui">
             ${items
               .map((x, idx) => {
-                const sep = idx === 0 ? "" : `<span class="bc-sep" aria-hidden="true">›</span>`;
-                if (!x.href || x.isCurrent) {
-                  return `${sep}<span class="bc-current">${x.label}</span>`;
-                }
+                const sep = idx === 0 ? "" : `<span class="bc-sep" aria-hidden="true">&rsaquo;</span>`;
+                if (!x.href || x.isCurrent) return `${sep}<span class="bc-current">${x.label}</span>`;
                 return `${sep}<a class="bc-link" href="${x.href}">${x.label}</a>`;
               })
               .join("")}
@@ -102,3 +103,4 @@
 
   window.Breadcrumbs = Breadcrumbs;
 })();
+
