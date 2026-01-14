@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows e Winget | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="windows-winget">Windows e Winget</h1><p>Atalhos de sistema e automacao com gerenciador de pacotes.</p></header>
+    <section id="sistema"><h2 id="sistema">Sistema e essenciais</h2><div class="grid-2"><div class="card"><h3>Basicos</h3><ul class="shortcut-list"><li><kbd>Win</kbd> abrir iniciar</li><li><kbd>Win</kbd> + <kbd>E</kbd> explorador</li><li><kbd>Win</kbd> + <kbd>I</kbd> configuracoes</li></ul></div><div class="card"><h3>Admin</h3><ul class="shortcut-list"><li><kbd>Win</kbd> + <kbd>X</kbd> menu rapido</li><li><kbd>Win</kbd> + <kbd>R</kbd> executar</li><li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> task manager</li></ul></div></div></section>
+    <section id="winget"><h2 id="winget">Winget CLI</h2><div class="code-block"><pre><code class="language-bash">winget search "visual studio code"
+winget install Microsoft.VisualStudioCode
+winget upgrade --all
+winget list
+winget uninstall "nome do programa"</code></pre></div></section>
+    <section id="janelas"><h2 id="janelas">Gerenciamento de janelas</h2><div class="card"><p>Use Win + setas para snap e Alt + Tab para alternancia rapida.</p></div></section>
+    <section id="desktops-virtuais"><h2 id="desktops-virtuais">Desktops virtuais</h2><div class="card"><p><kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>D</kbd> cria novo desktop e <kbd>Win</kbd> + <kbd>Ctrl</kbd> + setas alterna.</p></div></section>
+    <section id="run"><h2 id="run">Comandos Win + R</h2><div class="grid-2"><div class="card"><h3>Sistema</h3><ul class="simple-list"><li><code>cmd</code></li><li><code>powershell</code></li><li><code>control</code></li></ul></div><div class="card"><h3>Utilitarios</h3><ul class="simple-list"><li><code>calc</code></li><li><code>notepad</code></li><li><code>cleanmgr</code></li></ul></div></div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='windows-winget'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>
