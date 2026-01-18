@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linux Distros | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+  <style>
+    .distros-cover {
+      margin: 0;
+    }
+
+    .distros-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .distros-cover figcaption {
+      margin-top: 10px;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+
+      <article id="content-article" class="content-article">
+        <section id="imagem-geral">
+          <figure class="card distros-cover">
+            <img src="../../../wwwroot/assets/linux-distros-cover.png" alt="Mapa visual das principais familias de distribuicoes Linux" />
+            <figcaption>Guia pratico para escolher distribuicao por perfil, hardware e objetivo.</figcaption>
+          </figure>
+        </section>
+
+        <section id="historia-resumo">
+          <h2 id="historia-resumo">Historia resumida</h2>
+          <div class="card">
+            <ul class="simple-list">
+              <li>1991: Linux kernel surge com Linus Torvalds.</li>
+              <li>1993: Debian estabelece base comunitaria robusta.</li>
+              <li>2003: Fedora substitui Red Hat Linux para desktop/comunidade.</li>
+              <li>2004: Ubuntu populariza Linux para iniciantes.</li>
+              <li>2010+: Arch, Manjaro, NixOS e distros especializadas ganham espaco.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="familias-principais">
+          <h2 id="familias-principais">Familias principais</h2>
+          <div class="grid-2">
+            <div class="card"><h3>Debian</h3><p>Foco em estabilidade e enorme ecossistema de pacotes.</p></div>
+            <div class="card"><h3>Red Hat</h3><p>Foco empresarial, seguranca e suporte corporativo.</p></div>
+            <div class="card"><h3>Arch</h3><p>Foco em controle total e filosofia minimalista.</p></div>
+            <div class="card"><h3>SUSE</h3><p>Foco em administracao e operacao profissional.</p></div>
+          </div>
+        </section>
+
+        <section id="usos-por-cenario">
+          <h2 id="usos-por-cenario">Usos por cenario</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>Cenario</th><th>Distros indicadas</th><th>Motivo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Iniciante desktop</td><td>Linux Mint, Ubuntu, Zorin OS</td><td>Setup simples e boa compatibilidade.</td></tr>
+                <tr><td>Notebook antigo</td><td>Lubuntu, Xubuntu, MX Linux</td><td>Consumo leve de recursos.</td></tr>
+                <tr><td>Dev workstation</td><td>Fedora Workstation, Ubuntu, Pop!_OS</td><td>Pacotes atuais e bom suporte a ferramentas.</td></tr>
+                <tr><td>Servidor estavel</td><td>Debian, Ubuntu Server, Rocky Linux</td><td>LTS e previsibilidade operacional.</td></tr>
+                <tr><td>Seguranca/pentest</td><td>Kali Linux, Parrot Security</td><td>Stack de seguranca pronta.</td></tr>
+                <tr><td>Privacidade</td><td>Tails, Qubes OS</td><td>Isolamento e foco em anonimato/seguranca.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="ranking-geral">
+          <h2 id="ranking-geral">Ranking amplo (pratico)</h2>
+          <div class="alert">Ranking orientado a uso real (desktop + dev + servidor). Nao e absoluto.</div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>#</th><th>Distro</th><th>Familia</th><th>Dificuldade</th><th>Uso principal</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Ubuntu</td><td>Debian</td><td>Baixa</td><td>Desktop/dev geral</td></tr>
+                <tr><td>2</td><td>Linux Mint</td><td>Debian/Ubuntu</td><td>Baixa</td><td>Desktop iniciante</td></tr>
+                <tr><td>3</td><td>Fedora Workstation</td><td>Red Hat</td><td>Media</td><td>Dev moderno</td></tr>
+                <tr><td>4</td><td>Debian</td><td>Debian</td><td>Media</td><td>Servidor estavel</td></tr>
+                <tr><td>5</td><td>Pop!_OS</td><td>Ubuntu</td><td>Baixa/Media</td><td>Produtividade desktop</td></tr>
+                <tr><td>6</td><td>openSUSE Tumbleweed</td><td>SUSE</td><td>Media</td><td>Rolling com tooling forte</td></tr>
+                <tr><td>7</td><td>Rocky Linux</td><td>Red Hat</td><td>Media</td><td>Servidor enterprise-like</td></tr>
+                <tr><td>8</td><td>AlmaLinux</td><td>Red Hat</td><td>Media</td><td>Servidor enterprise-like</td></tr>
+                <tr><td>9</td><td>Manjaro</td><td>Arch</td><td>Media</td><td>Desktop rolling acessivel</td></tr>
+                <tr><td>10</td><td>Arch Linux</td><td>Arch</td><td>Alta</td><td>Controle total</td></tr>
+                <tr><td>11</td><td>KDE Neon</td><td>Ubuntu</td><td>Baixa/Media</td><td>Desktop KDE atualizado</td></tr>
+                <tr><td>12</td><td>Zorin OS</td><td>Ubuntu</td><td>Baixa</td><td>Migracao de Windows</td></tr>
+                <tr><td>13</td><td>elementary OS</td><td>Ubuntu</td><td>Baixa</td><td>UX focada e limpa</td></tr>
+                <tr><td>14</td><td>MX Linux</td><td>Debian</td><td>Baixa/Media</td><td>Hardware modesto</td></tr>
+                <tr><td>15</td><td>Lubuntu</td><td>Ubuntu</td><td>Baixa</td><td>Maquinas antigas</td></tr>
+                <tr><td>16</td><td>Xubuntu</td><td>Ubuntu</td><td>Baixa</td><td>Leve e estavel</td></tr>
+                <tr><td>17</td><td>Gentoo</td><td>Source-based</td><td>Muito alta</td><td>Customizacao extrema</td></tr>
+                <tr><td>18</td><td>NixOS</td><td>Nix</td><td>Alta</td><td>Infra declarativa/reprodutivel</td></tr>
+                <tr><td>19</td><td>Kali Linux</td><td>Debian</td><td>Media/Alta</td><td>Pentest</td></tr>
+                <tr><td>20</td><td>Parrot Security</td><td>Debian</td><td>Media</td><td>Seguranca + desktop</td></tr>
+                <tr><td>21</td><td>Tails</td><td>Debian</td><td>Media</td><td>Privacidade/anonimato</td></tr>
+                <tr><td>22</td><td>Qubes OS</td><td>Xen-based</td><td>Alta</td><td>Seguranca por isolamento</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="como-escolher">
+          <h2 id="como-escolher">Como escolher sua distro</h2>
+          <div class="card">
+            <ol class="simple-list">
+              <li>Defina o objetivo: desktop, dev, servidor ou seguranca.</li>
+              <li>Cheque hardware: CPU, RAM, GPU e suporte Wi-Fi/Bluetooth.</li>
+              <li>Escolha ciclo de atualizacao: LTS (estavel) ou rolling (mais novo).</li>
+              <li>Teste em live USB antes de instalar definitivamente.</li>
+            </ol>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "linux-distros";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>
