@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Microsoft Excel | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="microsoft-excel">Microsoft Excel</h1><p>Analise de dados, produtividade e automacao com VBA.</p></header>
+
+    <section id="atalhos"><h2 id="atalhos">Atalhos de produtividade</h2><div class="grid-2"><div class="card"><h3>Navegacao</h3><ul class="shortcut-list"><li><kbd>Ctrl</kbd> + setas ate o fim dos dados</li><li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + setas para selecionar bloco</li><li><kbd>Ctrl</kbd> + <kbd>PageUp/PageDown</kbd> trocar abas</li></ul></div><div class="card"><h3>Acoes rapidas</h3><ul class="shortcut-list"><li><kbd>Alt</kbd> + <kbd>=</kbd> autossoma</li><li><kbd>Ctrl</kbd> + <kbd>E</kbd> preenchimento relampago</li><li><kbd>Ctrl</kbd> + <kbd>T</kbd> criar tabela</li></ul></div></div></section>
+
+    <section id="formulas-essenciais"><h2 id="formulas-essenciais">Formulas essenciais</h2><div class="table-container"><table><thead><tr><th>Funcao</th><th>Uso</th></tr></thead><tbody><tr><td>SE</td><td>Condicoes logicas</td></tr><tr><td>SOMASES</td><td>Soma por criterios</td></tr><tr><td>TEXTO</td><td>Formatar numero/data</td></tr><tr><td>ARRUMAR</td><td>Remover espacos extras</td></tr></tbody></table></div></section>
+
+    <section id="procv-vs-procx"><h2 id="procv-vs-procx">PROCV vs PROCX</h2><div class="grid-2"><div class="card"><h3>PROCV</h3><p>Busca a direita e e sensivel a mudancas de coluna.</p><div class="code-block"><pre><code class="language-excel">=PROCV(valor; matriz; num_coluna; 0)</code></pre></div></div><div class="card"><h3>PROCX</h3><p>Busca em qualquer direcao e possui fallback nativo.</p><div class="code-block"><pre><code class="language-excel">=PROCX(valor; onde_buscar; o_que_retornar; "Nao achei")</code></pre></div></div></div></section>
+
+    <section id="tabela-dinamica"><h2 id="tabela-dinamica">Tabela dinamica</h2><div class="card"><p>Resuma grandes dados sem formulas complexas.</p><ul class="simple-list"><li>Agrupar datas por mes/ano</li><li>Segmentacao de dados para filtro visual</li><li>Drill down com duplo clique</li></ul></div></section>
+
+    <section id="power-query"><h2 id="power-query">Power Query</h2><div class="card"><p>Pipeline ETL visual para importar, tratar e combinar fontes.</p></div></section>
+
+    <section id="vba"><h2 id="vba">VBA e macros</h2><div class="code-block"><pre><code class="language-vb">Sub LimparDados()
+  Sheets("Planilha1").Range("A2:C100").ClearContents
+  MsgBox "Dados limpos com sucesso!"
+End Sub</code></pre></div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID = "microsoft-excel"; window.IS_CONTENT_PAGE = true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>
