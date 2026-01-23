@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APIs e Fetch | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="apis-fetch">APIs e Fetch</h1><p>Consumo de dados externos com fluxo assincorno previsivel.</p></header>
+    <section id="o-que-e-api"><h2 id="o-que-e-api">O que e API</h2><div class="card"><p>API e contrato de comunicacao entre cliente e servidor.</p></div></section>
+    <section id="json"><h2 id="json">JSON</h2><div class="code-block"><pre><code class="language-json">{
+  "nome": "Leonardo",
+  "skills": ["html", "css", "js"]
+}</code></pre></div></section>
+    <section id="fetch-basico"><h2 id="fetch-basico">Fetch basico</h2><div class="code-block"><pre><code class="language-javascript">fetch('/api/users')
+  .then(r => r.json())
+  .then(data => console.log(data));</code></pre></div></section>
+    <section id="async-await"><h2 id="async-await">Async e await</h2><div class="code-block"><pre><code class="language-javascript">async function loadUsers() {
+  const res = await fetch('/api/users');
+  return await res.json();
+}</code></pre></div></section>
+    <section id="tratamento-erros"><h2 id="tratamento-erros">Tratamento de erros</h2><div class="code-block"><pre><code class="language-javascript">try {
+  const res = await fetch('/api/data');
+  if (!res.ok) throw new Error('Falha na requisicao');
+} catch (err) {
+  console.error(err);
+}</code></pre></div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='apis-fetch'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>
