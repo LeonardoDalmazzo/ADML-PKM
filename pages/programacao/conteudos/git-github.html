@@ -1,0 +1,341 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Git & GitHub | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+
+<body class="is-content">
+  <header id="app-header"></header>
+
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="git-github">Git & GitHub: cheatsheet essencial</h1>
+          <p>Guia focado em comandos, fluxo de trabalho e padroes.</p>
+        </header>
+
+        <section id="setup">
+          <h2 id="setup">Setup e seguranca (Windows)</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Configuracao inicial</h3>
+              <p>Ao pegar uma maquina nova, defina o autor dos commits.</p>
+              <div class="code-block">
+                <pre><code class="language-bash"># 1. Definir identidade (global)
+git config --global user.name "Seu Nome"
+git config --global user.email "email@ex.com"
+
+# 2. Verificar configuracoes existentes
+git config --list
+
+# 3. Ver onde as configs estao salvas
+git config --list --show-origin</code></pre>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Limpeza (sair do PC)</h3>
+              <p>Vai devolver o computador? Remova seus dados locais.</p>
+              <div class="code-block">
+                <pre><code class="language-bash"># 1. Remover nome e email do Git
+git config --global --unset user.name
+git config --global --unset user.email</code></pre>
+              </div>
+              <div class="alert mt-20">
+                <strong>Critico:</strong> no Windows, remova tambem a credencial
+                <code>git:https://github.com</code> no Gerenciador de Credenciais.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="status">
+          <h2 id="status">Status dos arquivos (significados)</h2>
+          <div class="card">
+            <ul class="simple-list">
+              <li><strong>??</strong> untracked</li>
+              <li><strong>A</strong> added</li>
+              <li><strong>M</strong> modified</li>
+              <li><strong>D</strong> deleted</li>
+              <li><strong>R</strong> renamed</li>
+              <li><strong>C</strong> copied</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="status-comandos">
+          <h2 id="status-comandos">Leitura rapida de status e diff</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3><code>git status</code></h3>
+              <p>Mostra detalhes completos da arvore de trabalho e da area de stage.</p>
+              <div class="code-block"><pre><code class="language-bash">git status</code></pre></div>
+            </div>
+            <div class="card">
+              <h3><code>git status -sb</code></h3>
+              <p>Saida curta e objetiva, ideal para rotina diaria.</p>
+              <div class="code-block"><pre><code class="language-bash">git status -sb</code></pre></div>
+            </div>
+            <div class="card">
+              <h3><code>git diff --name-only</code></h3>
+              <p>Lista apenas nomes de arquivos alterados, sem mostrar o patch.</p>
+              <div class="code-block"><pre><code class="language-bash">git diff --name-only</code></pre></div>
+            </div>
+            <div class="card">
+              <h3>Combinacao util</h3>
+              <p>Primeiro veja o panorama, depois aprofunde no arquivo especifico.</p>
+              <div class="code-block"><pre><code class="language-bash">git status -sb
+git diff --name-only
+git diff caminho/do/arquivo</code></pre></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="log-comandos">
+          <h2 id="log-comandos">Leitura de historico com log</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3><code>git log</code></h3>
+              <p>Historico completo com autor, data, hash e mensagem.</p>
+              <div class="code-block"><pre><code class="language-bash">git log</code></pre></div>
+            </div>
+            <div class="card">
+              <h3><code>git log --oneline</code></h3>
+              <p>Historico compacto para navegacao rapida de commits.</p>
+              <div class="code-block"><pre><code class="language-bash">git log --oneline</code></pre></div>
+            </div>
+            <div class="card">
+              <h3>Filtros comuns</h3>
+              <div class="code-block"><pre><code class="language-bash">git log --oneline -n 10
+git log --author="Seu Nome"
+git log -- caminho/do/arquivo</code></pre></div>
+            </div>
+            <div class="card">
+              <h3>Comparar duas refs</h3>
+              <div class="code-block"><pre><code class="language-bash">git log --oneline main..feature/minha-branch</code></pre></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="conventional">
+          <h2 id="conventional">Conventional commits</h2>
+          <div class="card">
+            <ul class="commit-types">
+              <li><code>feat</code>: nova funcionalidade</li>
+              <li><code>fix</code>: correcao de bug</li>
+              <li><code>docs</code>: documentacao</li>
+              <li><code>style</code>: formatacao sem mudar logica</li>
+              <li><code>refactor</code>: refatoracao</li>
+              <li><code>chore</code>: manutencao</li>
+            </ul>
+            <div class="alert mt-20">
+              Para breaking change, use <code>!</code> no tipo: <code>feat!:</code>
+            </div>
+          </div>
+        </section>
+
+        <section id="workflow">
+          <h2 id="workflow">Fluxo de trabalho padrao</h2>
+          <div class="code-block">
+            <div class="code-header">Bash</div>
+            <pre><code class="language-bash"># 1. Atualizar a main
+git checkout main
+git pull origin main
+
+# 2. Criar branch
+git checkout -b feature/nova-funcionalidade
+
+# 3. Adicionar e commitar
+git add .
+git commit -m "feat: adiciona carrossel de imagens"
+
+# 4. Push
+git push origin feature/nova-funcionalidade
+
+# 5. Limpeza local
+git checkout main
+git pull origin main
+git branch -d feature/nova-funcionalidade</code></pre>
+          </div>
+        </section>
+
+        <section id="wip">
+          <h2 id="wip">WIP (troca de PC)</h2>
+          <div class="card">
+            <p>Savepoint temporario para continuar em outra maquina sem fechar a tarefa.</p>
+            <div class="grid-2 mt-20">
+              <div>
+                <h3>No PC 1 (origem)</h3>
+                <div class="code-block">
+                  <pre><code class="language-bash">git checkout -b backup-temporario
+git add .
+git commit -m "WIP: backup para troca de pc"
+git push origin backup-temporario</code></pre>
+                </div>
+              </div>
+              <div>
+                <h3>No PC 2 (destino)</h3>
+                <div class="code-block">
+                  <pre><code class="language-bash">git fetch origin
+git checkout backup-temporario
+git reset --soft HEAD~1</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="alert success mt-20">
+              Resultado: commit temporario removido e arquivos continuam staged.
+            </div>
+          </div>
+        </section>
+
+        <section id="recovery">
+          <h2 id="recovery">SOS: recuperacao</h2>
+          <div class="grid-auto">
+            <div class="card">
+              <h3>Existe no remoto</h3>
+              <ol class="simple-list">
+                <li><code>git fetch --all</code></li>
+                <li><code>git branch -a</code></li>
+                <li><code>git checkout -b nome origin/nome</code></li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>Sumiu de tudo (reflog)</h3>
+              <ol class="simple-list">
+                <li><code>git reflog</code></li>
+                <li>Encontre o hash desejado</li>
+                <li><code>git checkout -b nome HASH</code></li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>Checkout bloqueado</h3>
+              <ol class="simple-list">
+                <li><code>git stash</code></li>
+                <li>Faca checkout/pull</li>
+                <li><code>git stash pop</code></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section id="undoing">
+          <h2 id="undoing">Correcoes e desfazendo</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Desfazer git add</h3>
+              <div class="code-block">
+                <pre><code class="language-bash">git restore --staged arquivo.txt
+git restore --staged .</code></pre>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Editar ultimo commit</h3>
+              <p>Altera mensagem ou adiciona arquivos esquecidos sem criar novo commit.</p>
+              <div class="code-block">
+                <pre><code class="language-bash">git add arquivo-esquecido.txt
+git commit --amend</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-20">
+            <h3>Commits antigos</h3>
+            <p>Antes do push:</p>
+            <div class="code-block">
+              <pre><code class="language-bash">git rebase -i HEAD~3
+# troque 'pick' por 'reword' nos commits desejados</code></pre>
+            </div>
+            <p class="mt-20">Depois do push (use com cuidado):</p>
+            <div class="code-block">
+              <pre><code class="language-bash">git commit --amend
+git push --force</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="branches">
+          <h2 id="branches">Gerenciamento de branches</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Deletar</h3>
+              <div class="code-block">
+                <pre><code class="language-bash">git branch -d nome-branch
+git branch -D nome-branch
+git push origin --delete nome-branch</code></pre>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Renomear</h3>
+              <p>Voce pode renomear uma branch local sem entrar nela.</p>
+              <div class="code-block">
+                <pre><code class="language-bash">git branch -m novo-nome
+git branch -m antigo novo
+
+git push origin -u novo
+git push origin --delete antigo</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="git-vscode">
+          <h2 id="git-vscode">Git no VS Code</h2>
+          <div class="card">
+            <ul class="shortcut-list">
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> abrir Source Control</li>
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> <kbd>G</kbd> commit rapido</li>
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> <kbd>P</kbd> push</li>
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> <kbd>U</kbd> pull</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="summary">
+          <h2 id="summary">Resumo de comandos</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>Comando</th><th>Acao</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>git init</code></td><td>Inicia repositorio</td></tr>
+                <tr><td><code>git clone URL</code></td><td>Clona repositorio remoto</td></tr>
+                <tr><td><code>git status</code></td><td>Mostra estado atual</td></tr>
+                <tr><td><code>git status -sb</code></td><td>Status curto com branch atual</td></tr>
+                <tr><td><code>git diff --name-only</code></td><td>Lista so nomes de arquivos alterados</td></tr>
+                <tr><td><code>git log</code></td><td>Historico completo de commits</td></tr>
+                <tr><td><code>git log --oneline</code></td><td>Historico simplificado</td></tr>
+                <tr><td><code>git reflog</code></td><td>Historico de acoes locais</td></tr>
+                <tr><td><code>git stash</code></td><td>Guarda alteracoes temporariamente</td></tr>
+                <tr><td><code>git diff</code></td><td>Diferencas nao staged</td></tr>
+                <tr><td><code>git commit -m "msg"</code></td><td>Salva alteracoes</td></tr>
+                <tr><td><code>git push</code></td><td>Envia commits</td></tr>
+                <tr><td><code>git pull</code></td><td>Baixa e mescla</td></tr>
+                <tr><td><code>git branch</code></td><td>Lista branches</td></tr>
+                <tr><td><code>git checkout branch</code></td><td>Troca de branch</td></tr>
+                <tr><td><code>git merge branch</code></td><td>Funde branch</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "git-github";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+
+</html>
