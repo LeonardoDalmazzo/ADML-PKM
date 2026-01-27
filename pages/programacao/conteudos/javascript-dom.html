@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript e DOM | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="javascript-dom">JavaScript e DOM</h1>
+          <p>Interatividade no browser com manipulacao segura e previsivel.</p>
+        </header>
+
+        <section id="o-que-e-dom"><h2 id="o-que-e-dom">O que e DOM</h2><div class="card"><p>DOM e a arvore de elementos que o navegador disponibiliza para o JavaScript.</p></div></section>
+        <section id="seletores"><h2 id="seletores">Selecionar elementos</h2><div class="code-block"><pre><code class="language-javascript">const el = document.querySelector('.card');
+const titulo = document.getElementById('titulo');</code></pre></div></section>
+        <section id="alterar-conteudo"><h2 id="alterar-conteudo">Alterar conteudo</h2><div class="card"><p>Prefira <code>textContent</code> quando nao precisar injetar HTML.</p></div></section>
+        <section id="alterar-estilo"><h2 id="alterar-estilo">Alterar estilo</h2><div class="code-block"><pre><code class="language-javascript">el.classList.add('is-active');
+el.classList.toggle('hidden');</code></pre></div></section>
+        <section id="eventos"><h2 id="eventos">Eventos</h2><div class="code-block"><pre><code class="language-javascript">button.addEventListener('click', () => {
+  document.body.classList.toggle('theme-alt');
+});</code></pre></div></section>
+      </article>
+    </div>
+  </main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='javascript-dom'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>
