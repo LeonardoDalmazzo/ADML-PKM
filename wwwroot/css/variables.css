@@ -1,0 +1,41 @@
+:root {
+  /* Colors */
+  --color-bg: #0b0f14;
+  --color-surface: #111827;
+  --color-border: rgba(255,255,255,.08);
+
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+  --color-heading: #f9fafb;
+
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+
+  /* Typography */
+  --font-base: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 16px;
+
+  /* Cards */
+  --card-bg: var(--color-surface);
+  --card-border: var(--color-border);
+  --card-radius: 16px;
+  --card-shadow: 0 8px 24px rgba(0,0,0,.25);
+
+  /* Spacing */
+  --space-xs: 6px;
+  --space-sm: 10px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Z-index */
+  --z-nav: 100;
+  --z-fab: 200;
+}

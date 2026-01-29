@@ -1,0 +1,56 @@
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+/* Container padrão */
+.container {
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Estrutura base da página */
+header,
+footer {
+  width: 100%;
+}
+
+main {
+  min-height: calc(100vh - 120px);
+  padding-block: var(--space-md);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Botão/link padrão */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.link-btn:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Cards base (reutilizável) */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}

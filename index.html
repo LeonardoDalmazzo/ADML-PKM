@@ -1,177 +1,68 @@
-<!DOCTYPE html>
-<html lang="pt-Br">
-
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADML: PKM</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="components/NavMenu/NavMenu.css">
-    <link rel="stylesheet" href="components/FAB-FloatingActionButton/FAB-FloatingActionButton.css">
-    <link rel="stylesheet" href="components/pkm-index/pkm-index.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADML: PKM</title>
+  <meta name="description" content="ADML: PKM — carregando..." />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
+  <!-- Fallback sem JS -->
+  <meta http-equiv="refresh" content="0; url=pages/home/home.html" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+    .card {
+      max-width: 520px;
+      width: 100%;
+      padding: 18px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.25);
+    }
+    .muted {
+      opacity: .8;
+      font-size: .95rem;
+      margin-top: 8px;
+    }
+    a { color: inherit; }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <header class="text-center">
-            <h2>Boas vindas ao meu Gerenciamento de Conhecimento Pessoal (Personal Knowledge Management)</h2>
-            <p>Utilize os filtros abaixo para ver somente os temas das categorias de seu interesse.</p>
-        </header>
-
-        <section class="category-grid mt-20">
-            <div class="cat-card active" data-filter="all">Todos</div>
-            <div class="cat-card" data-filter="Programação">Programação</div>
-            <div class="cat-card" data-filter="Front-end">Front-end</div>
-            <div class="cat-card" data-filter="Back-end">Back-end</div>
-            <div class="cat-card" data-filter="Data">Data</div>
-            <div class="cat-card" data-filter="Cloud">Cloud</div>
-            <div class="cat-card" data-filter="Design">Design</div>
-            <div class="cat-card" data-filter="S.O.">S.O.</div>
-            <div class="cat-card" data-filter="IDE">IDE</div>
-            <div class="cat-card" data-filter="IA">IA</div>
-            <div class="cat-card" data-filter="Ferramentas">Ferramentas</div>
-            <div class="cat-card" data-filter="Sites">Sites Úteis</div>
-            <div class="cat-card" data-filter="Nivelamento">Nivelamento</div>
-            <div class="cat-card" data-filter="Curiosidades">Curiosidades</div>
-            <div class="cat-card" data-filter="Outros">Outros</div>
-        </section>
-
-        <div class="subtitulo text-center">
-            <h3>Temas</h3>
-            <p>Selecione um tema para visualizar seu conteúdo.</p>
-        </div>
-
-        <section id="content-grid" class="grid-2">
-
-            <div class="card" data-category="Programação, Ferramentas">
-                <h2><i class="fa-brands fa-git-alt" style="color: #f05032;"></i>Git →</i><i
-                        class="fa-brands fa-github"></i>GitHub</h2>
-                <p>Comandos essenciais, fluxo e commits.</p>
-                <a href="git_github.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="IDE, Ferramentas">
-                <h2><img class="img-svg" src="assets/img/vscode.svg" alt="ícone do vscode"> VS Code</h2>
-                <p>Atalhos de produtividade e navegação.</p>
-                <a href="vs_code.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="S.O., Ferramentas">
-                <h2><img class="img-svg" src="assets/img/logo_windows.svg" alt="ícone do windows"> Windows</h2>
-                <p>Atalhos de sistema e gerenciamento avançado.</p>
-                <a href="windows_winget.html" class="link-btn">Acessar →</a>
-            </div>
-            
-            <div class="card" data-category="Programação, Back-end">
-                <h2><img class="img-svg" src="assets/img/logo_c_lang.svg" alt="ícone Linguagem C"> Linguagem de Programação - C</h2>
-                <p>Lógica, ponteiros e estruturas de dados.</p>
-                <a href="c_lang.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="Ferramentas, Outros">
-                <h2><i style="color: #0F9D58;" class="fa-solid fa-table"></i> Planilhas</h2>
-                <p>Excel & Google Sheets.</p>
-                <a href="planilhas/planilhas.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="Ferramentas, Data, Cloud, Google Sheets">
-                <h2><i class="fa-solid fa-file-csv" style="color: #0F9D58;"></i> Google Sheets ← Planilhas</h2>
-                <p>Fórmulas, colaboração e scripts (AppScript).</p>
-                <a href="planilhas/gsheets.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="Ferramentas, Data, Excel">
-                <h2><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i> Microsoft Excel ← Planilhas</h2>
-                <p>Atalhos, tabelas dinâmicas e VBA.</p>
-                <a href="planilhas/excel.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="Ferramentas, Outros">
-                <h2><i class="fa-solid fa-file-word" style="color: #2B579A;"></i> Microsoft Word</h2>
-                <p>Formatação, estilos e produtividade.</p>
-                <a href="word.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="Programação, Front-end, Outros">
-                <h2><i class="fa-solid fa-laptop-code" style="color: #E34F26;"></i> Web Dev</h2>
-                <p>Tutoriais por nível (Básico ao Avançado).</p>
-                <a href="web_dev/web_dev.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Nivelamento, Introdução">
-                <h2><i class="fa-solid fa-globe" style="color: #00A8E8;"></i> Como a Web Funciona ← Web Dev</h2>
-                <p>HTTP, DNS e o fluxo Cliente-Servidor.</p>
-                <a href="web_dev/como_funciona_web.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card" data-category="IDE, Ferramentas, Introdução">
-                <h2><i class="fa-solid fa-wrench" style="color: #607D8B;"></i> Setup Inicial ← Web Dev</h2>
-                <p>Instalação do VS Code, Git e Extensões.</p>
-                <a href="web_dev/setup_inicial.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Cloud, Ferramentas, Introdução">
-                <h2><i class="fa-solid fa-rocket" style="color: #00C642;"></i> Deploy & Publicação ← Web Dev</h2>
-                <p>GitHub Pages, Vercel e Netlify.</p>
-                <a href="web_dev/deploy.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Front-end, Programação, Básico">
-                <h2><i class="fa-brands fa-html5" style="color: #E34F26;"></i> HTML & CSS ← Web Dev</h2>
-                <p>Estrutura semântica, Box Model e Flexbox.</p>
-                <a href="web_dev/html_css_basico.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Front-end, Design, Básico">
-                <h2><i class="fa-solid fa-table-cells" style="color: #2965f1;"></i> CSS Grid & Layout ← Web Dev</h2>
-                <p>Grid vs Flexbox, Grid Areas e Responsividade.</p>
-                <a href="web_dev/css_layout.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Front-end, Programação, Intermediário">
-                <h2><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript DOM ← Web Dev</h2>
-                <p>Manipulação de elementos e Eventos.</p>
-                <a href="web_dev/javascript_dom.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Programação, Front-end, Intermediário">
-                <h2><i class="fa-brands fa-square-js" style="color: #F0DB4F;"></i> JS Moderno (ES6+) ← Web Dev</h2>
-                <p>Arrow Functions, Map, Filter e Desestruturação.</p>
-                <a href="web_dev/javascript_es6.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Data, Front-end, Intermediário">
-                <h2><i class="fa-solid fa-server" style="color: #FF5722;"></i> APIs & Fetch ← Web Dev</h2>
-                <p>Consumo de dados, JSON e Async/Await.</p>
-                <a href="web_dev/api_fetch.html" class="link-btn">Acessar →</a>
-            </div>
-
-            <div class="card nr" data-category="Front-end, Programação, Avançado">
-                <h2><i class="fa-brands fa-react" style="color: #61DAFB;"></i> React: How it Works ← Web Dev</h2>
-                <p>Virtual DOM, Hooks e Ciclo de Vida.</p>
-                <a href="web_dev/react_intro.html" class="link-btn">Acessar →</a>
-            </div>
-
-        </section>
+  <div class="wrap">
+    <div class="card">
+      <strong>Carregando…</strong>
+      <p class="muted">
+        Se não redirecionar automaticamente, abra:
+        <a href="pages/home/home.html">pages/home/home.html</a>
+      </p>
     </div>
+  </div>
 
-    </div> <script>window.ROOT_PATH = './';</script>
+  <script>
+    (function redirect() {
+      const target = "pages/home/home.html";
+      const path = window.location.pathname;
+      const segments = path.split("/").filter(Boolean);
 
-    <script src="components/NavMenu/NavMenu.js"></script>
-    <script src="components/FAB-FloatingActionButton/FAB-FloatingActionButton.js"></script>
-    <script src="components/pkm-index/pkm-index.js"></script>
-    <script src="js/app.js"></script>
+      let base = "/";
+      if (segments.length && !segments[0].includes(".")) {
+        if (segments[0] !== "pages") base = "/" + segments[0] + "/";
+      }
+
+      const url = base + target;
+      if (!path.endsWith(target)) window.location.replace(url);
+    })();
+  </script>
 </body>
-
 </html>
