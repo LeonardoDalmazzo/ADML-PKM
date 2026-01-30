@@ -1,14 +1,15 @@
 // wwwroot/js/global.js
 
-// Core
 import "./core/paths.js";
-
-// Components (globais)
 import "./components/NavMenu.js";
+import "./components/Footer.js";
+import "./components/Breadcrumbs.js";
+import "./components/LinkIcon.js";
+import "./components/FilterBar.js";
+import "./components/ContentCard.js";
+import "./components/ContentNav.js";
+import "./components/ScrollTop.js";
 
-// Quando criar:
-// import "./components/Footer.js";
-// import "./components/FAB-FloatingActionButton.js";
+// import "./components/FAB-FloatingActionButton.js"; // quando criar
 
-// App bootstrap
 import "./app.js";

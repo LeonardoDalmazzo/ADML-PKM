@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADML · About</title>
+
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./about.css" />
+</head>
+
+<body>
+  <header id="app-header"></header>
+  <div class="container about-page">
+
+    <main class="about-main">
+      <section class="about-hero">
+        <h1 class="about-title">About</h1>
+        <p class="about-subtitle">Informações sobre o projeto ADML, seus objetivos e princípios.</p>
+      </section>
+
+      <section class="about-content card">
+        <p>
+          Esta página será dedicada a explicar o propósito do ADML,
+          a arquitetura do projeto e sua evolução.
+        </p>
+
+        <!-- ✅ container para os ícones -->
+        <div class="about-social">
+          <div id="social-row" class="icon-row"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="app-footer"></footer>
+  </div>
+
+  <script>window.PAGE_ID = "about";</script>
+
+  <!-- Boot global -->
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+
+  <!-- ✅ JS específico da página -->
+  <script type="module" src="./about.js"></script>
+</body>
+</html>

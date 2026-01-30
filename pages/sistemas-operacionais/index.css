@@ -1,0 +1,63 @@
+/* ======================================================
+   SISTEMAS OPERACIONAIS (scoped)
+   Tudo aqui depende do wrapper .so-page
+   ====================================================== */
+
+.so-page .so-hero {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.so-page .so-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.so-page .so-subtitle {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* filters */
+.so-page .so-filters {
+  margin-bottom: var(--space-lg);
+}
+
+/* grid (mobile first) */
+.so-page .so-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* cards seguem o global .content-card, aqui só ajustamos proporção */
+.so-page .content-card {
+  min-height: 260px;
+}
+
+/* disabled-ish placeholders */
+.so-page .js-content-card[aria-disabled="true"] {
+  opacity: .72;
+  cursor: not-allowed;
+}
+
+.so-page .js-content-card[aria-disabled="true"]:hover {
+  transform: none;
+  box-shadow: var(--card-shadow);
+  border-color: var(--card-border);
+}
+
+@media (min-width: 720px) {
+  .so-page .so-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .so-page .so-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

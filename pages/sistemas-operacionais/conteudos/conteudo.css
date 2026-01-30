@@ -1,0 +1,114 @@
+/* ======================================================
+   CONTENT PAGES (scoped)
+   Usado por drivers.html, dual-boot.html, etc.
+   ====================================================== */
+
+/* Layout base */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* Artigo principal */
+.content-article {
+  max-width: 80ch;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+/* Títulos */
+.content-article h1 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-heading);
+}
+
+.content-article h2 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  color: var(--color-heading);
+  scroll-margin-top: 120px; /* evita ficar escondido atrás do header */
+}
+
+.content-article h3 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--color-heading);
+  scroll-margin-top: 120px;
+}
+
+/* Parágrafos */
+.content-article p {
+  margin: 0 0 var(--space-md);
+  color: var(--color-text);
+}
+
+/* Listas */
+.content-article ul,
+.content-article ol {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.4em;
+}
+
+.content-article li {
+  margin-bottom: 6px;
+}
+
+/* Destaques inline */
+.content-article strong {
+  color: var(--color-heading);
+  font-weight: 800;
+}
+
+/* Links no conteúdo */
+.content-article a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.content-article a:hover {
+  color: var(--color-primary-hover);
+  text-shadow: var(--neon-purple-glow);
+}
+
+/* Separadores lógicos */
+.content-article hr {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-xl) 0;
+}
+
+/* ======================================================
+   CONTENT + TOC (desktop)
+   ====================================================== */
+
+@media (min-width: 1000px) {
+  .content-layout {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+
+  /* Sidebar TOC */
+  #app-toc {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+
+  .content-article {
+    margin-inline: 0;
+  }
+}
+
+/* ======================================================
+   MOBILE REFINES
+   ====================================================== */
+
+@media (max-width: 999px) {
+  .content-article {
+    padding-inline: 2px;
+  }
+}

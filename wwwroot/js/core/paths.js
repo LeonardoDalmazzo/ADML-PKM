@@ -30,6 +30,7 @@
 
   window.APP_BASE = base;     // "/repo/" ou "/"
   window.ROOT_PATH = rootPath; // "./" ou "../" repetido
+  window.IS_CONTENT_PAGE = window.location.pathname.includes("/conteudos/");
 
   // Helper opcional: monta URL respeitando base
   window.toAppUrl = (relativePath) => {

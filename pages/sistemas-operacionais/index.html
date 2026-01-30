@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistemas Operacionais | ADML</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+
+  <!-- Scoped CSS da página -->
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <!-- Header global -->
+  <header id="app-header"></header>
+
+  <main class="container so-page">
+    <!-- Hero -->
+    <section class="so-hero">
+      <h1 class="so-title">Sistemas Operacionais</h1>
+      <p class="so-subtitle">
+        Central de conteúdos sobre Windows e Linux: drivers, instalação, dual boot, manutenção e boas práticas.
+      </p>
+    </section>
+
+    <!-- FilterBar (auto) -->
+    <section class="so-filters">
+      <div id="app-filterbar"></div>
+    </section>
+
+    <!-- Grid de conteúdos -->
+    <section class="so-grid" aria-label="Conteúdos de Sistemas Operacionais">
+      <!-- Drivers -->
+      <a class="content-card js-content-card" href="./conteudos/drivers.html" data-tags="basico,drivers,windows">
+        <div>
+          <h2 class="content-card__title">Drivers: como identificar e instalar</h2>
+          <p class="content-card__desc">
+            Como evitar driver errado, identificar o hardware e instalar na ordem correta.
+          </p>
+        </div>
+
+        <div class="content-card__footer">
+          <span class="link-btn">Acessar</span>
+        </div>
+      </a>
+
+      <!-- Dual boot -->
+      <a class="content-card js-content-card" href="./conteudos/dual-boot.html" data-tags="intermediario,linux,windows">
+        <div>
+          <h2 class="content-card__title">Dual boot Windows + Linux</h2>
+          <p class="content-card__desc">
+            Estratégia segura para manter os dois sistemas na mesma máquina sem perder o boot.
+          </p>
+        </div>
+
+        <div class="content-card__footer">
+          <span class="link-btn">Acessar</span>
+        </div>
+      </a>
+
+      <!-- Placeholders -->
+      <a class="content-card js-content-card" href="#" data-tags="basico,windows" aria-disabled="true">
+        <div>
+          <h2 class="content-card__title">Instalação limpa do Windows</h2>
+          <p class="content-card__desc">
+            Em breve: criação de mídia, partições, drivers essenciais e checklist pós-instalação.
+          </p>
+        </div>
+        <div class="content-card__footer">
+          <span class="link-btn is-accent">Em breve</span>
+        </div>
+      </a>
+
+      <a class="content-card js-content-card" href="#" data-tags="basico,linux" aria-disabled="true">
+        <div>
+          <h2 class="content-card__title">Linux: primeiros passos</h2>
+          <p class="content-card__desc">
+            Em breve: distros, instalação, atualizações e comandos essenciais para começar.
+          </p>
+        </div>
+        <div class="content-card__footer">
+          <span class="link-btn is-accent">Em breve</span>
+        </div>
+      </a>
+
+      <a class="content-card js-content-card" href="#" data-tags="avancado,windows" aria-disabled="true">
+        <div>
+          <h2 class="content-card__title">Performance e otimização</h2>
+          <p class="content-card__desc">
+            Em breve: inicialização, serviços, SSD, telemetria, ajustes seguros e diagnóstico.
+          </p>
+        </div>
+        <div class="content-card__footer">
+          <span class="link-btn is-accent">Em breve</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer global -->
+  <footer id="app-footer"></footer>
+
+  <!-- Identidade da página -->
+  <script>
+    window.PAGE_ID = "sistemas-operacionais";
+    window.IS_CONTENT_PAGE = false; // hub, não é página de artigo
+  </script>
+
+  <!-- Boot global -->
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+
+  <!-- Script scoped do hub (auto filtros) -->
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>
