@@ -1,14 +1,23 @@
-/* ======================================================
+﻿/* ======================================================
    CONTACT PAGE (scoped)
    ====================================================== */
 
-.contact-page .contact-main {
+.contact-page {
   padding-top: var(--space-md);
   padding-bottom: var(--space-lg);
 }
 
 .contact-page .contact-hero {
   margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.contact-page .contact-eyebrow {
+  margin: 0 0 var(--space-xs);
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .contact-page .contact-title {
@@ -19,17 +28,72 @@
 .contact-page .contact-subtitle {
   margin: 0;
   color: var(--color-muted);
-  max-width: 60ch;
+  max-width: 70ch;
+  margin-inline: auto;
 }
 
-.contact-page .contact-content {
+.contact-page .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.contact-page .contact-card {
   padding: var(--space-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
-.icon-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
+.contact-page .contact-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.contact-page .contact-card--accent:hover {
+  border-color: var(--card-accent-hover-border);
+  box-shadow: var(--card-accent-hover-shadow);
+}
+
+.contact-page .contact-card h2 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.contact-page .contact-card p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.contact-page .contact-actions {
   margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.contact-page .contact-list {
+  margin: var(--space-sm) 0 0;
+  padding-left: 1.2rem;
+  color: var(--color-text);
+  display: grid;
+  gap: .45rem;
+}
+
+.contact-page .contact-list li::marker {
+  color: var(--color-accent);
+}
+
+.contact-page .contact-card .link-btn {
+  margin-top: var(--space-md);
+  display: inline-flex;
+}
+
+@media (min-width: 900px) {
+  .contact-page .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
