@@ -1,46 +1,127 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ADML · About</title>
-
+  <title>About | ADML</title>
   <link rel="stylesheet" href="../../wwwroot/css/global.css" />
   <link rel="stylesheet" href="./about.css" />
 </head>
 
 <body>
   <header id="app-header"></header>
-  <div class="container about-page">
 
-    <main class="about-main">
-      <section class="about-hero">
-        <h1 class="about-title">About</h1>
-        <p class="about-subtitle">Informações sobre o projeto ADML, seus objetivos e princípios.</p>
-      </section>
+  <main class="container about-page">
+    <section class="about-hero">
+      <p class="about-eyebrow">ADML</p>
+      <h1 class="about-title">About</h1>
+      <p class="about-subtitle">
+        O ADML e um hub tecnico para organizar conteudos, guias e trilhas praticas de tecnologia
+        com foco em clareza, manutencao e evolucao continua.
+      </p>
+    </section>
 
-      <section class="about-content card">
+    <section class="about-grid about-grid--top" aria-label="Visao geral do projeto">
+      <article class="about-card">
+        <h2>Proposito</h2>
         <p>
-          Esta página será dedicada a explicar o propósito do ADML,
-          a arquitetura do projeto e sua evolução.
+          Centralizar conhecimento tecnico em uma estrutura simples de navegar, com linguagem objetiva
+          e materiais reutilizaveis para estudo e aplicacao profissional.
         </p>
+      </article>
 
-        <!-- ✅ container para os ícones -->
-        <div class="about-social">
-          <div id="social-row" class="icon-row"></div>
-        </div>
-      </section>
-    </main>
+      <article class="about-card">
+        <h2>Como o projeto funciona</h2>
+        <p>
+          Cada area e organizada por categoria e subconteudo, permitindo expansao incremental sem quebrar
+          o fluxo de navegacao. O foco e manter consistencia visual e padrao tecnico entre paginas.
+        </p>
+      </article>
 
-    <footer id="app-footer"></footer>
-  </div>
+      <article class="about-card">
+        <h2>Publico-alvo</h2>
+        <p>
+          Estudantes, profissionais de TI e pessoas que precisam de guias praticos para manutencao,
+          desenvolvimento, automacoes e produtividade com dados.
+        </p>
+      </article>
+    </section>
+
+    <section class="about-section" aria-label="Principios do ADML">
+      <div class="about-section-head">
+        <h2>Principios</h2>
+        <p>Diretrizes de qualidade usadas para manter o projeto coeso.</p>
+      </div>
+
+      <div class="about-grid about-grid--principles">
+        <article class="about-card">
+          <h3>Clareza tecnica</h3>
+          <p>Conteudos diretos, exemplos aplicaveis e explicacao sem excesso de complexidade.</p>
+        </article>
+        <article class="about-card">
+          <h3>Padrao de codigo</h3>
+          <p>Estrutura modular, nomenclatura consistente e facilidade de manutencao.</p>
+        </article>
+        <article class="about-card">
+          <h3>Escalabilidade de conteudo</h3>
+          <p>Arquitetura preparada para adicionar novas categorias, paginas e secoes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" aria-label="Stack e tecnologias">
+      <div class="about-section-head">
+        <h2>Stack e Ferramentas</h2>
+      </div>
+
+      <article class="about-card">
+        <ul class="about-tags">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>.NET</li>
+          <li>ASP.NET</li>
+          <li>EF Core</li>
+          <li>PostgreSQL</li>
+          <li>SQL Server</li>
+          <li>SQLite</li>
+          <li>Blazor</li>
+          <li>C#</li>
+          <li>Python</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="about-section" aria-label="Roadmap aberto">
+      <div class="about-section-head">
+        <h2>Roadmap</h2>
+        <p>Itens planejados para as proximas iteracoes do ADML.</p>
+      </div>
+
+      <article class="about-card">
+        <ul class="about-list">
+          <li>Adicionar novos conteudos tecnicos por trilha.</li>
+          <li>Consolidar area de servicos com estudos de caso.</li>
+          <li>Integrar secao de stakeholders com equipe e parceiros.</li>
+          <li>Expandir componentes reutilizaveis para manter padrao visual.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="about-section about-section--social" aria-label="Links sociais">
+      <div class="about-section-head">
+        <h2>Conecte-se</h2>
+      </div>
+      <div id="social-row" class="icon-row"></div>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
 
   <script>window.PAGE_ID = "about";</script>
-
-  <!-- Boot global -->
   <script type="module" src="../../wwwroot/js/global.js"></script>
-
-  <!-- ✅ JS específico da página -->
   <script type="module" src="./about.js"></script>
 </body>
+
 </html>
