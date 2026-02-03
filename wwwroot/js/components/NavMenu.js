@@ -69,7 +69,7 @@
             <a class="nav-drawer-link" href="${rp}pages/programacao/index.html">Programacao</a>
             <a class="nav-drawer-link" href="${rp}pages/sistemas-operacionais/index.html">Sistemas Operacionais</a>
             <a class="nav-drawer-link" href="${rp}pages/pacotes-office/index.html">Pacotes Office</a>
-            <a class="nav-drawer-link" href="${rp}pages/servicos/index.html">Serviços</a>
+            <a class="nav-drawer-link" href="${rp}pages/Servicos/Servicos.html">Serviços</a>
             <a class="nav-drawer-link" href="${rp}pages/stakeholders/index.html">Stakeholders</a>
           </nav>
         </aside>
