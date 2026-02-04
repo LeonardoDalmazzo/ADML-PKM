@@ -1,22 +1,72 @@
-// wwwroot/js/components/LinkIcon.js
+﻿// wwwroot/js/components/LinkIcon.js
 (function () {
   class LinkIcon {
+    static DEFAULT_PRESETS = {
+      email: {
+        href: "mailto:leonardodalmazzo.dev@gmail.com",
+        label: "E-mail",
+        icon: "mail",
+        newTab: false,
+      },
+      whatsapp: {
+        href: "https://wa.me/5511991795884",
+        label: "WhatsApp",
+        icon: "whatsapp",
+        newTab: true,
+      },
+      github: {
+        href: "https://github.com/LeonardoDalmazzo",
+        label: "GitHub",
+        icon: "github",
+        newTab: true,
+      },
+      linkedin: {
+        href: "https://linkedin.com/in/leonardodalmazzo",
+        label: "LinkedIn",
+        icon: "linkedin",
+        newTab: true,
+      },
+      instagram: {
+        href: "https://www.instagram.com/leonardodalmazzo/?igsh=MXJhYTZ5NHcxcXZsYw%3D%3D",
+        label: "Instagram",
+        icon: "instagram",
+        newTab: true,
+      },
+      website: {
+        href: "https://github.com/LeonardoDalmazzo",
+        label: "Website",
+        icon: "link",
+        newTab: true,
+      },
+    };
+
     /**
      * @param {Object} opts
      * @param {string} opts.href
-     * @param {string} opts.label  - texto visível (ou aria-label quando iconOnly)
+     * @param {string} opts.label  - texto visivel (ou aria-label quando iconOnly)
      * @param {string} opts.icon   - "mail" | "whatsapp" | "github" | "linkedin" | "instagram" | "link"
      * @param {boolean} [opts.newTab=true]
      * @param {string} [opts.className=""]
-     * @param {boolean} [opts.iconOnly=false] - true => só ícone (sem texto)
+     * @param {boolean} [opts.iconOnly=false] - true => so icone (sem texto)
      */
     constructor({ href, label, icon = "link", newTab = true, className = "", iconOnly = false } = {}) {
       this.href = href || "#";
       this.label = label || "";
       this.iconName = icon || "link";
-      this.newTab = newTab !== false; // default true
+      this.newTab = newTab !== false;
       this.className = className;
       this.iconOnly = !!iconOnly;
+    }
+
+    static getPresets() {
+      const custom = window.LINK_ICON_PRESETS || {};
+      return { ...LinkIcon.DEFAULT_PRESETS, ...custom };
+    }
+
+    static getPreset(key) {
+      const presets = LinkIcon.getPresets();
+      const preset = presets[String(key || "").toLowerCase()];
+      return preset ? { ...preset } : null;
     }
 
     static icon(name) {
@@ -47,9 +97,10 @@
 
       const iconOnlyClass = this.iconOnly ? " is-icon-only" : "";
       const ariaLabel = this.label ? ` aria-label="${this.label}"` : "";
+      const className = (this.className || "").trim();
 
       return `
-        <a class="link-icon${iconOnlyClass} ${this.className}".trim()
+        <a class="link-icon${iconOnlyClass}${className ? ` ${className}` : ""}"
            href="${this.href}"${target}${rel}${this.iconOnly ? ariaLabel : ""}>
           <span class="link-icon__icon" aria-hidden="true">
             ${LinkIcon.icon(this.iconName)}
@@ -61,6 +112,22 @@
 
     static render(opts) {
       return new LinkIcon(opts).toHTML();
+    }
+
+    static renderPreset(key, overrides = {}) {
+      const preset = LinkIcon.getPreset(key);
+      if (!preset) return "";
+      return LinkIcon.render({ ...preset, ...overrides });
+    }
+
+    static renderPresets(keys = [], commonOverrides = {}, perKeyOverrides = {}) {
+      return (keys || [])
+        .map((k) => {
+          const key = String(k || "").toLowerCase();
+          const itemOverride = perKeyOverrides[key] || {};
+          return LinkIcon.renderPreset(key, { ...commonOverrides, ...itemOverride });
+        })
+        .join("");
     }
   }
 
