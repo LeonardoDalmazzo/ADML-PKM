@@ -98,6 +98,47 @@
   background: rgba(255, 255, 255, .02);
   color: var(--color-text);
   font-size: .92rem;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.about-page .about-tags li:hover {
+  transform: translateY(-1px);
+}
+
+.about-page .about-tags .stack-tag--html:hover {
+  color: #ff8a4c;
+  border-color: rgba(255, 138, 76, .55);
+  box-shadow: 0 0 14px rgba(255, 138, 76, .35);
+}
+
+.about-page .about-tags .stack-tag--css:hover {
+  color: #4aa8ff;
+  border-color: rgba(74, 168, 255, .55);
+  box-shadow: 0 0 14px rgba(74, 168, 255, .35);
+}
+
+.about-page .about-tags .stack-tag--js:hover {
+  color: #ffe066;
+  border-color: rgba(255, 224, 102, .55);
+  box-shadow: 0 0 14px rgba(255, 224, 102, .35);
+}
+
+.about-page .about-tags .stack-tag--esm:hover {
+  color: #63f3a6;
+  border-color: rgba(99, 243, 166, .55);
+  box-shadow: 0 0 14px rgba(99, 243, 166, .35);
+}
+
+.about-page .about-tags .stack-tag--gh:hover {
+  color: #d6d8e3;
+  border-color: rgba(214, 216, 227, .55);
+  box-shadow: 0 0 14px rgba(214, 216, 227, .28);
+}
+
+.about-page .about-tags .stack-tag--formsubmit:hover {
+  color: #57f2a0;
+  border-color: rgba(87, 242, 160, .55);
+  box-shadow: 0 0 14px rgba(87, 242, 160, .35);
 }
 
 .about-page .about-list {
