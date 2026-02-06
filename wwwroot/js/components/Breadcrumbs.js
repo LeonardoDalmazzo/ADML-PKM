@@ -42,11 +42,34 @@
         "windows-isos": "Instalacao e ISOs no Windows",
         "windows-ip-estatico": "IP Estatico e DNS no Windows",
         "linux-distros": "Linux Distros",
+        formulario: "Formulario",
       };
 
       const clean = s.replace(/\.html$/i, "");
-      if (map[clean]) return map[clean];
+      const key = clean.toLowerCase();
+      if (map[key]) return map[key];
       return clean.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
+    }
+
+    hubEntryFile(hub) {
+      const key = String(hub || "").toLowerCase();
+      const entries = {
+        home: "home.html",
+        about: "about.html",
+        contact: "contact.html",
+        "tecnologia-da-informacao": "index.html",
+        programacao: "index.html",
+        "sistemas-operacionais": "index.html",
+        "pacotes-office": "index.html",
+        servicos: "Servicos.html",
+        stakeholders: "index.html",
+      };
+      return entries[key] || "index.html";
+    }
+
+    hubHref(hub) {
+      const entry = this.hubEntryFile(hub);
+      return `${this.rp}pages/${hub}/${entry}`;
     }
 
     buildTrail() {
@@ -65,10 +88,16 @@
       }
 
       if (hub && hub !== "home") {
-        items.push({ label: this.pretty(hub), href: `${this.rp}pages/${hub}/index.html` });
+        items.push({ label: this.pretty(hub), href: this.hubHref(hub) });
       }
 
       const last = rel[rel.length - 1] || "";
+      const isHubLanding = hub && rel.length === 2 && last.toLowerCase() === this.hubEntryFile(hub).toLowerCase();
+      if (isHubLanding) {
+        items[items.length - 1] = { label: this.pretty(hub), href: null, isCurrent: true };
+        return items;
+      }
+
       if (last.endsWith(".html") && rel.includes("conteudos")) {
         items.push({ label: this.pretty(last), href: null, isCurrent: true });
         return items;
