@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistemas Operacionais | ADML</title>
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <header id="app-header"></header>
+
+  <main class="container so-page">
+    <section class="so-hero">
+      <h1 class="so-title">Sistemas Operacionais</h1>
+      <p class="so-subtitle">
+        Conteudos de Windows e Linux: instalacao, manutencao, rede, diagnostico e boas praticas.
+      </p>
+    </section>
+
+    <section class="so-filters">
+      <div id="app-filterbar"></div>
+    </section>
+
+    <section class="so-grid" aria-label="Conteudos de Sistemas Operacionais">
+      <a class="content-card js-content-card" href="./conteudos/drivers.html" data-tags="basico,windows,drivers,hardware">
+        <div>
+          <h2 class="content-card__title">Drivers: como identificar e instalar</h2>
+          <p class="content-card__desc">Fonte correta, ordem de instalacao e resolucao de conflitos.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/dual-boot.html" data-tags="intermediario,linux,windows,instalacao,boot">
+        <div>
+          <h2 class="content-card__title">Dual boot Windows + Linux</h2>
+          <p class="content-card__desc">Planejamento de particoes, ordem de instalacao e recuperacao de boot.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/linux-basico.html" data-tags="introducao,linux,terminal,filesystem,essenciais">
+        <div>
+          <h2 class="content-card__title">Linux Basico</h2>
+          <p class="content-card__desc">FHS, sudo/root e comandos iniciais para navegar e operar no sistema.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-winget.html" data-tags="basico,windows,winget,atalhos,terminal">
+        <div>
+          <h2 class="content-card__title">Windows e Winget</h2>
+          <p class="content-card__desc">Atalhos de sistema e gerenciamento de pacotes via linha de comando.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-master-guide.html" data-tags="avancado,windows,diagnostico,otimizacao,terminal">
+        <div>
+          <h2 class="content-card__title">Windows Master Guide</h2>
+          <p class="content-card__desc">Diagnostico, reparo, logs, atalhos avancados e otimizacao profunda.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-historia.html" data-tags="introducao,windows,historia,curiosidades,evolucao">
+        <div>
+          <h2 class="content-card__title">Historia do Windows</h2>
+          <p class="content-card__desc">Evolucao das versoes, mudancas-chave e contexto tecnico.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-isos.html" data-tags="intermediario,windows,instalacao,iso,bootavel">
+        <div>
+          <h2 class="content-card__title">Instalacao e ISOs no Windows</h2>
+          <p class="content-card__desc">Midia bootavel, bypass de requisitos e comandos pos-instalacao.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/windows-ip-estatico.html" data-tags="intermediario,windows,rede,dns,ipv4">
+        <div>
+          <h2 class="content-card__title">IP Estatico e DNS no Windows</h2>
+          <p class="content-card__desc">Configuracao manual de IPv4, gateway e DNS com contexto pratico.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+    
+      <a class="content-card js-content-card" href="./conteudos/linux-distros.html" data-tags="intermediario,linux,distros,historia,ranking">
+        <div>
+          <h2 class="content-card__title">Linux Distros: guia completo</h2>
+          <p class="content-card__desc">Imagem, historia, usos por cenario e ranking amplo de distribuicoes.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "sistemas-operacionais";
+    window.IS_CONTENT_PAGE = false;
+  </script>
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+</body>
+
+</html>
+

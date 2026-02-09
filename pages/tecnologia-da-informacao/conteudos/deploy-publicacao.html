@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deploy & Publicacao | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+
+<body class="is-content">
+  <header id="app-header"></header>
+
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="deploy-publicacao">Deploy &amp; Publicacao</h1>
+          <p>Como colocar seu site no ar de forma simples e confiavel.</p>
+        </header>
+
+        <section id="concept">
+          <h2 id="concept">O que e deploy?</h2>
+          <div class="content-text-card">
+            <p><strong>Deploy</strong> e o processo de tirar o projeto do ambiente local e publicar em um servidor para acesso publico.</p>
+          </div>
+        </section>
+
+        <section id="gh-pages">
+          <h2 id="gh-pages">GitHub Pages</h2>
+          <div class="content-text-card">
+            <p>Opcao direta para sites estaticos (HTML/CSS/JS) que ja estao no GitHub.</p>
+
+            <div class="grid-2 mt-20">
+              <div class="card">
+                <h3>Passo a passo</h3>
+                <ol class="simple-list">
+                  <li>Suba o projeto para um repositorio no GitHub.</li>
+                  <li>Entre em <strong>Settings</strong> do repositorio.</li>
+                  <li>Abra a secao <strong>Pages</strong>.</li>
+                  <li>Selecione a branch (<code>main</code>) e salve.</li>
+                </ol>
+              </div>
+
+              <div class="card">
+                <h3>Resultado</h3>
+                <p>Em poucos minutos o site fica disponivel em:</p>
+                <p><code>seu-usuario.github.io/nome-do-repo</code></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="vercel">
+          <h2 id="vercel">Vercel e Netlify</h2>
+          <div class="content-text-card">
+            <p>Plataformas modernas com deploy continuo e melhor suporte para apps com rotas e build pipeline.</p>
+
+            <div class="grid-2 mt-20">
+              <div class="card">
+                <h3>Vantagens</h3>
+                <ul class="simple-list">
+                  <li>Deploy automatico a cada <code>git push</code>.</li>
+                  <li>HTTPS habilitado por padrao.</li>
+                  <li>CDN global para melhor desempenho.</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Como usar</h3>
+                <ol class="simple-list">
+                  <li>Crie conta na plataforma.</li>
+                  <li>Clique em novo projeto.</li>
+                  <li>Conecte o GitHub.</li>
+                  <li>Selecione o repositorio e publique.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="domain">
+          <h2 id="domain">Dominios customizados</h2>
+          <div class="content-text-card">
+            <p>Depois do deploy, voce pode apontar um dominio proprio para o projeto usando registros DNS.</p>
+            <ul class="simple-list">
+              <li>Use <code>CNAME</code> para subdominio (ex.: <code>www</code>).</li>
+              <li>Use <code>A</code> ou <code>ALIAS/ANAME</code> para dominio raiz.</li>
+              <li>Valide SSL/HTTPS apos propagacao do DNS.</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "deploy-publicacao";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+
+</html>

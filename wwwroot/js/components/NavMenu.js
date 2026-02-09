@@ -1,4 +1,4 @@
-// wwwroot/js/components/NavMenu.js
+﻿// wwwroot/js/components/NavMenu.js
 (function () {
   class NavMenu {
     constructor({ rootSelector = "#app-header", activePage = "home" } = {}) {
@@ -12,59 +12,104 @@
 
       this.render();
       this.cache();
+      this.ensureClosed();
       this.bind();
       this.setActive();
     }
 
     render() {
+      const rp = window.ROOT_PATH || "./";
+      const showToc = !!window.IS_CONTENT_PAGE;
+
       this.rootEl.innerHTML = `
-        <div class="app-header">
-          <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-drawer">
-            <span class="nav-toggle-lines" aria-hidden="true">
-              <span class="line line-1"></span>
-              <span class="line line-2"></span>
-              <span class="line line-3"></span>
-            </span>
-          </button>
+        <div class="app-header-2row">
+          <!-- Linha 1 -->
+          <div class="header-row header-row--top">
+            ${showToc ? `
+              <button id="toc-toggle" class="nav-toggle toc-toggle" type="button" aria-label="Abrir tÃ³picos">
+                <span class="nav-toggle-lines" aria-hidden="true">
+                  <span class="line line-1"></span>
+                  <span class="line line-2"></span>
+                  <span class="line line-3"></span>
+                </span>
+              </button>
+            ` : `<div class="header-spacer"></div>`}
 
-          <div class="nav-brand" aria-label="ADML">ADML</div>
+            <div class="nav-brand" aria-label="ADML">ADML</div>
 
-          <nav class="nav-desktop" aria-label="Navegação principal">
-            <a class="nav-link" data-page="home" href="${window.ROOT_PATH || "./"}pages/home/home.html">Home</a>
-            <a class="nav-link" data-page="about" href="${window.ROOT_PATH || "./"}pages/about/index.html">About</a>
-            <a class="nav-link" data-page="contact" href="${window.ROOT_PATH || "./"}pages/contact/index.html">Contact</a>
-          </nav>
+            <button class="menu-dd" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-drawer">
+              Menu <span class="menu-dd__chev" aria-hidden="true">↓</span>
+            </button>
+          </div>
+
+          <!-- Linha 2 (Breadcrumbs) -->
+          <div class="header-row header-row--crumbs">
+            <div id="app-breadcrumbs"></div>
+          </div>
         </div>
 
+        <!-- Overlay -->
         <div class="nav-overlay" hidden></div>
 
-        <aside id="nav-drawer" class="nav-drawer" aria-label="Menu" aria-hidden="true">
+        <!-- Drawer do menu do site (Menu ↓) -->
+        <aside id="site-drawer" class="nav-drawer" aria-label="Menu" aria-hidden="true">
+          <div class="nav-drawer__head">
+            <div class="nav-drawer__title">Menu</div>
+            <button class="nav-close" type="button" aria-label="Fechar menu">X</button>
+          </div>
+
           <nav class="nav-drawer-nav">
-            <a class="nav-drawer-link" data-page="home" href="${window.ROOT_PATH || "./"}pages/home/home.html">Home</a>
-            <a class="nav-drawer-link" data-page="about" href="${window.ROOT_PATH || "./"}pages/about/index.html">About</a>
-            <a class="nav-drawer-link" data-page="contact" href="${window.ROOT_PATH || "./"}pages/contact/index.html">Contact</a>
+            <a class="nav-drawer-link" data-page="home" href="${rp}pages/home/home.html">Home</a>
+            <a class="nav-drawer-link" data-page="about" href="${rp}pages/about/about.html">About</a>
+            <a class="nav-drawer-link" data-page="contact" href="${rp}pages/contact/contact.html">Contact</a>
+
+            <div class="footer-sep" role="separator" aria-hidden="true"></div>
+
+            <a class="nav-drawer-link" href="${rp}pages/tecnologia-da-informacao/index.html">Tecnologia da Informação</a>
+            <a class="nav-drawer-link" href="${rp}pages/programacao/index.html">Programacao</a>
+            <a class="nav-drawer-link" href="${rp}pages/sistemas-operacionais/index.html">Sistemas Operacionais</a>
+            <a class="nav-drawer-link" href="${rp}pages/pacotes-office/index.html">Pacotes Office</a>
+            <a class="nav-drawer-link" href="${rp}pages/servicos/index.html">Serviços</a>
+            <a class="nav-drawer-link" href="${rp}pages/stakeholders/index.html">Stakeholders</a>
           </nav>
         </aside>
       `;
     }
 
     cache() {
-      this.btn = this.rootEl.querySelector(".nav-toggle");
-      this.overlay = this.rootEl.querySelector(".nav-overlay");
-      this.drawer = this.rootEl.querySelector(".nav-drawer");
+      // sempre buscar a partir do root do header (evita pegar overlay/drawer de outros componentes)
+      this.menuBtn = this.rootEl.querySelector(".menu-dd");
+      this.overlay = this.rootEl.querySelector(".nav-overlay") || document.querySelector(".nav-overlay");
+      this.drawer = this.rootEl.querySelector(".nav-drawer") || document.querySelector(".nav-drawer");
+      this.closeBtn = this.rootEl.querySelector(".nav-close");
+    }
+
+    ensureClosed() {
+      this.isOpen = false;
+
+      this.menuBtn?.setAttribute("aria-expanded", "false");
+      this.drawer?.setAttribute("aria-hidden", "true");
+      this.drawer?.classList.remove("is-open"); // compatÃ­vel com CSS novo
+
+      if (this.overlay) {
+        this.overlay.classList.remove("is-visible");
+        this.overlay.hidden = true;
+      }
+
+      document.documentElement.classList.remove("nav-open");
+      document.body.classList.remove("nav-open");
     }
 
     bind() {
-      this.btn?.addEventListener("click", () => this.toggle());
-
+      this.menuBtn?.addEventListener("click", () => this.toggle());
       this.overlay?.addEventListener("click", () => this.close());
+      this.closeBtn?.addEventListener("click", () => this.close());
 
       document.addEventListener("keydown", (e) => {
         if (!this.isOpen) return;
         if (e.key === "Escape") this.close();
       });
 
-      // Fecha ao clicar em um item (mobile UX)
       this.drawer?.addEventListener("click", (e) => {
         const a = e.target.closest("a");
         if (a) this.close();
@@ -72,55 +117,49 @@
     }
 
     setActive() {
-      const set = (selector) => {
-        const links = this.rootEl.querySelectorAll(selector);
-        links.forEach((a) => {
-          const page = (a.getAttribute("data-page") || "").toLowerCase();
-          a.classList.toggle("is-active", page === this.activePage);
-          if (page === this.activePage) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      };
-
-      set(".nav-link");
-      set(".nav-drawer-link");
+      const links = this.drawer?.querySelectorAll(".nav-drawer-link[data-page]") || [];
+      links.forEach((a) => {
+        const page = (a.getAttribute("data-page") || "").toLowerCase();
+        a.classList.toggle("is-active", page === this.activePage);
+      });
     }
 
     open() {
       if (this.isOpen) return;
       this.isOpen = true;
 
-      this.btn?.setAttribute("aria-expanded", "true");
-      this.btn?.setAttribute("aria-label", "Fechar menu");
+      this.menuBtn?.setAttribute("aria-expanded", "true");
       this.drawer?.setAttribute("aria-hidden", "false");
-      this.rootEl.classList.add("nav-is-open");
+      this.drawer?.classList.add("is-open");
 
       if (this.overlay) {
         this.overlay.hidden = false;
         requestAnimationFrame(() => this.overlay.classList.add("is-visible"));
       }
 
-      document.documentElement.classList.add("no-scroll");
-      document.body.classList.add("no-scroll");
+      document.documentElement.classList.add("nav-open");
+      document.body.classList.add("nav-open");
+
+      this.closeBtn?.focus?.();
     }
 
     close() {
       if (!this.isOpen) return;
       this.isOpen = false;
 
-      this.btn?.setAttribute("aria-expanded", "false");
-      this.btn?.setAttribute("aria-label", "Abrir menu");
+      this.menuBtn?.setAttribute("aria-expanded", "false");
       this.drawer?.setAttribute("aria-hidden", "true");
-      this.rootEl.classList.remove("nav-is-open");
+      this.drawer?.classList.remove("is-open");
 
       if (this.overlay) {
         this.overlay.classList.remove("is-visible");
-        // espera a transição para esconder de verdade
         setTimeout(() => (this.overlay.hidden = true), 180);
       }
 
-      document.documentElement.classList.remove("no-scroll");
-      document.body.classList.remove("no-scroll");
+      document.documentElement.classList.remove("nav-open");
+      document.body.classList.remove("nav-open");
+
+      this.menuBtn?.focus?.();
     }
 
     toggle() {
@@ -130,3 +169,4 @@
 
   window.NavMenu = NavMenu;
 })();
+

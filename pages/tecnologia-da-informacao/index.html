@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tecnologia da Informacao | ADML</title>
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <header id="app-header"></header>
+
+  <main class="container ti-page">
+    <section class="ti-hero">
+      <h1 class="ti-title">Tecnologia da Informacao</h1>
+      <p class="ti-subtitle">Conteudos de infraestrutura, ferramentas e boas praticas.</p>
+    </section>
+
+    <section class="ti-filters">
+      <div id="app-filterbar"></div>
+    </section>
+
+    <section class="ti-grid" aria-label="Conteudos de TI">
+      <a class="content-card js-content-card" href="./conteudos/deploy-publicacao.html" data-tags="basico,devops,cloud,publicacao,ferramentas">
+        <div>
+          <h2 class="content-card__title">Deploy &amp; Publicacao</h2>
+          <p class="content-card__desc">GitHub Pages, Vercel, Netlify e dominio customizado.</p>
+        </div>
+        <div class="content-card__footer">
+          <span class="link-btn">Acessar</span>
+        </div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/como-a-web-funciona.html" data-tags="introducao,redes,web,http,dns">
+        <div>
+          <h2 class="content-card__title">Como a Web funciona</h2>
+          <p class="content-card__desc">Cliente e servidor, DNS, HTTP/HTTPS e os arquivos que montam uma pagina.</p>
+        </div>
+        <div class="content-card__footer">
+          <span class="link-btn">Acessar</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "tecnologia-da-informacao";
+    window.IS_CONTENT_PAGE = false;
+  </script>
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+</body>
+
+</html>

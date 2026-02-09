@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>React Fundamentos | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="react-fundamentos">React: como funciona</h1><p>Virtual DOM, componentes e fluxo de dados em aplicacoes modernas.</p></header>
+    <section id="filosofia-react"><h2 id="filosofia-react">Filosofia React</h2><div class="card"><p>A interface e funcao do estado: <code>UI = f(state)</code>.</p></div></section>
+    <section id="virtual-dom"><h2 id="virtual-dom">Virtual DOM</h2><div class="card"><p>React compara arvores e atualiza apenas o necessario no DOM real.</p></div></section>
+    <section id="jsx-componentes"><h2 id="jsx-componentes">JSX e componentes</h2><div class="code-block"><pre><code class="language-javascript">function BoasVindas({ nome }) {
+  return &lt;h1&gt;Ola, {nome}!&lt;/h1&gt;;
+}</code></pre></div></section>
+    <section id="hooks-use-state"><h2 id="hooks-use-state">Hook useState</h2><div class="code-block"><pre><code class="language-javascript">const [count, setCount] = useState(0);
+setCount(count + 1);</code></pre></div></section>
+    <section id="props-vs-state"><h2 id="props-vs-state">Props vs state</h2><div class="grid-2"><div class="card"><h3>Props</h3><p>Entrada imutavel do componente.</p></div><div class="card"><h3>State</h3><p>Dado interno mutavel com re-render.</p></div></div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='react-fundamentos'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Layout e Grid | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="css-layout-grid">CSS Layout e Grid</h1><p>Construcao de layouts 2D responsivos com abordagem mobile-first.</p></header>
+    <section id="flex-vs-grid"><h2 id="flex-vs-grid">Flexbox vs Grid</h2><div class="grid-2"><div class="card"><h3>Flexbox</h3><p>Ideal para alinhamento em uma dimensao.</p></div><div class="card"><h3>Grid</h3><p>Ideal para linhas e colunas simultaneamente.</p></div></div></section>
+    <section id="grid-basico"><h2 id="grid-basico">Grid basico</h2><div class="code-block"><pre><code class="language-css">.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+}</code></pre></div></section>
+    <section id="grid-areas"><h2 id="grid-areas">Grid areas</h2><div class="code-block"><pre><code class="language-css">.page {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+}</code></pre></div></section>
+    <section id="media-queries"><h2 id="media-queries">Media queries</h2><div class="card"><p>Comece no mobile e expanda com <code>@media (min-width: ...)</code>.</p></div></section>
+    <section id="mobile-first"><h2 id="mobile-first">Mobile-first real</h2><div class="alert"><strong>Diretriz:</strong> base para telas pequenas, depois escalonamento progressivo.</div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='css-layout-grid'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>

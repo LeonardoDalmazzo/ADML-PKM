@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Moderno ES6+ | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container"><div class="content-shell"><aside id="app-contentnav"></aside><article id="content-article" class="content-article">
+    <header class="content-hero"><h1 id="javascript-moderno-es6">JavaScript Moderno (ES6+)</h1><p>Sintaxe e padroes essenciais para frontend moderno.</p></header>
+    <section id="let-const"><h2 id="let-const">Let e const</h2><div class="card"><p>Use <code>const</code> por padrao e <code>let</code> quando houver reatribuicao.</p></div></section>
+    <section id="arrow-functions"><h2 id="arrow-functions">Arrow functions</h2><div class="code-block"><pre><code class="language-javascript">const soma = (a, b) => a + b;
+const dobro = n => n * 2;</code></pre></div></section>
+    <section id="desestruturacao"><h2 id="desestruturacao">Desestruturacao</h2><div class="code-block"><pre><code class="language-javascript">const user = { nome: 'Leo', idade: 25 };
+const { nome, idade } = user;</code></pre></div></section>
+    <section id="map-filter"><h2 id="map-filter">Map e filter</h2><div class="card"><p>Transforme e filtre dados sem loops verbosos.</p></div></section>
+    <section id="modulos"><h2 id="modulos">Modulos import/export</h2><div class="code-block"><pre><code class="language-javascript">export const PI = 3.14;
+import { PI } from './math.js';</code></pre></div></section>
+  </article></div></main>
+  <footer id="app-footer"></footer>
+  <script>window.PAGE_ID='javascript-moderno-es6'; window.IS_CONTENT_PAGE=true;</script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+</html>

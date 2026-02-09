@@ -1,84 +1,90 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang='pt-BR'>
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>ADML: PKM</title>
 
-  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
-  <link rel="stylesheet" href="./home.css" />
+  <link rel='stylesheet' href='../../wwwroot/css/global.css' />
+  <link rel='stylesheet' href='./home.css' />
 </head>
 
 <body>
-  <div class="container home-page">
-    <header id="app-header"></header>
+  <header id='app-header'></header>
+  <div class='container home-page'>
 
-    <main class="home-main">
-      <section class="home-hero">
-        <h1 class="home-title">Central de Categorias</h1>
-        <p class="home-subtitle">
+    <main class='home-main'>
+      <section class='home-hero'>
+        <h1 class='home-title'>Central de Categorias</h1>
+        <p class='home-subtitle'>
           Selecione um tema para acessar conteúdos, guias e materiais organizados.
         </p>
       </section>
 
-      <section class="home-grid" aria-label="Categorias principais">
-        <a class="home-card" href="../sistemas-operacionais/index.html">
-          <h2 class="home-card-title">Sistemas Operacionais</h2>
-          <p class="home-card-desc">
+      <section class='home-grid' aria-label='Categorias principais'>
+        <a class='home-card home-card--primary' href='../tecnologia-da-informacao/index.html'>
+          <img
+            class='home-card-image'
+            src='../../wwwroot/assets/imgCardTI_CentralConteudos.png'
+            alt='Ilustração de tecnologia da informação'
+            loading='lazy'
+          />
+          <h2 class='home-card-title'>Tecnologia da Informação</h2>
+          <p class='home-card-desc'>
+            Conceitos, redes, segurança, tutoriais de hardware e software, desenvolvimento de sistemas,
+            análise e manutenção, ferramentas, montagem de equipamentos e ambientes, boas práticas e documentação.
+          </p>
+          <span class='link-btn'>Acessar</span>
+        </a>
+
+        <a class='home-card home-card--primary' href='../programacao/index.html'>
+          <h2 class='home-card-title'>Programação</h2>
+          <p class='home-card-desc'>
+            Lógica, algoritmos, estruturas, boas práticas, versionamento e trilhas de aprendizado para projetos reais.
+          </p>
+          <span class='link-btn'>Acessar</span>
+        </a>
+
+        <a class='home-card home-card--primary' href='../sistemas-operacionais/index.html'>
+          <h2 class='home-card-title'>Sistemas Operacionais</h2>
+          <p class='home-card-desc'>
             Windows, Linux, instalação, manutenção, drivers e ajustes de desempenho.
           </p>
-          <span class="link-btn">Acessar</span>
+          <span class='link-btn'>Acessar</span>
         </a>
 
-        <a class="home-card" href="../pacotes-office/index.html">
-          <h2 class="home-card-title">Pacotes Office</h2>
-          <p class="home-card-desc">
+        <a class='home-card home-card--primary' href='../pacotes-office/index.html'>
+          <h2 class='home-card-title'>Pacotes Office</h2>
+          <p class='home-card-desc'>
             Instalação, ativação, tutoriais, problemas comuns, guias de atalhos e referências rápidas.
           </p>
-          <span class="link-btn">Acessar</span>
+          <span class='link-btn'>Acessar</span>
         </a>
 
-        <a class="home-card" href="../tecnologia-da-informacao/index.html">
-          <h2 class="home-card-title">Tecnologia da Informação</h2>
-          <p class="home-card-desc">
-            Conceitos, redes, segurança, tutoriais de hardware e software, desenvolvimento de sistemas,
-            analise e manutenção, ferramentas, montagem de equipamentos e ambientes, boas práticas e documentação.
-          </p>
-          <span class="link-btn">Acessar</span>
-        </a>
-
-        <a class="home-card" href="../servicos/index.html">
-          <h2 class="home-card-title">Serviços</h2>
-          <p class="home-card-desc">
+        <a class='home-card' href='../servicos/index.html'>
+          <h2 class='home-card-title'>Serviços</h2>
+          <p class='home-card-desc'>
             Catálogo de serviços e orçamento.
           </p>
-          <span class="link-btn is-accent">Acessar</span>
+          <span class='link-btn is-accent'>Acessar</span>
         </a>
 
-        <a class="home-card" href="../equipe/index.html">
-          <h2 class="home-card-title">Equipe</h2>
-          <p class="home-card-desc">
-            Conheça nosso time de desenvolvedores e as pessoas que vão te auxiliar na criação de seus projetos.
-          </p>
-          <span class="link-btn is-accent">Acessar</span>
-        </a>
-
-        <a class="home-card" href="../stakeholders/index.html">
-          <h2 class="home-card-title">Stakeholders</h2>
-          <p class="home-card-desc">
+        <a class='home-card' href='../stakeholders/index.html'>
+          <h2 class='home-card-title'>Stakeholders</h2>
+          <p class='home-card-desc'>
             Empresas, patrocinadores e parceiros do projeto.
           </p>
-          <span class="link-btn is-accent">Acessar</span>
+          <span class='link-btn is-accent'>Acessar</span>
         </a>
       </section>
     </main>
 
-    <footer id="app-footer"></footer>
+    <footer id='app-footer'></footer>
   </div>
 
-  <script>window.PAGE_ID = "home";</script>
-  <script type="module" src="../../wwwroot/js/global.js"></script>
+  <script>window.PAGE_ID = 'home';</script>
+  <script type='module' src='../../wwwroot/js/global.js'></script>
 </body>
 
 </html>

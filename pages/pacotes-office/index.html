@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pacotes Office | ADML</title>
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <header id="app-header"></header>
+
+  <main class="container office-page">
+    <section class="office-hero">
+      <h1 class="office-title">Pacotes Office</h1>
+      <p class="office-subtitle">Produtividade com Word, Excel e Google Sheets: atalhos, estrutura e automacao.</p>
+    </section>
+
+    <section class="office-filters">
+      <div id="app-filterbar"></div>
+    </section>
+
+    <section class="office-grid" aria-label="Conteudos de Pacotes Office">
+      <a class="content-card js-content-card" href="./conteudos/microsoft-word.html" data-tags="basico,word,produtividade,documentos,atalhos">
+        <div>
+          <h2 class="content-card__title">Microsoft Word</h2>
+          <p class="content-card__desc">Formatacao profissional, estilos, revisao e fluxo de escrita academica.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/microsoft-excel.html" data-tags="intermediario,excel,planilhas,analise,formulas,vba">
+        <div>
+          <h2 class="content-card__title">Microsoft Excel</h2>
+          <p class="content-card__desc">Atalhos, formulas essenciais, tabela dinamica, Power Query e VBA.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/google-sheets.html" data-tags="intermediario,sheets,planilhas,cloud,query,appsscript">
+        <div>
+          <h2 class="content-card__title">Google Sheets</h2>
+          <p class="content-card__desc">Funcoes em nuvem, QUERY, regex e automacao com Apps Script.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "pacotes-office";
+    window.IS_CONTENT_PAGE = false;
+  </script>
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+</body>
+
+</html>

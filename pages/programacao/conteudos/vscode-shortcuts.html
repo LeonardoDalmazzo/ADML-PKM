@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VS Code Shortcuts | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+
+<body class="is-content">
+  <header id="app-header"></header>
+
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="vscode-shortcuts">VS Code Shortcuts</h1>
+          <p>Atalhos essenciais para produtividade, navegacao e fluxo de desenvolvimento.</p>
+        </header>
+
+        <section id="edicao-codigo">
+          <h2 id="edicao-codigo">Edicao de codigo</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Linhas</h3>
+              <ul class="shortcut-list">
+                <li><kbd>Alt</kbd> + <kbd>Up/Down</kbd> <span>Mover linha</span></li>
+                <li><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Up/Down</kbd> <span>Duplicar linha</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> <span>Deletar linha</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>A</kbd> <span>Selecionar tudo</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Selecao e comentarios</h3>
+              <ul class="shortcut-list">
+                <li><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> <span>Comentar bloco</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>D</kbd> <span>Proxima ocorrencia</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> <span>Todas as ocorrencias</span></li>
+                <li><kbd>Alt</kbd> + <kbd>Click</kbd> <span>Cursor multiplo</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="navegacao-busca">
+          <h2 id="navegacao-busca">Navegacao e busca</h2>
+          <div class="alert"><strong>Dica:</strong> <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> abre a Command Palette.</div>
+          <div class="grid-2 mt-20">
+            <ul class="card shortcut-list">
+              <li><kbd>Ctrl</kbd> + <kbd>P</kbd> <span>Ir para arquivo</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> <span>Ir para simbolo</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>G</kbd> <span>Ir para linha</span></li>
+              <li><kbd>F12</kbd> <span>Ir para definicao</span></li>
+            </ul>
+            <ul class="card shortcut-list">
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> <span>Buscar no projeto</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>F</kbd> <span>Buscar no arquivo</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>H</kbd> <span>Substituir</span></li>
+              <li><kbd>Alt</kbd> + <kbd>Left/Right</kbd> <span>Historico de navegacao</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="janelas-layout">
+          <h2 id="janelas-layout">Janelas e layout</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Editor</h3>
+              <ul class="shortcut-list">
+                <li><kbd>Ctrl</kbd> + <kbd>\</kbd> <span>Split editor</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>1</kbd> / <kbd>2</kbd> <span>Focar grupo</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>W</kbd> <span>Fechar aba</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <kbd>Z</kbd> <span>Modo Zen</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Interface</h3>
+              <ul class="shortcut-list">
+                <li><kbd>Ctrl</kbd> + <kbd>B</kbd> <span>Sidebar</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>J</kbd> <span>Painel inferior</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>Tab</kbd> <span>Trocar abas</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>-</kbd> <span>Zoom</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="terminal-integrado">
+          <h2 id="terminal-integrado">Terminal integrado</h2>
+          <div class="card">
+            <ul class="shortcut-list">
+              <li><kbd>Ctrl</kbd> + <kbd>'</kbd> <span>Abrir/fechar terminal</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>'</kbd> <span>Novo terminal</span></li>
+              <li><kbd>Ctrl</kbd> + <kbd>L</kbd> <span>Limpar terminal</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="markdown-extras">
+          <h2 id="markdown-extras">Markdown e extras</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Preview</h3>
+              <ul class="shortcut-list">
+                <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> <span>Preview em aba</span></li>
+                <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <kbd>V</kbd> <span>Preview lateral</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Snippets uteis</h3>
+              <ul class="simple-list">
+                <li><code>!</code> + <kbd>Tab</kbd> gera estrutura HTML inicial.</li>
+                <li><code>lorem</code> + <kbd>Tab</kbd> gera texto de preenchimento.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "vscode-shortcuts";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+
+</html>

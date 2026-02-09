@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programacao | ADML</title>
+  <link rel="stylesheet" href="../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <header id="app-header"></header>
+
+  <main class="container programacao-page">
+    <section class="programacao-hero">
+      <h1 class="programacao-title">Programacao</h1>
+      <p class="programacao-subtitle">Trilhas praticas de frontend moderno, fundamentos e arquitetura de software no browser.</p>
+    </section>
+
+    <section class="programacao-filters">
+      <div id="app-filterbar"></div>
+    </section>
+
+    <section class="programacao-grid" aria-label="Conteudos de Programacao">
+      <a class="content-card js-content-card" href="./conteudos/setup-ambiente.html" data-tags="introducao,ambiente,vscode,ferramentas,git">
+        <div>
+          <h2 class="content-card__title">Setup de Ambiente</h2>
+          <p class="content-card__desc">VS Code, extensoes essenciais, snippet inicial e base de versionamento.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/html-css-fundamentos.html" data-tags="introducao,html,css,frontend,semantica">
+        <div>
+          <h2 class="content-card__title">HTML5 e CSS3: Fundamentos</h2>
+          <p class="content-card__desc">Semantica, box model, seletores e base de layout para paginas robustas.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/javascript-dom.html" data-tags="basico,javascript,dom,frontend,eventos">
+        <div>
+          <h2 class="content-card__title">JavaScript e DOM</h2>
+          <p class="content-card__desc">Selecao de elementos, manipulacao de conteudo, classes e eventos.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/javascript-moderno-es6.html" data-tags="basico,javascript,es6,frontend,sintaxe">
+        <div>
+          <h2 class="content-card__title">JavaScript Moderno (ES6+)</h2>
+          <p class="content-card__desc">Let/const, arrow functions, destructuring, arrays funcionais e modulos.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/css-layout-grid.html" data-tags="intermediario,css,layout,responsivo,frontend">
+        <div>
+          <h2 class="content-card__title">CSS Layout e Grid</h2>
+          <p class="content-card__desc">Flexbox vs Grid, areas nomeadas, media queries e estrategia mobile-first.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/apis-fetch.html" data-tags="intermediario,javascript,api,fetch,async">
+        <div>
+          <h2 class="content-card__title">APIs e Fetch</h2>
+          <p class="content-card__desc">JSON, fetch, async/await e tratamento de erros no frontend.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/react-fundamentos.html" data-tags="avancado,react,frontend,componentes,state">
+        <div>
+          <h2 class="content-card__title">React: como funciona</h2>
+          <p class="content-card__desc">Virtual DOM, JSX, hooks iniciais e diferenca entre props e state.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/linguagem-c.html" data-tags="intermediario,linguagem-c,algoritmos,estruturas,ponteiros">
+        <div>
+          <h2 class="content-card__title">Linguagem C</h2>
+          <p class="content-card__desc">Tipos, operadores, funcoes, ponteiros, arquivos e modularizacao.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/vscode-shortcuts.html" data-tags="introducao,vscode,atalhos,produtividade,ferramentas">
+        <div>
+          <h2 class="content-card__title">VS Code Shortcuts</h2>
+          <p class="content-card__desc">Atalhos essenciais para editar, navegar e acelerar o fluxo diario.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+
+      <a class="content-card js-content-card" href="./conteudos/git-github.html" data-tags="basico,git,github,versionamento,workflow,commits">
+        <div>
+          <h2 class="content-card__title">Git &amp; GitHub: cheatsheet essencial</h2>
+          <p class="content-card__desc">Comandos, fluxo de trabalho, recuperacao e padroes de commit.</p>
+        </div>
+        <div class="content-card__footer"><span class="link-btn">Acessar</span></div>
+      </a>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "programacao";
+    window.IS_CONTENT_PAGE = false;
+  </script>
+  <script type="module" src="../../wwwroot/js/global.js"></script>
+</body>
+
+</html>
+

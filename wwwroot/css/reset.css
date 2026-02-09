@@ -1,5 +1,7 @@
 /* RESET BASE */
 
+[hidden] { display: none !important; }
+
 *,
 *::before,
 *::after {

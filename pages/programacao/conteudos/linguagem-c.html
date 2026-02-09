@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linguagem C | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+</head>
+
+<body class="is-content">
+  <header id="app-header"></header>
+
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="linguagem-c">Linguagem C</h1>
+          <p>Guia direto dos fundamentos ate modularizacao com bibliotecas proprias.</p>
+        </header>
+
+        <section id="estrutura-tipos">
+          <h2 id="estrutura-tipos">Estrutura basica e tipos primitivos</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Hello World</h3>
+              <div class="code-block">
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+  printf("Ola, Mundo!\n");
+  return 0;
+}</code></pre>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Tipos e formatadores</h3>
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr><th>Tipo</th><th>Descricao</th><th>Formatador</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>int</code></td><td>Inteiro</td><td><code>%d</code> / <code>%i</code></td></tr>
+                    <tr><td><code>float</code></td><td>Decimal simples</td><td><code>%f</code></td></tr>
+                    <tr><td><code>double</code></td><td>Decimal dupla</td><td><code>%lf</code></td></tr>
+                    <tr><td><code>char</code></td><td>Caractere</td><td><code>%c</code></td></tr>
+                    <tr><td><code>char[]</code></td><td>String</td><td><code>%s</code></td></tr>
+                    <tr><td><code>void</code></td><td>Sem retorno</td><td>-</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="operadores">
+          <h2 id="operadores">Operadores</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Aritmeticos e atribuicao</h3>
+              <ul class="simple-list">
+                <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+                <li><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
+                <li>Incremento/decremento: <code>i++</code>, <code>++i</code>, <code>i--</code></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Relacionais e logicos</h3>
+              <ul class="simple-list">
+                <li><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code></li>
+                <li><code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="controle-fluxo">
+          <h2 id="controle-fluxo">Condicionais e loops</h2>
+          <div class="grid-2">
+            <div class="code-block">
+              <div class="code-header">switch</div>
+              <pre><code class="language-c">switch (opcao) {
+  case 1:
+    senhaCaixa();
+    break;
+  case 2:
+    senhaGerente();
+    break;
+  default:
+    printf("Opcao invalida.\n");
+    break;
+}</code></pre>
+            </div>
+            <div class="code-block">
+              <div class="code-header">do-while</div>
+              <pre><code class="language-c">do {
+  scanf("%d", &opcao);
+  // processa opcao
+} while (opcao != 5);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="funcoes-ponteiros">
+          <h2 id="funcoes-ponteiros">Funcoes, ponteiros e cast</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Funcoes</h3>
+              <div class="code-block">
+                <pre><code class="language-c">float calcularTotal(float preco, int qtd) {
+  return preco * qtd;
+}</code></pre>
+              </div>
+              <p class="mt-20">Se a funcao vier depois do <code>main</code>, declare o prototipo antes.</p>
+            </div>
+            <div class="card">
+              <h3>Ponteiros e conversao</h3>
+              <div class="code-block">
+                <pre><code class="language-c">int numero = 10;
+int *ponteiro = &numero;
+
+float resultado = (float)10 / 3;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="structs-arquivos-bibliotecas">
+          <h2 id="structs-arquivos-bibliotecas">Structs, arquivos e bibliotecas</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Struct</h3>
+              <div class="code-block">
+                <pre><code class="language-c">typedef struct {
+  int id;
+  char nome[100];
+  float preco;
+} Produto;</code></pre>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Arquivo</h3>
+              <div class="code-block">
+                <pre><code class="language-c">FILE *arquivo = fopen("dados.txt", "w");
+if (arquivo) {
+  fprintf(arquivo, "%d;%s\n", id, nome);
+  fclose(arquivo);
+}</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-20">
+            <h3>Header guards</h3>
+            <div class="code-block">
+              <pre><code class="language-c">#ifndef HORTIFRUTILIB_H
+#define HORTIFRUTILIB_H
+
+// codigo da biblioteca
+
+#endif</code></pre>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    window.PAGE_ID = "linguagem-c";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+
+</html>
