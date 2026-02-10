@@ -1,0 +1,198 @@
+.servicos-page {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+.servicos-page .servicos-hero {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.servicos-page .servicos-eyebrow {
+  margin: 0 0 var(--space-xs);
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.servicos-page .servicos-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.servicos-page .servicos-subtitle {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 76ch;
+  margin-inline: auto;
+}
+
+.servicos-page .servicos-highlights {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.servicos-page .highlight-pill {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 61, 129, .3);
+  color: var(--color-heading);
+  background: rgba(255, 61, 129, .1);
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.servicos-page .servicos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.servicos-page .servico-card {
+  --servico-accent: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--servico-accent);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.servicos-page .servico-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.servicos-page .servico-card:focus-within {
+  outline: none;
+  border-color: color-mix(in srgb, var(--servico-accent) 60%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--servico-accent) 35%, transparent), var(--card-shadow);
+}
+
+.servicos-page .servico-card__title {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-heading);
+}
+
+.servicos-page .servico-card__desc {
+  margin: 0 0 var(--space-md);
+  color: var(--color-muted);
+}
+
+.servicos-page .servico-tags {
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.servicos-page .servico-tags li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .15);
+  background: rgba(255, 255, 255, .03);
+  font-size: .82rem;
+  color: var(--color-text);
+}
+
+.servicos-page .servico-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: .5rem;
+  color: var(--color-text);
+}
+
+.servicos-page .servico-list li::marker {
+  color: var(--servico-accent);
+}
+
+.servicos-page .servico-list strong {
+  color: var(--color-heading);
+}
+
+.servicos-page .servico-card__action {
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--servico-accent) 60%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--servico-accent) 14%, transparent);
+  color: var(--servico-accent);
+  text-shadow: none;
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.servicos-page .servico-card__action:hover {
+  transform: translateY(-1px);
+  border-color: var(--servico-accent);
+  background: color-mix(in srgb, var(--servico-accent) 22%, transparent);
+  color: var(--color-heading);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--servico-accent) 40%, transparent);
+}
+
+.servicos-page .servico-card__actions {
+  margin-top: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.servicos-page .servico-card__wpp {
+  color: var(--servico-accent);
+  border-color: color-mix(in srgb, var(--servico-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--servico-accent) 12%, transparent);
+}
+
+.servicos-page .servico-card__wpp:hover {
+  color: var(--color-heading);
+  border-color: var(--servico-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--servico-accent) 40%, transparent);
+  background: color-mix(in srgb, var(--servico-accent) 20%, transparent);
+}
+
+.servicos-page .servico-card--ti {
+  --servico-accent: #ff4b57;
+}
+
+.servicos-page .servico-card--web {
+  --servico-accent: #ff3d81;
+}
+
+.servicos-page .servico-card--auto {
+  --servico-accent: #8b5cf6;
+}
+
+.servicos-page .servico-card--data {
+  --servico-accent: #38bdf8;
+}
+
+.servicos-page .servico-card--ti:hover {
+  border-color: rgba(255, 75, 87, .5);
+}
+
+.servicos-page .servico-card--web:hover {
+  border-color: rgba(255, 61, 129, .5);
+}
+
+.servicos-page .servico-card--auto:hover {
+  border-color: rgba(139, 92, 246, .5);
+}
+
+.servicos-page .servico-card--data:hover {
+  border-color: rgba(56, 189, 248, .5);
+}
+
+@media (min-width: 900px) {
+  .servicos-page .servicos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
