@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logica de Programacao | ADML</title>
+  <link rel="stylesheet" href="../../../wwwroot/css/global.css" />
+  <link rel="stylesheet" href="./conteudo.css" />
+  <link rel="stylesheet" href="./logica-programacao.css" />
+</head>
+
+<body class="is-content">
+  <header id="app-header"></header>
+  <main class="container">
+    <div class="content-shell">
+      <aside id="app-contentnav"></aside>
+      <article id="content-article" class="content-article">
+        <header class="content-hero">
+          <h1 id="logica-programacao">Logica de Programacao</h1>
+          <p>Trilha para iniciantes com conceitos universais e exemplos que mudam pela linguagem selecionada.</p>
+        </header>
+
+        <section class="lang-selector card" aria-labelledby="escolha-linguagem">
+          <div class="lang-selector__header">
+            <h2 id="escolha-linguagem">Escolha sua linguagem</h2>
+            <p>O texto continua igual e os blocos de codigo trocam para <strong data-current-lang-name>Python</strong>.</p>
+          </div>
+          <div class="lang-grid">
+            <button type="button" class="lang-card is-active" data-lang="python" aria-pressed="true">
+              <span class="lang-card__icon" aria-hidden="true">PY</span>
+              <span class="lang-card__meta"><strong>Python</strong><span>Foco em logica</span></span>
+              <span class="lang-card__check" aria-hidden="true">Ativa</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="javascript" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">JS</span>
+              <span class="lang-card__meta"><strong>JavaScript</strong><span>Browser e web</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="c" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">C</span>
+              <span class="lang-card__meta"><strong>C</strong><span>Tipos e memoria</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="java" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">JV</span>
+              <span class="lang-card__meta"><strong>Java</strong><span>Orientada a objetos e multiplataforma</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="csharp" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">C#</span>
+              <span class="lang-card__meta"><strong>C#</strong><span>.NET, desktop, web e APIs</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="cpp" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">C++</span>
+              <span class="lang-card__meta"><strong>C++</strong><span>Performance e controle com STL</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="php" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">PHP</span>
+              <span class="lang-card__meta"><strong>PHP</strong><span>Web backend e scripts</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+            <button type="button" class="lang-card" data-lang="go" aria-pressed="false">
+              <span class="lang-card__icon" aria-hidden="true">GO</span>
+              <span class="lang-card__meta"><strong>Go</strong><span>Simples, compilada e concorrente</span></span>
+              <span class="lang-card__check" aria-hidden="true">Selecionar</span>
+            </button>
+          </div>
+          <div class="alert lesson-intro">
+            Linguagem atual: <strong data-current-lang-name>Python</strong> (<span class="kbd-chip" data-current-lang-short>PY</span>)
+          </div>
+        </section>
+
+        <section>
+          <h2 id="ordem-de-aprendizado">Ordem de aprendizado sugerida</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Trilha principal</h3>
+              <ol class="roadmap-list">
+                <li>Output</li><li>Tipos primitivos</li><li>Input</li><li>Variaveis</li><li>Operadores</li>
+                <li>Condicionais</li><li>Repeticao</li><li>Funcoes</li><li>Vetores</li><li>Matrizes</li>
+                <li>Strings</li><li>Arquivos</li><li>Tipos complexos</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>Complementos compartilhados</h3>
+              <ol class="roadmap-list">
+                <li>Comentarios e organizacao</li><li>Escopo</li><li>Validacao e erros</li>
+                <li>Debug e testes</li><li>Modularizacao</li><li>Boas praticas</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section><h2 id="output">1. Output</h2><p class="topic-lead">Mostrar dados na tela e o primeiro passo. Use isso para validar seu raciocinio durante os exercicios.</p><div class="code-block"><div class="code-header">Exemplo em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="output" class="language-python"></code></pre></div></section>
+        <section>
+          <h2 id="tipos-primitivos">2. Tipos primitivos</h2>
+          <p class="topic-lead">Inteiro, decimal, texto e booleano aparecem em qualquer linguagem. A ideia e a mesma; muda a sintaxe e alguns nomes.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Tabela universal (nome = descricao)</h3>
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr><th>Nome</th><th>Descricao</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Inteiro</td><td>Numeros sem casas decimais (ex.: idade, quantidade).</td></tr>
+                    <tr><td>Decimal / Real</td><td>Numeros com casas decimais (ex.: preco, media, temperatura).</td></tr>
+                    <tr><td>Booleano</td><td>Representa verdadeiro/falso para decisoes logicas.</td></tr>
+                    <tr><td>Caractere</td><td>Um unico simbolo/letra. Em algumas linguagens aparece separado de texto.</td></tr>
+                    <tr><td>Texto / String</td><td>Sequencia de caracteres (nomes, frases, codigos, mensagens).</td></tr>
+                    <tr><td>Nulo / Ausente</td><td>Indica ausencia de valor (quando a linguagem suporta esse conceito).</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Exemplo na linguagem selecionada</h3>
+              <div class="code-block">
+                <div class="code-header">Tipos em <span data-current-lang-name>Python</span></div>
+                <pre><code data-topic-code="tipos" class="language-python"></code></pre>
+              </div>
+              <div class="alert mt-20" data-tipos-hint>
+                Dica: em linguagens dinamicas, o tipo pode ser inferido pelo valor atribuido.
+              </div>
+            </div>
+          </div>
+        </section>
+        <section><h2 id="input">3. Input</h2><p class="topic-lead">Entrada recebe dados do usuario. Quase sempre voce precisa ler, converter e validar.</p><div class="code-block"><div class="code-header">Input em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="input" class="language-python"></code></pre></div></section>
+        <section><h2 id="variaveis">4. Variaveis</h2><p class="topic-lead">Variavel guarda um valor. Atribuicao atualiza esse valor para a logica seguir.</p><div class="code-block"><div class="code-header">Variaveis em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="variaveis" class="language-python"></code></pre></div></section>
+        <section><h2 id="operadores">5. Operadores</h2><p class="topic-lead">Treine aritmeticos, atribuicao, relacionais, logicos e ternario. Eles formam as expressoes.</p><div class="code-block"><div class="code-header">Operadores em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="operadores" class="language-python"></code></pre></div></section>
+        <section><h2 id="condicionais">6. Condicionais</h2><p class="topic-lead">Usadas para decidir caminhos: se, senao se, senao.</p><div class="code-block"><div class="code-header">Condicionais em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="condicionais" class="language-python"></code></pre></div></section>
+        <section><h2 id="repeticao">7. Estruturas de repeticao</h2><p class="topic-lead">Use <code>while</code> e <code>for</code> para evitar repetir codigo manualmente.</p><div class="code-block"><div class="code-header">Loops em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="repeticao" class="language-python"></code></pre></div></section>
+        <section><h2 id="funcoes">8. Funcoes</h2><p class="topic-lead">Agrupam passos, recebem parametros e retornam resultados. Sao base de reutilizacao.</p><div class="code-block"><div class="code-header">Funcoes em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="funcoes" class="language-python"></code></pre></div></section>
+        <section><h2 id="vetores">9. Vetores</h2><p class="topic-lead">Colecoes indexadas (arrays/listas). Muito usados com loops.</p><div class="code-block"><div class="code-header">Vetores em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="vetores" class="language-python"></code></pre></div></section>
+        <section><h2 id="matrizes">10. Matrizes</h2><p class="topic-lead">Dados em linhas e colunas. O raciocinio de dois indices e universal.</p><div class="code-block"><div class="code-header">Matrizes em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="matrizes" class="language-python"></code></pre></div></section>
+        <section><h2 id="strings">11. Strings</h2><p class="topic-lead">Concatenacao, tamanho e transformacoes de texto sao tarefas comuns.</p><div class="code-block"><div class="code-header">Strings em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="strings" class="language-python"></code></pre></div></section>
+        <section><h2 id="arquivos">12. Leitura e escrita de arquivos</h2><p class="topic-lead">Fluxo padrao: abrir, escrever/ler, fechar (ou usar mecanismo de fechamento automatico).</p><div class="code-block"><div class="code-header">Arquivos em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="arquivos" class="language-python"></code></pre></div></section>
+        <section><h2 id="tipos-complexos">13. Tipos complexos</h2><p class="topic-lead">Objetos, dicionarios, registros e structs agrupam dados relacionados.</p><div class="code-block"><div class="code-header">Tipos complexos em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="complexos" class="language-python"></code></pre></div></section>
+        <section><h2 id="comentarios-escopo">14. Comentarios e escopo</h2><p class="topic-lead">Comentarios ajudam a explicar intencao. Escopo define onde cada variavel existe.</p><div class="code-block"><div class="code-header">Escopo em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="escopo" class="language-python"></code></pre></div></section>
+        <section><h2 id="erros-validacao">15. Validacao e tratamento de erros</h2><p class="topic-lead">Programas reais precisam validar entrada e lidar com falhas sem quebrar tudo.</p><div class="code-block"><div class="code-header">Erros em <span data-current-lang-name>Python</span></div><pre><code data-topic-code="erros" class="language-python"></code></pre></div></section>
+
+        <section>
+          <h2 id="mais-coisas-compartilhadas">16. Mais coisas que as linguagens compartilham</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Boas praticas iniciais</h3>
+              <ul class="simple-list">
+                <li>Nomes claros</li><li>Separar entrada/processamento/saida</li><li>Funcoes pequenas</li>
+                <li>Evitar duplicacao</li><li>Validar dados cedo</li><li>Formatar codigo</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Proximos passos</h3>
+              <ul class="simple-list">
+                <li>Algoritmos de busca e ordenacao</li><li>Estruturas de dados</li><li>Big-O</li>
+                <li>Recursao</li><li>Testes automatizados</li><li>Modulos e pacotes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert mt-20">A logica e transferivel: mudam palavras-chave, delimitadores e bibliotecas, mas o raciocinio permanece.</div>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer id="app-footer"></footer>
+
+  <script>
+    (function () {
+      const K = "adml:logica:lang";
+      const D = {
+        python: { n: "Python", s: "PY", c: "language-python", x: {
+          output: `nome="Ana"\nidade=17\nprint("Ola")\nprint(nome, idade+1)`,
+          tipos: `i=10\nf=3.14\nt="ADML"\nb=True\nprint(type(i), type(t))`,
+          input: `nome=input("Nome: ")\nidade=int(input("Idade: "))\nprint(nome, idade+1)`,
+          variaveis: `saldo=100\nsaldo+=35\nTAXA=0.05\nprint(saldo, TAXA)`,
+          operadores: `a,b=10,3\nprint(a+b,a-b,a*b)\nprint(a/b,a//b,a%b)\nprint(a>b and b>0)\nprint("par" if a%2==0 else "impar")`,
+          condicionais: `nota=7.5\nif nota>=9:\n    print("Excelente")\nelif nota>=6:\n    print("Aprovado")\nelse:\n    print("Reprovado")`,
+          repeticao: `i=1\nwhile i<=3:\n    print(i)\n    i+=1\nfor j in range(3):\n    print(j)`,
+          funcoes: `def media(a,b):\n    return (a+b)/2\nprint(media(8,6))`,
+          vetores: `notas=[8,7,10]\nnotas.append(9)\nfor n in notas:\n    print(n)`,
+          matrizes: `m=[[1,2],[3,4]]\nprint(m[1][0])\nfor linha in m:\n    for v in linha:\n        print(v)`,
+          strings: `txt=" logica "\nprint(txt.strip().upper())\nprint(len(txt))`,
+          arquivos: `with open("dados.txt","w",encoding="utf-8") as f:\n    f.write("Ana;8\\n")\nwith open("dados.txt","r",encoding="utf-8") as f:\n    print(f.read())`,
+          complexos: `produto={"id":1,"nome":"Teclado"}\nclass Aluno:\n    def __init__(self,n): self.nome=n\nprint(produto["nome"], Aluno("Lia").nome)`,
+          escopo: `total=0\n# comentario\ndef soma(v):\n    local=v+1\n    return local\nprint(soma(5), total)`,
+          erros: `try:\n    n=int(input("Numero: "))\n    print(n*2)\nexcept ValueError:\n    print("Entrada invalida")`
+        }},
+        javascript: { n: "JavaScript", s: "JS", c: "language-javascript", x: {
+          output: `const nome="Ana";\nconst idade=17;\nconsole.log("Ola");\nconsole.log(nome, idade+1);`,
+          tipos: `let i=10,f=3.14,t="ADML",b=true;\nlet nulo=null;\nconsole.log(typeof i, typeof t, b, nulo);`,
+          input: `const nome=prompt("Nome:");\nconst idade=Number(prompt("Idade:"));\nconsole.log(nome, idade+1);`,
+          variaveis: `let saldo=100;\nsaldo+=35;\nconst TAXA=0.05;\nconsole.log(saldo, TAXA);`,
+          operadores: `let a=10,b=3;\nconsole.log(a+b,a-b,a*b);\nconsole.log(a/b,a%b);\nconsole.log(a>b && b>0);\nconsole.log(a%2===0 ? "par":"impar");`,
+          condicionais: `const nota=7.5;\nif (nota>=9) {\n  console.log("Excelente");\n} else if (nota>=6) {\n  console.log("Aprovado");\n} else {\n  console.log("Reprovado");\n}`,
+          repeticao: `let i=1;\nwhile (i<=3) {\n  console.log(i);\n  i++;\n}\nfor (let j=0;j<3;j++) console.log(j);`,
+          funcoes: `function media(a,b){\n  return (a+b)/2;\n}\nconsole.log(media(8,6));`,
+          vetores: `const notas=[8,7,10];\nnotas.push(9);\nfor (const n of notas) console.log(n);`,
+          matrizes: `const m=[[1,2],[3,4]];\nconsole.log(m[1][0]);\nfor (const l of m) for (const v of l) console.log(v);`,
+          strings: `const txt=" logica ";\nconsole.log(txt.trim().toUpperCase());\nconsole.log(txt.length);`,
+          arquivos: `// Node.js\nconst fs=require("fs");\nfs.writeFileSync("dados.txt","Ana;8\\n","utf8");\nconsole.log(fs.readFileSync("dados.txt","utf8"));`,
+          complexos: `const produto={id:1,nome:"Teclado"};\nclass Aluno{constructor(n){this.nome=n;}}\nconsole.log(produto.nome, new Aluno("Lia").nome);`,
+          escopo: `let total=0;\n// comentario\nfunction soma(v){\n  const local=v+1;\n  return local;\n}\nconsole.log(soma(5), total);`,
+          erros: `try {\n  const n=Number(prompt("Numero:"));\n  if (Number.isNaN(n)) throw new Error("Entrada invalida");\n  console.log(n*2);\n} catch (e) {\n  console.log(e.message);\n}`
+        }},
+        java: { n: "Java", s: "JV", c: "language-java", x: {
+          output: `String nome = "Ana";\nint idade = 17;\nSystem.out.println("Ola");\nSystem.out.println(nome + " " + (idade + 1));`,
+          tipos: `int i = 10;\ndouble f = 3.14;\nString t = "ADML";\nboolean b = true;\nSystem.out.println(i + " " + t + " " + b);`,
+          input: `import java.util.Scanner;\nScanner sc = new Scanner(System.in);\nSystem.out.print("Nome: ");\nString nome = sc.nextLine();\nSystem.out.print("Idade: ");\nint idade = sc.nextInt();\nSystem.out.println(nome + " " + (idade + 1));`,
+          variaveis: `int saldo = 100;\nsaldo += 35;\nfinal double TAXA = 0.05;\nSystem.out.println(saldo + " " + TAXA);`,
+          operadores: `int a = 10, b = 3;\nSystem.out.println(a + b);\nSystem.out.println(a / b);\nSystem.out.println(a % b);\nSystem.out.println(a > b && b > 0);\nSystem.out.println(a % 2 == 0 ? "par" : "impar");`,
+          condicionais: `double nota = 7.5;\nif (nota >= 9) {\n  System.out.println("Excelente");\n} else if (nota >= 6) {\n  System.out.println("Aprovado");\n} else {\n  System.out.println("Reprovado");\n}`,
+          repeticao: `int i = 1;\nwhile (i <= 3) {\n  System.out.println(i);\n  i++;\n}\nfor (int j = 0; j < 3; j++) {\n  System.out.println(j);\n}`,
+          funcoes: `static double media(double a, double b) {\n  return (a + b) / 2;\n}\nSystem.out.println(media(8, 6));`,
+          vetores: `int[] notas = {8, 7, 10, 9};\nfor (int n : notas) {\n  System.out.println(n);\n}`,
+          matrizes: `int[][] m = {{1,2},{3,4}};\nSystem.out.println(m[1][0]);\nfor (int[] linha : m) {\n  for (int v : linha) System.out.println(v);\n}`,
+          strings: `String txt = " logica ";\nSystem.out.println(txt.trim().toUpperCase());\nSystem.out.println(txt.length());`,
+          arquivos: `import java.nio.file.*;\nPath p = Paths.get("dados.txt");\nFiles.writeString(p, "Ana;8\\n");\nSystem.out.println(Files.readString(p));`,
+          complexos: `class Produto { int id; String nome; }\nProduto p = new Produto();\np.id = 1; p.nome = "Teclado";\nSystem.out.println(p.nome);`,
+          escopo: `int total = 0; // classe/metodo\n{\n  int local = 5;\n  System.out.println(local);\n}\nSystem.out.println(total);`,
+          erros: `try {\n  int n = Integer.parseInt("12");\n  System.out.println(n * 2);\n} catch (NumberFormatException e) {\n  System.out.println("Entrada invalida");\n}`
+        }},
+        csharp: { n: "C#", s: "C#", c: "language-csharp", x: {
+          output: `string nome = "Ana";\nint idade = 17;\nConsole.WriteLine("Ola");\nConsole.WriteLine($"{nome} {idade + 1}");`,
+          tipos: `int i = 10;\ndouble f = 3.14;\nstring t = "ADML";\nbool b = true;\nConsole.WriteLine($"{i} {t} {b}");`,
+          input: `Console.Write("Nome: ");\nstring? nome = Console.ReadLine();\nConsole.Write("Idade: ");\nint idade = int.Parse(Console.ReadLine() ?? "0");\nConsole.WriteLine($"{nome} {idade + 1}");`,
+          variaveis: `int saldo = 100;\nsaldo += 35;\nconst double TAXA = 0.05;\nConsole.WriteLine($"{saldo} {TAXA}");`,
+          operadores: `int a = 10, b = 3;\nConsole.WriteLine(a + b);\nConsole.WriteLine(a / b);\nConsole.WriteLine(a % b);\nConsole.WriteLine(a > b && b > 0);\nConsole.WriteLine(a % 2 == 0 ? "par" : "impar");`,
+          condicionais: `double nota = 7.5;\nif (nota >= 9) {\n  Console.WriteLine("Excelente");\n} else if (nota >= 6) {\n  Console.WriteLine("Aprovado");\n} else {\n  Console.WriteLine("Reprovado");\n}`,
+          repeticao: `int i = 1;\nwhile (i <= 3) {\n  Console.WriteLine(i);\n  i++;\n}\nfor (int j = 0; j < 3; j++) {\n  Console.WriteLine(j);\n}`,
+          funcoes: `double Media(double a, double b) {\n  return (a + b) / 2;\n}\nConsole.WriteLine(Media(8, 6));`,
+          vetores: `int[] notas = { 8, 7, 10, 9 };\nforeach (int n in notas) {\n  Console.WriteLine(n);\n}`,
+          matrizes: `int[,] m = { {1,2}, {3,4} };\nConsole.WriteLine(m[1,0]);\nfor (int l = 0; l < 2; l++)\n  for (int c = 0; c < 2; c++)\n    Console.WriteLine(m[l,c]);`,
+          strings: `string txt = " logica ";\nConsole.WriteLine(txt.Trim().ToUpper());\nConsole.WriteLine(txt.Length);`,
+          arquivos: `File.WriteAllText("dados.txt", "Ana;8\\n");\nstring conteudo = File.ReadAllText("dados.txt");\nConsole.WriteLine(conteudo);`,
+          complexos: `class Produto { public int Id; public string Nome = ""; }\nvar p = new Produto { Id = 1, Nome = "Teclado" };\nConsole.WriteLine(p.Nome);`,
+          escopo: `int total = 0; // comentario\n{\n  int local = 5;\n  Console.WriteLine(local);\n}\nConsole.WriteLine(total);`,
+          erros: `try {\n  int n = int.Parse("12");\n  Console.WriteLine(n * 2);\n} catch (FormatException) {\n  Console.WriteLine("Entrada invalida");\n}`
+        }},
+        cpp: { n: "C++", s: "C++", c: "language-cpp", x: {
+          output: `#include <iostream>\nusing namespace std;\nint main(){ string nome="Ana"; int idade=17; cout << "Ola\\n" << nome << " " << idade+1 << "\\n"; }`,
+          tipos: `#include <iostream>\nusing namespace std;\nint main(){ int i=10; double f=3.14; string t="ADML"; bool b=true; cout << i << " " << t << " " << b << "\\n"; }`,
+          input: `#include <iostream>\nusing namespace std;\nint main(){ string nome; int idade; cout << "Nome: "; cin >> nome; cout << "Idade: "; cin >> idade; cout << nome << " " << idade+1 << "\\n"; }`,
+          variaveis: `int saldo = 100;\nsaldo += 35;\nconst double TAXA = 0.05;\ncout << saldo << " " << TAXA << "\\n";`,
+          operadores: `int a=10,b=3;\ncout << a+b << "\\n" << a/b << "\\n" << a%b << "\\n";\ncout << (a>b && b>0) << "\\n";\ncout << (a%2==0 ? "par" : "impar") << "\\n";`,
+          condicionais: `double nota=7.5;\nif (nota>=9) cout<<"Excelente\\n";\nelse if (nota>=6) cout<<"Aprovado\\n";\nelse cout<<"Reprovado\\n";`,
+          repeticao: `for (int i=1;i<=3;i++) cout << i << "\\n";\nint j=0; while (j<3) { cout << j << "\\n"; j++; }`,
+          funcoes: `double media(double a,double b){ return (a+b)/2; }\ncout << media(8,6) << "\\n";`,
+          vetores: `#include <vector>\nvector<int> notas = {8,7,10};\nnotas.push_back(9);\nfor (int n : notas) cout << n << "\\n";`,
+          matrizes: `int m[2][2]={{1,2},{3,4}};\ncout << m[1][0] << "\\n";\nfor (int l=0;l<2;l++) for (int c=0;c<2;c++) cout << m[l][c] << "\\n";`,
+          strings: `#include <string>\nstring txt = " logica ";\ncout << txt.size() << "\\n";`,
+          arquivos: `#include <fstream>\nofstream out("dados.txt"); out << "Ana;8\\n"; out.close();\nifstream in("dados.txt"); string linha; while (getline(in, linha)) cout << linha << "\\n";`,
+          complexos: `struct Produto { int id; string nome; };\nProduto p{1, "Teclado"};\ncout << p.nome << "\\n";`,
+          escopo: `int total = 0; // comentario\n{\n  int local = 5;\n  cout << local << "\\n";\n}\ncout << total << "\\n";`,
+          erros: `int n;\nif (!(cin >> n)) {\n  cout << "Entrada invalida\\n";\n} else {\n  cout << n * 2 << "\\n";\n}`
+        }},
+        php: { n: "PHP", s: "PHP", c: "language-php", x: {
+          output: `$nome = "Ana";\n$idade = 17;\necho "Ola\\n";\necho $nome . " " . ($idade + 1) . "\\n";`,
+          tipos: `$i = 10;\n$f = 3.14;\n$t = "ADML";\n$b = true;\nvar_dump($i, $f, $t, $b);`,
+          input: `$nome = readline("Nome: ");\n$idade = (int) readline("Idade: ");\necho $nome . " " . ($idade + 1) . PHP_EOL;`,
+          variaveis: `$saldo = 100;\n$saldo += 35;\ndefine("TAXA", 0.05);\necho $saldo . " " . TAXA . PHP_EOL;`,
+          operadores: `$a = 10; $b = 3;\necho ($a + $b) . PHP_EOL;\necho intdiv($a, $b) . PHP_EOL;\necho ($a % $b) . PHP_EOL;\necho (($a > $b && $b > 0) ? "true" : "false") . PHP_EOL;`,
+          condicionais: `$nota = 7.5;\nif ($nota >= 9) echo "Excelente\\n";\nelseif ($nota >= 6) echo "Aprovado\\n";\nelse echo "Reprovado\\n";`,
+          repeticao: `for ($i = 1; $i <= 3; $i++) echo $i . PHP_EOL;\n$j = 0; while ($j < 3) { echo $j . PHP_EOL; $j++; }`,
+          funcoes: `function media($a, $b) { return ($a + $b) / 2; }\necho media(8, 6) . PHP_EOL;`,
+          vetores: `$notas = [8, 7, 10];\n$notas[] = 9;\nforeach ($notas as $n) echo $n . PHP_EOL;`,
+          matrizes: `$m = [[1,2],[3,4]];\necho $m[1][0] . PHP_EOL;\nforeach ($m as $linha) foreach ($linha as $v) echo $v . PHP_EOL;`,
+          strings: `$txt = " logica ";\necho strtoupper(trim($txt)) . PHP_EOL;\necho strlen($txt) . PHP_EOL;`,
+          arquivos: `file_put_contents("dados.txt", "Ana;8\\n");\necho file_get_contents("dados.txt");`,
+          complexos: `$produto = ["id" => 1, "nome" => "Teclado"];\necho $produto["nome"] . PHP_EOL;`,
+          escopo: `$total = 0; // comentario\nfunction soma($v) { $local = $v + 1; return $local; }\necho soma(5) . " " . $total . PHP_EOL;`,
+          erros: `$txt = readline("Numero: ");\nif (!is_numeric($txt)) echo "Entrada invalida\\n";\nelse echo ((int)$txt * 2) . PHP_EOL;`
+        }},
+        go: { n: "Go", s: "GO", c: "language-go", x: {
+          output: `package main\nimport "fmt"\nfunc main(){ nome := "Ana"; idade := 17; fmt.Println("Ola"); fmt.Println(nome, idade+1) }`,
+          tipos: `var i int = 10\nvar f float64 = 3.14\nvar t string = "ADML"\nvar b bool = true\nfmt.Println(i, f, t, b)`,
+          input: `var nome string\nvar idade int\nfmt.Print("Nome: "); fmt.Scan(&nome)\nfmt.Print("Idade: "); fmt.Scan(&idade)\nfmt.Println(nome, idade+1)`,
+          variaveis: `saldo := 100\nsaldo += 35\nconst TAXA = 0.05\nfmt.Println(saldo, TAXA)`,
+          operadores: `a, b := 10, 3\nfmt.Println(a+b, a-b, a*b)\nfmt.Println(a/b, a%b)\nfmt.Println(a > b && b > 0)`,
+          condicionais: `nota := 7.5\nif nota >= 9 { fmt.Println("Excelente") } else if nota >= 6 { fmt.Println("Aprovado") } else { fmt.Println("Reprovado") }`,
+          repeticao: `for i := 1; i <= 3; i++ { fmt.Println(i) }\nj := 0\nfor j < 3 { fmt.Println(j); j++ }`,
+          funcoes: `func media(a, b float64) float64 { return (a + b) / 2 }\nfmt.Println(media(8, 6))`,
+          vetores: `notas := []int{8, 7, 10}\nnotas = append(notas, 9)\nfor _, n := range notas { fmt.Println(n) }`,
+          matrizes: `m := [2][2]int{{1,2},{3,4}}\nfmt.Println(m[1][0])\nfor _, l := range m { for _, v := range l { fmt.Println(v) } }`,
+          strings: `txt := " logica "\nfmt.Println(strings.ToUpper(strings.TrimSpace(txt)))\nfmt.Println(len(txt))`,
+          arquivos: `os.WriteFile("dados.txt", []byte("Ana;8\\n"), 0644)\nb, _ := os.ReadFile("dados.txt")\nfmt.Println(string(b))`,
+          complexos: `type Produto struct { Id int; Nome string }\np := Produto{Id: 1, Nome: "Teclado"}\nfmt.Println(p.Nome)`,
+          escopo: `total := 0 // comentario\n{\n  local := 5\n  fmt.Println(local)\n}\nfmt.Println(total)`,
+          erros: `var n int\n_, err := fmt.Scan(&n)\nif err != nil { fmt.Println("Entrada invalida"); return }\nfmt.Println(n * 2)`
+        }},
+        c: { n: "C", s: "C", c: "language-c", x: {
+          output: `#include <stdio.h>\nint main(void){char nome[]="Ana";int idade=17;printf("Ola\\n");printf("%s %d\\n",nome,idade+1);return 0;}`,
+          tipos: `#include <stdio.h>\nint main(void){int i=10; float f=3.14f; char t[]="ADML"; int b=1; printf("%d %.2f %s %d\\n",i,f,t,b); return 0;}`,
+          input: `#include <stdio.h>\nint main(void){char nome[30]; int idade; scanf("%29s",nome); scanf("%d",&idade); printf("%s %d\\n",nome,idade+1); return 0;}`,
+          variaveis: `#include <stdio.h>\nint main(void){int saldo=100; const float TAXA=0.05f; saldo+=35; printf("%d %.2f\\n",saldo,TAXA); return 0;}`,
+          operadores: `#include <stdio.h>\nint main(void){int a=10,b=3; printf("%d %d %d\\n",a+b,a-b,a*b); printf("%d %d\\n",a/b,a%b); printf("%d\\n",(a>b)&&(b>0)); printf("%s\\n",(a%2==0)?"par":"impar"); return 0;}`,
+          condicionais: `#include <stdio.h>\nint main(void){float nota=7.5f; if(nota>=9) printf("Excelente\\n"); else if(nota>=6) printf("Aprovado\\n"); else printf("Reprovado\\n"); return 0;}`,
+          repeticao: `#include <stdio.h>\nint main(void){int i=1; while(i<=3){printf("%d\\n",i); i++;} for(int j=0;j<3;j++) printf("%d\\n",j); return 0;}`,
+          funcoes: `#include <stdio.h>\nfloat media(float a,float b){return (a+b)/2;}\nint main(void){printf("%.2f\\n",media(8,6)); return 0;}`,
+          vetores: `#include <stdio.h>\nint main(void){int notas[4]={8,7,10,9}; for(int i=0;i<4;i++) printf("%d\\n",notas[i]); return 0;}`,
+          matrizes: `#include <stdio.h>\nint main(void){int m[2][2]={{1,2},{3,4}}; printf("%d\\n",m[1][0]); for(int i=0;i<2;i++) for(int j=0;j<2;j++) printf("%d\\n",m[i][j]); return 0;}`,
+          strings: `#include <stdio.h>\n#include <string.h>\nint main(void){char t[]="logica"; printf("%zu\\n",strlen(t)); return 0;}`,
+          arquivos: `#include <stdio.h>\nint main(void){FILE *f=fopen("dados.txt","w"); if(!f) return 1; fprintf(f,"Ana;8\\n"); fclose(f); f=fopen("dados.txt","r"); if(!f) return 1; char linha[64]; while(fgets(linha,64,f)) printf("%s",linha); fclose(f); return 0;}`,
+          complexos: `#include <stdio.h>\ntypedef struct {int id; char nome[20];} Produto;\nint main(void){Produto p={1,"Teclado"}; printf("%s\\n",p.nome); return 0;}`,
+          escopo: `#include <stdio.h>\nint total=0; /* global */\nint soma(int v){int local=v+1; return local;}\nint main(void){printf("%d %d\\n",soma(5),total); return 0;}`,
+          erros: `#include <stdio.h>\nint main(void){int n; if(scanf("%d",&n)!=1){printf("Entrada invalida\\n"); return 1;} printf("%d\\n",n*2); return 0;}`
+        }}
+      };
+      const qs = (s) => Array.from(document.querySelectorAll(s));
+      const codes = qs("[data-topic-code]");
+      const names = qs("[data-current-lang-name]");
+      const shorts = qs("[data-current-lang-short]");
+      const buttons = qs(".lang-card[data-lang]");
+      const tiposHint = document.querySelector("[data-tipos-hint]");
+      function apply(k) {
+        const lang = D[k] || D.python;
+        try { localStorage.setItem(K, k); } catch (_) {}
+        names.forEach((n) => n.textContent = lang.n);
+        shorts.forEach((n) => n.textContent = lang.s);
+        codes.forEach((c) => {
+          const t = c.getAttribute("data-topic-code");
+          c.textContent = lang.x[t] || "// exemplo";
+          c.className = lang.c;
+        });
+        buttons.forEach((b) => {
+          const on = b.getAttribute("data-lang") === k;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", String(on));
+          const mark = b.querySelector(".lang-card__check");
+          if (mark) mark.textContent = on ? "Ativa" : "Selecionar";
+        });
+        if (tiposHint) {
+          tiposHint.textContent = k === "c"
+            ? "Dica (C): diferente de muitas outras linguagens, voce precisa usar especificadores de formato (format specifiers) em funcoes como printf e scanf, por exemplo %d, %f, %c e %s."
+            : "Dica: os conceitos dos tipos sao os mesmos; o que muda entre linguagens e o nome do tipo, a declaracao e a forma de exibir/ler valores.";
+        }
+      }
+      buttons.forEach((b) => b.addEventListener("click", () => apply(b.getAttribute("data-lang"))));
+      let start = "python";
+      try { const saved = localStorage.getItem(K); if (saved && D[saved]) start = saved; } catch (_) {}
+      apply(start);
+    })();
+  </script>
+  <script>
+    window.PAGE_ID = "logica-programacao";
+    window.IS_CONTENT_PAGE = true;
+  </script>
+  <script type="module" src="../../../wwwroot/js/global.js"></script>
+</body>
+
+</html>
